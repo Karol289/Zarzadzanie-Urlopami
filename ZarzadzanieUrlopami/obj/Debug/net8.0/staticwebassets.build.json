@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7ZSG2R418Klty7bJZ5pWwb+iERjcARjH09YhXC+7nMM=",
+  "Hash": "W/6EiTZZi3ZC1Ojp+jUUgM49JT+J0EjpjtWR2PdoIQU=",
   "Source": "ZarzadzanieUrlopami",
   "BasePath": "_content/ZarzadzanieUrlopami",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ZarzadzanieUrlopami\\wwwroot",
       "Source": "ZarzadzanieUrlopami",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "ZarzadzanieUrlopami.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css"
+      "OriginalItemSpec": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "ZarzadzanieUrlopami.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
+      "Identity": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
