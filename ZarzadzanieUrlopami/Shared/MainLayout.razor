@@ -1,19 +1,31 @@
 ﻿@inherits LayoutComponentBase
 
-<PageTitle>ZarzadzanieUrlopami</PageTitle>
-
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
+<div class="container">
+    <div class="header">
+        <p>Zarządzanie Urlopami</p>
+        <img src="images\logo3.png" alt="Logo" class="logo">
     </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+    <div class="nav-links">
+        <NavLink class="nav-link" href="/home" data-section="home">Strona główna</NavLink>
+        <NavLink class="nav-link" href="/employees" data-section="employees">Pracownicy</NavLink>
+        <NavLink class="nav-link" href="/schedule" data-section="schedule">Grafik</NavLink>
+        <NavLink class="nav-link" href="/leave" data-section="leave">Podania o urlop</NavLink>
+    </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
+    <div class="decorative-bar"></div>
+
+    <div class="main">
+           <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        @Body
+    </div>
+
+    <footer class="footer">
+        <!-- Dodaj zawartość stopki, jeśli chcesz -->
+    </footer>
 </div>
