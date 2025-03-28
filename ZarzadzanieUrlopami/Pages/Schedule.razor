@@ -1,0 +1,121 @@
+﻿@page "/schedule"
+
+<PageTitle>Grafik Pracy</PageTitle>
+<div id="schedule" class="section">
+    <h2>Grafik</h2>
+    <p>Tutaj będzie grafik pracy w przychodni.</p>
+    <div class="calendar-container">
+        <div class="month">
+            <ul>
+                <li class="prev" @onclick="ShowPreviousMonth">&#10094;</li>
+                <li class="next" @onclick="ShowNextMonth">&#10095;</li>
+                <li>@MonthName <br><span style="font-size:18px">@CurrentYear</span></li>
+            </ul>
+        </div>
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Pon</th>
+                    <th>Wt</th>
+                    <th>Śr</th>
+                    <th>Cz</th>
+                    <th>Pt</th>
+                    <th>Sob</th>
+                    <th>Nd</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var row in CalendarRows)
+                {
+                        <tr>
+                        @foreach (var day in row)
+                        {
+                                    <td @onclick="() => SelectDay(day)">@day</td>
+                        }
+                        </tr>
+                }
+            </tbody>
+        </table>
+        @if (!string.IsNullOrEmpty(SelectedDate))
+        {
+                <p>You selected: @SelectedDate</p>
+        }
+    </div>
+</div>
+
+@code {
+    private int CurrentMonth = 2;  // March (index 2)
+    private int CurrentYear = 2025;
+    private List<List<int?>> CalendarRows = new List<List<int?>>();
+    private string MonthName => new DateTime(CurrentYear, CurrentMonth + 1, 1).ToString("MMMM", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"));
+    private string SelectedDate;
+
+    // Method to generate the calendar for the current month
+    private void GenerateCalendar()
+    {
+        CalendarRows.Clear();
+
+        int daysInMonth = DateTime.DaysInMonth(CurrentYear, CurrentMonth + 1);
+        int firstDayOfMonth = (int)new DateTime(CurrentYear, CurrentMonth + 1, 1).DayOfWeek;
+
+        List<int?> currentRow = new List<int?>();
+        for (int i = 0; i < firstDayOfMonth; i++)
+        {
+            currentRow.Add(null);  // Adding empty cells for the days before the first day of the month
+        }
+
+        for (int day = 1; day <= daysInMonth; day++)
+        {
+            currentRow.Add(day);
+            if (currentRow.Count == 7) // New row for the next week
+            {
+                CalendarRows.Add(new List<int?>(currentRow));
+                currentRow.Clear();
+            }
+        }
+        if (currentRow.Count > 0)  // Add remaining days to the last row
+        {
+            CalendarRows.Add(currentRow);
+        }
+    }
+
+    // Method to handle "previous month" button click
+    private void ShowPreviousMonth()
+    {
+        CurrentMonth--;
+        if (CurrentMonth < 0)
+        {
+            CurrentMonth = 11;
+            CurrentYear--;
+        }
+        GenerateCalendar();
+    }
+
+    // Method to handle "next month" button click
+    private void ShowNextMonth()
+    {
+        CurrentMonth++;
+        if (CurrentMonth > 11)
+        {
+            CurrentMonth = 0;
+            CurrentYear++;
+        }
+        GenerateCalendar();
+    }
+
+    // Method to handle day selection
+    private void SelectDay(int? day)
+    {
+        if (day.HasValue)
+        {
+            // Set the selected date and format it
+            SelectedDate = $"{day} {MonthName} {CurrentYear}";
+        }
+    }
+
+    // On page load, generate the calendar
+    protected override void OnInitialized()
+    {
+        GenerateCalendar();
+    }
+}
