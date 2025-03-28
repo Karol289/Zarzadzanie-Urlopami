@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fIfhZ+aEQBM=",
+  "dgSpecHash": "FfKJ6Q5hZag=",
   "success": true,
-  "projectFilePath": "D:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj",
+  "projectFilePath": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\karol\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\karol\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
