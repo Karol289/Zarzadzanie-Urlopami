@@ -2,7 +2,17 @@
 @using ZarzadzanieUrlopami.Models
 @inject Data.PracownicyService PracownicyService
 
-<b>Zarządzanie Pracownikami</b>
+<h2>Zarządzanie Pracownikami</h2>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success">@successMessage</div>
+}
+
 <br />
 <table class="table">
     <thead>
@@ -13,6 +23,7 @@
             <th>Email</th>
             <th>Telefon</th>
             <th>Rola</th>
+            <th>Data rozpoczęcia</th>
             <th>Akcje</th>
         </tr>
     </thead>
@@ -21,12 +32,21 @@
         {
             <tr>
                 <td>@pracownik.IdPracownika</td>
-                <td>@pracownik.Imie</td>
-                <td>@pracownik.Nazwisko</td>
-                <td>@pracownik.Mail</td>
-                <td>@pracownik.Telefon</td>
-                <td>@(pracownik.IdRoliNavigation?.Nazwa ?? "Brak")</td>
+                <td><input type="text" @bind="pracownik.Imie" class="form-control" /></td>
+                <td><input type="text" @bind="pracownik.Nazwisko" class="form-control" /></td>
+                <td><input type="email" @bind="pracownik.Mail" class="form-control" /></td>
+                <td><input type="text" @bind="pracownik.Telefon" class="form-control" /></td>
                 <td>
+                    <select @bind="pracownik.IdRoli" class="form-control">
+                        @foreach (var rola in role)
+                        {
+                            <option value="@rola.IdRoli">@rola.Nazwa</option>
+                        }
+                    </select>
+                </td>
+                <td><input type="date" @bind="pracownik.DataRozpoczecia" class="form-control" /></td>
+                <td>
+                    <button class="btn btn-success" @onclick="() => AktualizujPracownika(pracownik)">Zapisz</button>
                     <button class="btn btn-danger" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
                 </td>
             </tr>
@@ -34,7 +54,7 @@
     </tbody>
 </table>
 <br />
-<b>Dodaj Pracownika</b>
+<h3>Dodaj Pracownika</h3>
 <br />
 <div>
     <input type="text" placeholder="Imię" @bind="nowyPracownik.Imie" class="form-control" />
@@ -64,6 +84,8 @@
     private List<Pracownicy> pracownicy = new();
     private List<Role> role = new();
     private Pracownicy nowyPracownik = new();
+    private string? errorMessage;
+    private string? successMessage;
 
     protected override async Task OnInitializedAsync()
     {
@@ -73,19 +95,60 @@
 
     private async Task DodajPracownika()
     {
-        if (nowyPracownik.IdRoli == null || nowyPracownik.Haslo == null || nowyPracownik.DataRozpoczecia == null)
+        if (string.IsNullOrWhiteSpace(nowyPracownik.Imie) || 
+            string.IsNullOrWhiteSpace(nowyPracownik.Nazwisko) || 
+            string.IsNullOrWhiteSpace(nowyPracownik.Mail) ||
+            nowyPracownik.IdRoli == null ||
+            string.IsNullOrWhiteSpace(nowyPracownik.Haslo) ||
+            nowyPracownik.DataRozpoczecia == null)
         {
-            return; // Można dodać powiadomienie o brakujących danych
+            errorMessage = "Wszystkie pola muszą być wypełnione!";
+            return;
         }
 
-        await PracownicyService.DodajPracownika(nowyPracownik);
-        nowyPracownik = new Pracownicy();
-        pracownicy = await PracownicyService.GetPracownicyAsync();
+        try
+        {
+            await PracownicyService.DodajPracownika(nowyPracownik);
+            nowyPracownik = new Pracownicy();
+            pracownicy = await PracownicyService.GetPracownicyAsync();
+            successMessage = "Pracownik dodany pomyślnie.";
+            errorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Błąd podczas dodawania pracownika: " + ex.Message;
+        }
+    }
+
+    private async Task AktualizujPracownika(Pracownicy pracownik)
+    {
+        if (string.IsNullOrWhiteSpace(pracownik.Imie) || 
+            string.IsNullOrWhiteSpace(pracownik.Nazwisko) || 
+            string.IsNullOrWhiteSpace(pracownik.Mail) || 
+            pracownik.IdRoli == null || 
+            pracownik.DataRozpoczecia == null)
+        {
+            errorMessage = "Nie można zapisać zmian – uzupełnij wszystkie pola!";
+            return;
+        }
+
+        try
+        {
+            await PracownicyService.AktualizujPracownika(pracownik);
+            successMessage = "Dane pracownika zostały zaktualizowane.";
+            errorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Błąd podczas aktualizacji: " + ex.Message;
+        }
     }
 
     private async Task UsunPracownika(int id)
     {
         await PracownicyService.UsunPracownika(id);
         pracownicy = await PracownicyService.GetPracownicyAsync();
+        successMessage = "Pracownik został usunięty.";
+        errorMessage = null;
     }
 }

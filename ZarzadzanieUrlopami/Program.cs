@@ -10,6 +10,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<PracownicyService>();
+builder.Services.AddScoped<TypyUrlopowService>();
 
 
 builder.Services.AddDbContext<UrlopyDbContext>(

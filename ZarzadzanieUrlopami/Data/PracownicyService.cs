@@ -37,5 +37,11 @@ namespace ZarzadzanieUrlopami.Data
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task AktualizujPracownika(Pracownicy pracownik)
+        {
+            _context.Pracownicies.Update(pracownik);
+            await _context.SaveChangesAsync();
+        }
     }
 }

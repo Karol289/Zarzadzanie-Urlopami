@@ -1,0 +1,105 @@
+﻿@page "/admin/typy_urlopow"
+@using ZarzadzanieUrlopami.Models
+@inject Data.TypyUrlopowService TypyUrlopowService
+
+<h3>Zarządzanie Typami Urlopów</h3>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success">@successMessage</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nazwa</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var typ in typyUrlopow)
+        {
+            <tr>
+                <td>@typ.IdTypuUrlopu</td>
+                <td><input type="text" @bind="typ.Nazwa" class="form-control" /></td>
+                <td>
+                    <button class="btn btn-success" @onclick="() => AktualizujTypUrlopu(typ)">Zapisz</button>
+                    <button class="btn btn-danger" @onclick="() => UsunTypUrlopu(typ.IdTypuUrlopu)">Usuń</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Dodaj Typ Urlopu</h4>
+<div>
+    <input type="text" placeholder="Nazwa" @bind="nowyTypUrlopu.Nazwa" class="form-control" />
+    <button class="btn btn-success mt-2" @onclick="DodajTypUrlopu">Dodaj</button>
+</div>
+
+@code {
+    private List<TypyUrlopow> typyUrlopow = new();
+    private TypyUrlopow nowyTypUrlopu = new();
+    private string? errorMessage;
+    private string? successMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        typyUrlopow = await TypyUrlopowService.GetTypyUrlopowAsync();
+    }
+
+    private async Task DodajTypUrlopu()
+    {
+        if (string.IsNullOrWhiteSpace(nowyTypUrlopu.Nazwa))
+        {
+            errorMessage = "Nazwa nie może być pusta!";
+            return;
+        }
+
+        try
+        {
+            await TypyUrlopowService.DodajTypUrlopu(nowyTypUrlopu);
+            nowyTypUrlopu = new TypyUrlopow();
+            typyUrlopow = await TypyUrlopowService.GetTypyUrlopowAsync();
+            successMessage = "Typ urlopu dodany pomyślnie.";
+            errorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Błąd podczas dodawania: " + ex.Message;
+        }
+    }
+
+    private async Task AktualizujTypUrlopu(TypyUrlopow typ)
+    {
+        if (string.IsNullOrWhiteSpace(typ.Nazwa))
+        {
+            errorMessage = "Nazwa nie może być pusta!";
+            return;
+        }
+
+        try
+        {
+            await TypyUrlopowService.AktualizujTypUrlopu(typ);
+            successMessage = "Typ urlopu zaktualizowany.";
+            errorMessage = null;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Błąd podczas aktualizacji: " + ex.Message;
+        }
+    }
+
+    private async Task UsunTypUrlopu(int id)
+    {
+        await TypyUrlopowService.UsunTypUrlopu(id);
+        typyUrlopow = await TypyUrlopowService.GetTypyUrlopowAsync();
+        successMessage = "Typ urlopu został usunięty.";
+        errorMessage = null;
+    }
+}
