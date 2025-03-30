@@ -1,0 +1,64 @@
+﻿@page "/login"
+@using ZarzadzanieUrlopami.Models
+@using Microsoft.EntityFrameworkCore
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager NavigationManager
+@inject ZarzadzanieUrlopami.Data.UrlopyDbContext DbContext
+
+<h3> Logowanie uzytkownikow </h3>
+
+<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Email:</label>
+        <InputText class="form-control" @bind-Value="loginModel.Email" />
+    </div>
+    <div class="form-group">
+        <label>Hasło:</label>
+        <InputText class="form-control" @bind-Value="loginModel.Password" type="password" />
+    </div>
+    <button type="submit" class="btn btn-primary">Zaloguj</button>
+</EditForm>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+    private string errorMessage;
+
+    private async Task HandleLogin()
+    {
+        // Używamy właściwej nazwy DbSet: Pracownicies
+        var user = await DbContext.Pracownicies
+            .FirstOrDefaultAsync(u => u.Mail == loginModel.Email);
+        if (user == null)
+        {
+            errorMessage = "Nieprawidłowy email lub hasło.";
+            return;
+        }
+
+        // Porównanie hasła – w produkcji należy stosować hash z solą!
+        if (user.Haslo != loginModel.Password)
+        {
+            errorMessage = "Nieprawidłowy email lub hasło.";
+            return;
+        }
+
+        // Po pomyślnym zalogowaniu przekierowanie do strony głównej
+        NavigationManager.NavigateTo("/");
+    }
+
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "Email jest wymagany")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "Hasło jest wymagane")]
+        public string Password { get; set; }
+    }
+}
