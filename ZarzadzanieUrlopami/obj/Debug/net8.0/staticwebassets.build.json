@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VLoEQSzMNbFZuxhPsmWdJO2d45u47No6QJfD/jWKnIM=",
+  "Hash": "b5dlgNJfPOKrZCPpEKhdGmsCT/REcwtYnqV+IlG3uYM=",
   "Source": "ZarzadzanieUrlopami",
   "BasePath": "_content/ZarzadzanieUrlopami",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ZarzadzanieUrlopami\\wwwroot",
       "Source": "ZarzadzanieUrlopami",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "ZarzadzanieUrlopami#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "RruvNzi0zd+Y0/kA0SIqA2IzbEz8EGw9BkF+XRnKPDI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "ZarzadzanieUrlopami#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "RruvNzi0zd+Y0/kA0SIqA2IzbEz8EGw9BkF+XRnKPDI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bar.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bar.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/bar#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bar.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.eot",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.otf",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.svg",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.ttf",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic#[.{fingerprint}]?.woff",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/FONT-LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/ICON-LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -290,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/README#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -311,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\StyleSheet.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\StyleSheet.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/open-iconic/StyleSheet#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -332,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\StyleSheet.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -353,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
       "SourceId": "ZarzadzanieUrlopami",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\",
       "BasePath": "_content/ZarzadzanieUrlopami",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -377,7 +377,7 @@
   "Endpoints": [
     {
       "Route": "css/bar.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bar.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bar.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -398,7 +398,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Sun, 30 Mar 2025 11:46:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -414,7 +414,7 @@
     },
     {
       "Route": "css/bar.lktmlh3g2v.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bar.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bar.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -435,7 +435,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Sun, 30 Mar 2025 11:46:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -459,7 +459,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -480,7 +480,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -504,7 +504,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -525,7 +525,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -541,7 +541,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -562,7 +562,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -586,7 +586,7 @@
     },
     {
       "Route": "css/bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -607,7 +607,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -623,7 +623,7 @@
     },
     {
       "Route": "css/open-iconic/font/css/open-iconic-bootstrap.min.cmapd0fi15.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -644,7 +644,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -668,7 +668,7 @@
     },
     {
       "Route": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -689,7 +689,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -705,7 +705,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.0uw8dim9nl.eot",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -726,7 +726,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -750,7 +750,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.eot",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -771,7 +771,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -787,7 +787,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.h4d0pazwgy.woff",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -808,7 +808,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -832,7 +832,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.ll5grcv8wv.ttf",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -853,7 +853,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -877,7 +877,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.otf",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -898,7 +898,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -914,7 +914,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.sjnzgf7e1h.svg",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -935,7 +935,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -959,7 +959,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.svg",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -980,7 +980,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -996,7 +996,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.ttf",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1017,7 +1017,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1033,7 +1033,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.wk8x8xm0ah.otf",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1054,7 +1054,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1078,7 +1078,7 @@
     },
     {
       "Route": "css/open-iconic/font/fonts/open-iconic.woff",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1099,7 +1099,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1115,7 +1115,7 @@
     },
     {
       "Route": "css/open-iconic/FONT-LICENSE",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1136,7 +1136,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1152,7 +1152,7 @@
     },
     {
       "Route": "css/open-iconic/FONT-LICENSE.48tmkg660f",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1173,7 +1173,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1197,7 +1197,7 @@
     },
     {
       "Route": "css/open-iconic/ICON-LICENSE",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1218,7 +1218,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1234,7 +1234,7 @@
     },
     {
       "Route": "css/open-iconic/ICON-LICENSE.4dwjve0o0b",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1255,7 +1255,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1279,7 +1279,7 @@
     },
     {
       "Route": "css/open-iconic/README.8h4oiah9s0.md",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1300,7 +1300,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1324,7 +1324,7 @@
     },
     {
       "Route": "css/open-iconic/README.md",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\README.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1345,7 +1345,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1361,7 +1361,7 @@
     },
     {
       "Route": "css/open-iconic/StyleSheet.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\StyleSheet.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\StyleSheet.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1382,7 +1382,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Sun, 30 Mar 2025 11:46:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1398,7 +1398,7 @@
     },
     {
       "Route": "css/open-iconic/StyleSheet.dyjx89twm7.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\StyleSheet.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\open-iconic\\StyleSheet.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1419,7 +1419,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Sun, 30 Mar 2025 11:46:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1443,7 +1443,7 @@
     },
     {
       "Route": "css/site.1fpfb6x0uo.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1464,7 +1464,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1488,7 +1488,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1509,7 +1509,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1525,7 +1525,7 @@
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1546,7 +1546,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1570,7 +1570,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1591,7 +1591,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1607,7 +1607,7 @@
     },
     {
       "Route": "ZarzadzanieUrlopami.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1628,7 +1628,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1644,7 +1644,7 @@
     },
     {
       "Route": "ZarzadzanieUrlopami.iej65maflo.bundle.scp.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ZarzadzanieUrlopami.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1665,7 +1665,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1689,7 +1689,7 @@
     },
     {
       "Route": "ZarzadzanieUrlopami.iej65maflo.styles.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1710,7 +1710,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1734,7 +1734,7 @@
     },
     {
       "Route": "ZarzadzanieUrlopami.styles.css",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\Debug\\net8.0\\scopedcss\\bundle\\ZarzadzanieUrlopami.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1755,7 +1755,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 28 Mar 2025 16:10:03 GMT"
+          "Value": "Wed, 26 Mar 2025 22:38:52 GMT"
         },
         {
           "Name": "Cache-Control",

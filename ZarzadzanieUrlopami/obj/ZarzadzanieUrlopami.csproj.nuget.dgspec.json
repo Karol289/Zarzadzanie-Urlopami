@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj",
         "projectName": "ZarzadzanieUrlopami",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\ProjektBazy\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -85,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

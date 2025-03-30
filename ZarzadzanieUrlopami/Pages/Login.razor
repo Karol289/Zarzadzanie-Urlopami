@@ -49,6 +49,11 @@
             return;
         }
 
+        if (user.IdRoli == 4)
+        {
+            NavigationManager.NavigateTo("/admin");
+            return;
+        }
         // Po pomyślnym zalogowaniu przekierowanie do strony głównej
         NavigationManager.NavigateTo("/");
     }

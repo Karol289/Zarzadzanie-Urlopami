@@ -1,0 +1,91 @@
+﻿@page "/admin/pracownicy"
+@using ZarzadzanieUrlopami.Models
+@inject Data.PracownicyService PracownicyService
+
+<b>Zarządzanie Pracownikami</b>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Rola</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pracownik in pracownicy)
+        {
+            <tr>
+                <td>@pracownik.IdPracownika</td>
+                <td>@pracownik.Imie</td>
+                <td>@pracownik.Nazwisko</td>
+                <td>@pracownik.Mail</td>
+                <td>@pracownik.Telefon</td>
+                <td>@(pracownik.IdRoliNavigation?.Nazwa ?? "Brak")</td>
+                <td>
+                    <button class="btn btn-danger" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<b>Dodaj Pracownika</b>
+<br />
+<div>
+    <input type="text" placeholder="Imię" @bind="nowyPracownik.Imie" class="form-control" />
+    <input type="text" placeholder="Nazwisko" @bind="nowyPracownik.Nazwisko" class="form-control" />
+    <input type="email" placeholder="Email" @bind="nowyPracownik.Mail" class="form-control" />
+    <input type="text" placeholder="Telefon" @bind="nowyPracownik.Telefon" class="form-control" />
+    <input type="password" placeholder="Hasło" @bind="nowyPracownik.Haslo" class="form-control" />
+    <br />
+    <label>Rola</label>
+    <br />
+    <select @bind="nowyPracownik.IdRoli" class="form-control">
+        <option value="">Wybierz rolę</option>
+        @foreach (var rola in role)
+        {
+            <option value="@rola.IdRoli">@rola.Nazwa</option>
+        }
+    </select>
+
+    <label>Data rozpoczęcia</label>
+    <br />
+    <input type="date" @bind="nowyPracownik.DataRozpoczecia" class="form-control" />
+
+    <button class="btn btn-success mt-2" @onclick="DodajPracownika">Dodaj</button>
+</div>
+
+@code {
+    private List<Pracownicy> pracownicy = new();
+    private List<Role> role = new();
+    private Pracownicy nowyPracownik = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        pracownicy = await PracownicyService.GetPracownicyAsync();
+        role = await PracownicyService.GetRoleAsync();
+    }
+
+    private async Task DodajPracownika()
+    {
+        if (nowyPracownik.IdRoli == null || nowyPracownik.Haslo == null || nowyPracownik.DataRozpoczecia == null)
+        {
+            return; // Można dodać powiadomienie o brakujących danych
+        }
+
+        await PracownicyService.DodajPracownika(nowyPracownik);
+        nowyPracownik = new Pracownicy();
+        pracownicy = await PracownicyService.GetPracownicyAsync();
+    }
+
+    private async Task UsunPracownika(int id)
+    {
+        await PracownicyService.UsunPracownika(id);
+        pracownicy = await PracownicyService.GetPracownicyAsync();
+    }
+}

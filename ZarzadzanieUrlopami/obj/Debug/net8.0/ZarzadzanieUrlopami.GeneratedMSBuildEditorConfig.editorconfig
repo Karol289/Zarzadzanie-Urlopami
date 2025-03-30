@@ -17,65 +17,69 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ZarzadzanieUrlopami
 build_property.RootNamespace = ZarzadzanieUrlopami
-build_property.ProjectDir = C:\Users\Admin\Desktop\ProjektBazy\Zarzadzanie-Urlopami\ZarzadzanieUrlopami\
+build_property.ProjectDir = C:\Users\Admin\Desktop\Zarzadzanie-Urlopami\ZarzadzanieUrlopami\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\ProjektBazy\Zarzadzanie-Urlopami\ZarzadzanieUrlopami
+build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\Zarzadzanie-Urlopami\ZarzadzanieUrlopami
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/App.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Employees.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/AdminPracownicy.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5QcmFjb3duaWN5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Employees.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Index.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Leaves.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Leaves.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGVhdmVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Login.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Schedule.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Schedule.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2NoZWR1bGUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Shared/SurveyPrompt.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/_Imports.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Shared/MainLayout.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1lq8odi0xd
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Shared/NavMenu.razor]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-z70xljar8t
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Error.cshtml]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/_Host.cshtml]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Desktop/ProjektBazy/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/_Layout.cshtml]
+[C:/Users/Admin/Desktop/Zarzadzanie-Urlopami/ZarzadzanieUrlopami/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
