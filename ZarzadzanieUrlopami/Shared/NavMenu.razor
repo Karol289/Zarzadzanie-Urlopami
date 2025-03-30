@@ -9,30 +9,13 @@
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="home" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Strona główna
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="employees">
-                <span class="oi oi-plus" aria-hidden="true"></span> Pracownicy
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="schedule">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Grafik
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="leaves">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Podania o urlopy
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="admin/pracownicy">
-                <span class="oi oi-people"></span> Zarządzanie Pracownikami
-            </NavLink>
+        <div class="nav-link">
+            <NavLink class="nav-item" href="/" data-section="home">Strona główna</NavLink>
+            <NavLink class="nav-item" href="/login" data-section="employees">Pracownicy</NavLink>
+            <NavLink class="nav-item" href="/schedule" data-section="schedule">Grafik</NavLink>
+            <NavLink class="nav-item" href="/leave" data-section="leave">Podania o urlop</NavLink>
+            <NavLink class="nav-item" href="admin/pracownicy" data-section="admin">Zarządzanie Pracownikami</NavLink>
+            <NavLink class="nav-item" href="admin/typy_urlopow" data-section="admin">Typy Urlopów</NavLink>
         </div>
     </nav>
 </div>

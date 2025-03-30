@@ -88,7 +88,7 @@ body {
 }
 
 
-..container {
+.container {
     flex-grow: 1;
     width: 100vw;
     height: 100vh; /* Pełna wysokość okna przeglądarki */

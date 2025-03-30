@@ -1,29 +1,85 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\",
+  "WorkspaceRootPath": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\admintypyurlopow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\admintypyurlopow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\_host.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\adminpracownicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\shared\\surveyprompt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\shared\\surveyprompt.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\shared\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\shared\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\shared\\mainlayout.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\shared\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\shared\\navmenu.razor.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\employees.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\employees.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\adminpracownicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\adminpracownicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\data\\pracownicyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\leaves.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\leaves.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\schedule.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\schedule.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\admintypyurlopow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\admintypyurlopow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\data\\pracownicyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\data\\pracownicyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\models\\pracownicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\models\\pracownicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\models\\pracownicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|e:\\projekt-tab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,67 +90,268 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 14,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NavMenu.razor.css",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\NavMenu.razor.css",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Shared\\NavMenu.razor.css",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\NavMenu.razor.css",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Shared\\NavMenu.razor.css",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowCUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-30T19:01:09.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "style.css",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\wwwroot\\css\\style.css",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-30T18:56:05.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Employees.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Employees.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Employees.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Employees.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Employees.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:48:51.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor.css",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\MainLayout.razor.css",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Shared\\MainLayout.razor.css",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\MainLayout.razor.css",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Shared\\MainLayout.razor.css",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-30T18:46:54.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SurveyPrompt.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\SurveyPrompt.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Shared\\SurveyPrompt.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\SurveyPrompt.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Shared\\SurveyPrompt.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:44:23.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\MainLayout.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Shared\\MainLayout.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\MainLayout.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Shared\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:38:34.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:38:25.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\appsettings.json",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\appsettings.json",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\appsettings.json",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-30T18:35:28.526Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\_Layout.cshtml",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\_Layout.cshtml",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:21:00.597Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Host.cshtml",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\_Host.cshtml",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\_Host.cshtml",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\_Host.cshtml",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\_Host.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:20:59.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Index.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Index.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Index.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:20:55.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Schedule.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Schedule.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Schedule.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Schedule.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Schedule.razor",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAGAAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:20:29.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Leaves.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Leaves.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Leaves.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Leaves.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Leaves.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:20:26.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Login.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-30T18:19:58.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "AdminTypyUrlopow.razor",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
               "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
               "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-30T15:22:35.355Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "AdminPracownicy.razor",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
               "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
               "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-30T13:47:00.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Program.cs",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Program.cs",
               "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Program.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Program.cs",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Program.cs",
               "RelativeToolTip": "ZarzadzanieUrlopami\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T13:45:25.171Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 17,
               "Title": "PracownicyService.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
               "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
               "RelativeToolTip": "ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T13:45:04.702Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T13:45:04.702Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 18,
               "Title": "Pracownicy.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
               "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
               "RelativeToolTip": "ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -102,15 +359,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Role.cs",
+              "DocumentMoniker": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Role.cs",
               "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Models\\Role.cs",
-              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Role.cs",
+              "ToolTip": "E:\\Projekt-TAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Role.cs",
               "RelativeToolTip": "ZarzadzanieUrlopami\\Models\\Role.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-28T20:29:20.707Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             }
           ]
         }
