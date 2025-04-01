@@ -1,32 +1,93 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">ZarzadzanieUrlopami</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-link">
-            <NavLink class="nav-item" href="/" data-section="home">Strona główna</NavLink>
-            <NavLink class="nav-item" href="/login" data-section="employees">Pracownicy</NavLink>
-            <NavLink class="nav-item" href="/schedule" data-section="schedule">Grafik</NavLink>
-            <NavLink class="nav-item" href="/leave" data-section="leave">Podania o urlop</NavLink>
-            <NavLink class="nav-item" href="admin/pracownicy" data-section="admin">Zarządzanie Pracownikami</NavLink>
-            <NavLink class="nav-item" href="admin/typy_urlopow" data-section="admin">Typy Urlopów</NavLink>
+﻿<nav class="sidebar @NavMenuCssClass" @onclick="ToggleNavMenu">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="images/logo3.png" alt="Logo" class="logo">
+            </span>
+           @*  <div class="text logo-text">
+                <span class="name">Zarządzanie Urlopami</span>
+                <span class="profession">System Kliniki</span>
+            </div> *@
         </div>
-    </nav>
-</div>
+        @* <button class="toggle" @onclick="ToggleNavMenu">
+            <i class='bx bx-chevron-right'></i>
+        </button> *@
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                    <NavLink class="nav-item" href="/" data-section="home">
+                        <i class='bx bx-home-alt icon'></i>
+                        <span class="text nav-text">Strona główna</span>
+                    </NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-item" href="/login" data-section="employees">
+                        <i class='bx bx-user icon'></i>
+                        <span class="text nav-text">Pracownicy</span>
+                    </NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-item" href="/schedule" data-section="schedule">
+                        <i class='bx bx-calendar icon'></i>
+                        <span class="text nav-text">Grafik</span>
+                    </NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-item" href="/leave" data-section="leave">
+                        <i class='bx bx-time icon'></i>
+                        <span class="text nav-text">Podania o urlop</span>
+                    </NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-item" href="admin/pracownicy" data-section="admin">
+                        <i class='bx bx-cog icon'></i>
+                        <span class="text nav-text">Zarządzanie Pracownikami</span>
+                    </NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-item" href="admin/typy_urlopow" data-section="admin">
+                        <i class='bx bx-list-ul icon'></i>
+                        <span class="text nav-text">Typy Urlopów</span>
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
+        @* <div class="bottom-content">
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out icon'></i>
+                    <span class="text nav-text">Wyloguj</span>
+                </a>
+            </li>
+            <li class="mode">
+                <div class="sun-moon">
+                    <i class='bx bx-moon icon moon'></i>
+                    <i class='bx bx-sun icon sun'></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+                <div class="toggle-switch" @onclick="ToggleDarkMode">
+                    <span class="switch"></span>
+                </div>
+            </li>
+        </div> *@
+    </div>
+</nav>
 
 @code {
     private bool collapseNavMenu = true;
+    // private bool isDarkMode = false;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => collapseNavMenu ? "close" : null;
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+    // private void ToggleDarkMode()
+    // {
+    //     isDarkMode = !isDarkMode;
+    // }
 }

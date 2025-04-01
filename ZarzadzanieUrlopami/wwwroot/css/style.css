@@ -22,7 +22,7 @@ body {
 
 
 
-.circle, .ring {
+/*.circle, .ring {
     position: absolute;
     z-index: 0;
     border-radius: 50%;
@@ -58,7 +58,7 @@ body {
 
 .circle.circle-3 {
     background-color: #1c3757;
-    opacity: 0.;
+    opacity: 0;
     width: 200px;
     height: 200px;
     left: 0%;
@@ -85,13 +85,13 @@ body {
     height: 150px;
     right: -10%;
     top: 80%;
-}
+}*/
 
 
-.container {
+/*.container {
     flex-grow: 1;
     width: 100vw;
-    height: 100vh; /* Pełna wysokość okna przeglądarki */
+    height: 100vh;
     background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -105,20 +105,20 @@ body {
     height: 20px;
     width: 100%;
     border-radius: 0 0 10px 10px;
-}
+}*/
 
-.main {
+/*.main {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px;
     background-color: #e6f7fb;
     flex-grow: 1;
-    height: calc(100vh - 60px); /* Odejmij wysokość nagłówka i stopki */
-}
+    height: calc(100vh - 60px); https://localhost:7054/admin/pracownicy
+}*/
 
 
-.header {
+/*.header {
     background-color: #1e3a59;
     text-align: center;
     color: white;
@@ -128,15 +128,15 @@ body {
     border-radius: 10px 10px 0 0;
     width: 100%;
     line-height: 1.2;
-}
+}*/
 
-.logo {
+/*.logo {
     position: absolute;
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    height: 100px;
-}
+  */  /*height: 100px;
+}*/
 
 
 .calendar-container {
@@ -262,7 +262,7 @@ td {
     right: 10px;
 }
 
-.nav-links {
+/*.nav-links {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -286,16 +286,8 @@ td {
             background-color: #1e3a59;
             transform: translateY(-3px);
         }
+*/
 
-.footer {
-    background-color: #46ACC2;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    font-size: 18px;
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-}
 
 .hero-image {
     max-width: 10000px; /* Zwiększenie rozmiaru obrazka */
