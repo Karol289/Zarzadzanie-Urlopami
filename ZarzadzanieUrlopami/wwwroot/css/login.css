@@ -1,0 +1,115 @@
+﻿ Kolory bazowe 
+:root {
+    --primary-color: #46ACC2;  Kolor akcentu 
+    --background-color: #e6f7fb;  Kolor tła 
+    --input-bg-color: #fff;  Kolor tła input 
+    --border-color: #ccc;  Kolor ramki input 
+    --danger-color: #dc3545;  Kolor dla błędów 
+    --hover-color: #1c3757;  Kolor akcentu przy hover 
+}
+
+/*body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}*/
+
+h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input.form-control {
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+    input.form-control:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 8px rgba(70, 172, 194, 0.5);
+    }
+
+button.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 15px 0;
+    font-size: 18px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+    button.btn-primary:hover {
+        background-color: var(--hover-color);
+    }
+
+/* Alert 
+.alert-danger {
+    background-color: #dc3545; 
+  
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+.alert-danger {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: none;  Domyślnie ukryty 
+}
+
+    .alert-danger.show {
+        display: block;  
+    }
+
+    .alert-danger.hide {
+        display: none;
+    }*/
+
+/* Stylowanie dla kontenera formularza 
+.container {
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+}*/
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn-primary {
+    margin-top: 20px;
+}
