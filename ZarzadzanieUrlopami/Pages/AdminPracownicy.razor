@@ -3,7 +3,7 @@
 @inject Data.PracownicyService PracownicyService
 
 <h2>Zarządzanie Pracownikami</h2>
-
+<br><br />
 @if (!string.IsNullOrEmpty(errorMessage))
 {
     <div class="alert alert-danger">@errorMessage</div>
@@ -13,8 +13,8 @@
     <div class="alert alert-success">@successMessage</div>
 }
 
-<br />
-<table class="table">
+
+<table class="table_p">
     <thead>
         <tr>
             <th>ID</th>
@@ -54,7 +54,7 @@
     </tbody>
 </table>
 <br />
-<h3>Dodaj Pracownika</h3>
+<h2>Dodaj Pracownika</h2>
 <br />
 <div>
     <input type="text" placeholder="Imię" @bind="nowyPracownik.Imie" class="form-control" />

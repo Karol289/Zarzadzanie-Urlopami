@@ -1,0 +1,78 @@
+﻿
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+/* Formy */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #333;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+    input[type="text"]:focus, input[type="password"]:focus {
+        border-color: #007bff; /* Kolor ramki przy focussie */
+        outline: none;
+    }
+
+/* Przycisk */
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Kolor przycisku */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button[type="submit"]:hover {
+        background-color: #0056b3; /* Kolor przycisku przy hoverze */
+    }
+
+/* Komunikaty błędów */
+.alert-danger {
+    color: white;
+    background-color: #dc3545;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Wyrównanie formularza */
+.EditForm {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+    .EditForm .form-group {
+        margin-bottom: 15px;
+    }
+
+

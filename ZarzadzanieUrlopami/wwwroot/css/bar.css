@@ -1,14 +1,14 @@
 ﻿/* Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');*/
 
-* {
+/** {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
-body {
+*/
+/*body {
     background-color: #e6f7fb;
     display: flex;
     flex-direction: column;
@@ -16,10 +16,10 @@ body {
     width: 100vw;
     overflow-x: hidden;
     position: relative;
-}
+}*/
 
 /* Sidebar Styles */
-.sidebar {
+/*.sidebar {
     background-color: #1e3a59;
     width: 250px;
     position: fixed;
@@ -76,17 +76,17 @@ body {
         font-size: 14px;
         padding: 20px 0;
         background-color: #004a7c;
-    }
+    }*/
 
 /* Main Content Styles */
-.container {
+/*.container {
     margin-left: 250px;
     padding: 20px;
     flex-grow: 1;
     position: relative;
-}
+}*/
 
-.circle, .ring {
+/*.circle, .ring {
     position: absolute;
     z-index: 0;
     border-radius: 50%;
@@ -146,10 +146,10 @@ body {
     height: 150px;
     right: -10%;
     top: 80%;
-}
+}*/
 
 /* Header */
-.header {
+/*.header {
     background-color: #1e3a59;
     text-align: center;
     color: white;
@@ -159,10 +159,10 @@ body {
     border-radius: 10px 10px 0 0;
     width: 100%;
     line-height: 1.2;
-}
+}*/
 
 /* Calendar Styles */
-.calendar-container {
+/*.calendar-container {
     width: 100%;
     max-width: 100%;
     margin: 30px auto;
@@ -173,10 +173,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow-x: auto;
     padding: 20px;
-}
+}*/
 
 /* Month Navigation Styles */
-.month {
+/*.month {
     background-color: #1e3a59;
     color: white;
     text-align: center;
@@ -217,11 +217,11 @@ body {
         .month .prev:active,
         .month .next:active {
             background-color: #004a7c;
-            border-color: #004a7c;
+           border-color: #004a7c;
         }
 
 /* Table Styles */
-table.calendar {
+/*table.calendar {
     border-collapse: collapse;
     width: 100%;
 }
@@ -248,10 +248,10 @@ td {
 
     td:hover {
         background-color: #f1f1f1;
-    }
+    }*/
 
 /* Sidebar and Main Layout for Smaller Screens */
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
     .sidebar {
         width: 100%;
         position: relative;
@@ -285,4 +285,4 @@ td {
     .sidebar ul li {
         margin: 10px 0;
     }
-}
+}*/
