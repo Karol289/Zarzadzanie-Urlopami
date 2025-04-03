@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+﻿/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
     padding: 0;
@@ -291,11 +291,11 @@ td {
 }
 
 .hero-image {
-    max-width: 10000px; /* Zwiększenie rozmiaru obrazka */
-    width: 100%;
+    max-width: 10000px;*/ /* Zwiększenie rozmiaru obrazka */
+    /*width: 100%;
     position: relative;
-    left: 0; /* Ustawienie po lewej stronie */
-}
+    left: 0;*/ /* Ustawienie po lewej stronie */
+/*}
 
 
 @media (max-width: 768px) {
@@ -306,14 +306,14 @@ td {
 
     .welcome-text, .hero-image {
         width: 100%;
-    }
+    }*/
 
     /* .hero-image {
         max-width: 100%;
     }*/
 
-    table.calendar {
+    /*table.calendar {
         width: 100%;
         max-width: 100%;
     }
-}
+}*/

@@ -5,9 +5,13 @@
 @inject NavigationManager NavigationManager
 @inject ZarzadzanieUrlopami.Data.UrlopyDbContext DbContext
 
-<h2> Logowanie uzytkownikow </h2>
 
+ <div class="main">
+         <div id="login" class="section">
+                <h2> Logowanie uzytkownikow </h2>
+                           </div>
 
+ 
 <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -28,6 +32,8 @@
     <div class="alert alert-danger">@errorMessage</div>
 }
 
+
+</div>
 @code {
     private LoginModel loginModel = new LoginModel();
     private string errorMessage;

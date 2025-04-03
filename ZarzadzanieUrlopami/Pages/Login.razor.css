@@ -1,0 +1,72 @@
+﻿/* Stylizacja formularza */
+.main {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f9fb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Nagłówek formularza */
+#login h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Stylizacja etykiet */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Stylizacja pól edycyjnych */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    border-color: #5cb85c; /* Zielony kolor, jeśli chcesz bardziej dopasować do swojej estetyki */
+    outline: none;
+}
+
+/* Stylizacja przycisku */
+button.btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #569bb2, #86c5da);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    button.btn:hover {
+        background: linear-gradient(45deg, #183d5d, #336a9a);
+    }
+
+    /* Stylizacja komunikatu o błędzie */
+.alert {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 6px;
+}
