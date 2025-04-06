@@ -27,9 +27,11 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px;
-    background-color: #e6f7fb;
+    /*background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);*/
+     /* background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);*/
+      background-color: #e6f7fb;
     flex-grow: 1;
-    height: calc(100vh - 60px); 
+    height: calc(100vh - 60px);
     width: 100%;
     height: 80%;
 }

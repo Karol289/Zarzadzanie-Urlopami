@@ -24,6 +24,7 @@
   <ItemGroup>
     <None Include="wwwroot\css\style.css" />
     <None Include="wwwroot\images\dentist.png" />
+    <None Include="wwwroot\images\loginU.png" />
     <None Include="wwwroot\images\logo3.png" />
   </ItemGroup>
 

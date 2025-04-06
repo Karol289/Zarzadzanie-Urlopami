@@ -1,9 +1,16 @@
-﻿/* Stylizacja formularza */
-.main {
-    max-width: 400px;
+﻿.main {
+    max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #f7f9fb;
+    height: 600px;
+     background-image: url("images/login4.png");
+    /*background-color: rgba(99, 169, 202, 1);
+    background-image: radial-gradient(circle, rgba(99, 169, 202, 1) 0%, rgba(242, 245, 247, 1) 100%);*/
+    /*    background-image: radial-gradient( #fff1eb 0%, #ace0f9 100%);*/
+    /* background-image: url("images/login.png");*/
+    /*background-color: #afe0eba7;*/
+    background-size: cover;
+    background-position: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -17,18 +24,24 @@
 }
 
 /* Stylizacja etykiet */
-label {
+/*label {
     font-size: 14px;
     font-weight: 600;
     color: #555;
     margin-bottom: 8px;
     display: block;
-}
+}*/
 
 /* Stylizacja pól edycyjnych */
-.form-group {
+/*.form-group {
     margin-bottom: 20px;
 }
+
+
+.form-group {
+    background-color: pink;
+}
+
 
 .form-control {
     width: 100%;
@@ -41,15 +54,15 @@ label {
 }
 
 .form-control:focus {
-    border-color: #5cb85c; /* Zielony kolor, jeśli chcesz bardziej dopasować do swojej estetyki */
-    outline: none;
-}
+    border-color: #5cb85c;*/ /* Zielony kolor, jeśli chcesz bardziej dopasować do swojej estetyki */
+    /*outline: none;
+}*/
 
 /* Stylizacja przycisku */
 button.btn {
     width: 100%;
     padding: 14px;
-    background: linear-gradient(45deg, #569bb2, #86c5da);
+    background: linear-gradient(45deg, #41c4ee, #90c7ef);
     border: none;
     border-radius: 6px;
     color: white;
@@ -62,11 +75,10 @@ button.btn {
         background: linear-gradient(45deg, #183d5d, #336a9a);
     }
 
-    /* Stylizacja komunikatu o błędzie */
-.alert {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8d7da;
-    color: #721c24;
-    border-radius: 6px;
-}
+/*.validation-errors {
+    background-color: red !important;
+    color: white !important;
+}*/
+
+
+

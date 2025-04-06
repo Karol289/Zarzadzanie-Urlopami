@@ -1,10 +1,11 @@
 ﻿/* style.css */
 
-/*.main {
+.main {
     padding: 2rem;
     background-color: #f9fdfd;
     font-family: 'Segoe UI', sans-serif;
     color: #333;
+    max-width: 100%;
 }
 
 .section h2 {
@@ -63,12 +64,12 @@ button.btn {
 }
 
 .btn-success {
-    background-color: #00bfa5;
+    background-color: #00acc1;
     color: white;
 }
 
     .btn-success:hover {
-        background-color: #009e88;
+        background-color: #29557c;
     }
 
 .btn-danger {
@@ -108,4 +109,4 @@ label {
 
 .mt-2 {
     margin-top: 1rem;
-}*/
+}

@@ -26,6 +26,75 @@ body {
 }
 
 
+
+
+/*// logowanie */
+
+
+.validation-errors {
+    list-style: none;
+    margin-top: 20px;
+    padding: 15px 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+    .validation-errors li {
+        margin-bottom: 5px;
+    }
+
+
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+}
+
+    .form-control:focus {
+        border-color: #5cb85c; 
+        outline: none;
+    }
+
+
+.login-image {
+    display: block;
+    margin: 0 auto 20px auto; 
+    width: 25%;
+    max-width: 200px; 
+    height: auto;
+}
+
+
+
+
+
+
+
 /*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -34,7 +103,6 @@ body {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }*/
-
 /*body {
     background-color: #e6f7fb;
     display: flex;
@@ -44,8 +112,6 @@ body {
     overflow-x: hidden;
     position: relative;
 }*/
-
-
 .calendar-container {
     position: relative;
     width: 100%;
