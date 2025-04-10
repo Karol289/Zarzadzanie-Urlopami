@@ -1,13 +1,13 @@
 ﻿@page "/admin/pracownicy"
 @using ZarzadzanieUrlopami.Models
 @inject Data.PracownicyService PracownicyService
+@layout MainLayout
 
 
 
-
-  <div class="main">
+  <div class="mainP">
          <div id="admin_p" class="section">
-               <h2>Zarządzanie Pracownikami</h2>
+               
                 
             </div>
 
@@ -21,7 +21,9 @@
     <div class="alert alert-success">@successMessage</div>
 }
 
-
+ <div class="table-header">
+        <h2>Lista Pracowników</h2>
+    </div>
 <table class="table_p">
     <thead>
         <tr>
@@ -63,29 +65,34 @@
 </table>
  
 <br />
+<div class="form-container">
 <h2>Dodaj Pracownika</h2>
 <br />
-<div>
-    <input type="text" placeholder="Imię" @bind="nowyPracownik.Imie" class="form-control" />
-    <input type="text" placeholder="Nazwisko" @bind="nowyPracownik.Nazwisko" class="form-control" />
-    <input type="email" placeholder="Email" @bind="nowyPracownik.Mail" class="form-control" />
-    <input type="text" placeholder="Telefon" @bind="nowyPracownik.Telefon" class="form-control" />
-    <input type="password" placeholder="Hasło" @bind="nowyPracownik.Haslo" class="form-control" />
-    <br />
-    <label>Rola</label>
-    <br />
-    <select @bind="nowyPracownik.IdRoli" class="form-control">
-        <option value="">Wybierz rolę</option>
-        @foreach (var rola in role)
-        {
-            <option value="@rola.IdRoli">@rola.Nazwa</option>
-        }
-    </select>
 
-    <label>Data rozpoczęcia</label>
-    <br />
-    <input type="date" @bind="nowyPracownik.DataRozpoczecia" class="form-control" />
+      <div class="form-row">
+        <input type="text" placeholder="Imię" @bind="nowyPracownik.Imie" class="form-control" />
+        <input type="text" placeholder="Nazwisko" @bind="nowyPracownik.Nazwisko" class="form-control" />
+        <input type="email" placeholder="Email" @bind="nowyPracownik.Mail" class="form-control" />
+        <input type="text" placeholder="Telefon" @bind="nowyPracownik.Telefon" class="form-control" />
+        <input type="password" placeholder="Hasło" @bind="nowyPracownik.Haslo" class="form-control" />
+    </div>
+        <div class="form-row">
+        <div class="form-group">
+            <label>Rola</label>
+            <select @bind="nowyPracownik.IdRoli" class="form-control">
+                <option value="">Wybierz rolę</option>
+                    @foreach (var rola in role)
+                    {
+                        <option value="@rola.IdRoli">@rola.Nazwa</option>
+                    }
+            </select>
+        </div>
 
+        <div class="form-group">
+            <label>Data rozpoczęcia</label>
+            <input type="date" @bind="nowyPracownik.DataRozpoczecia" class="form-control" />
+        </div>
+    </div>
     <button class="btn btn-success mt-2" @onclick="DodajPracownika">Dodaj</button>
 </div>
 </div>

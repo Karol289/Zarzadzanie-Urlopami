@@ -14,6 +14,7 @@ body {
 }
 
 
+
 .page {
     position: relative;
     display: flex;
@@ -27,26 +28,31 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px;
-    /*background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);*/
-     /* background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);*/
-      background-color: #e6f7fb;
+  /*  background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);*/
+      background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+      /*background-color: #e6f7fb;*/
     flex-grow: 1;
     height: calc(100vh - 60px);
     width: 100%;
     height: 80%;
 }
 
+
+
 .container {
     flex-grow: 1;
     width: 100vw;
-    height: 100vh; 
+    height: 100vh;
     background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
+
+   
+    
 
 .mainbar{
     width: calc(100% - 250px);
@@ -88,7 +94,7 @@ body {
 
 .circle, .ring {
     position: absolute;
-    z-index: 0;
+    z-index: -1;
     border-radius: 50%;
     opacity: 0.6;
 }
@@ -210,3 +216,7 @@ body {
         padding: 20px 0;
         background-color: #004a7c;
     }
+
+
+/*admin zarzadanie pracownikami */ 
+
