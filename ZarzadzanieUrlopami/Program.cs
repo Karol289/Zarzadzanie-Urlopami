@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using ZarzadzanieUrlopami.Data;
@@ -12,6 +13,8 @@ builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<PracownicyService>();
 builder.Services.AddScoped<TypyUrlopowService>();
 
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
+builder.Services.AddAuthorizationCore();
 
 builder.Services.AddDbContext<UrlopyDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));

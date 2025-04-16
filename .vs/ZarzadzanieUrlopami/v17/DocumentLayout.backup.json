@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\bigajka\\desktop\\projekttab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\bigajka\\desktop\\projekttab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\bigajka\\desktop\\projekttab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\service\\customauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\service\\customauthenticationstateprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\bigajka\\desktop\\projekttab\\zarzadzanie-urlopami\\zarzadzanieurlopami\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Shared\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-16T10:44:48.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomAuthenticationStateProvider.cs",
+              "DocumentMoniker": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Service\\CustomAuthenticationStateProvider.cs",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Service\\CustomAuthenticationStateProvider.cs",
+              "ToolTip": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Service\\CustomAuthenticationStateProvider.cs",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Service\\CustomAuthenticationStateProvider.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:43:43.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAD8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-16T10:11:43.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Program.cs",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Program.cs",
+              "ToolTip": "C:\\Users\\Bigajka\\Desktop\\ProjektTAB\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Program.cs",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T10:08:01.973Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

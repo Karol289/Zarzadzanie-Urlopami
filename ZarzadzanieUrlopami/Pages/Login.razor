@@ -42,34 +42,34 @@
 
 
 </div>
+
 @code {
     private LoginModel loginModel = new LoginModel();
     private string errorMessage;
 
     private async Task HandleLogin()
     {
-        // Używamy właściwej nazwy DbSet: Pracownicies
         var user = await DbContext.Pracownicies
+            .Include(u => u.IdRoliNavigation)
             .FirstOrDefaultAsync(u => u.Mail == loginModel.Email);
-        if (user == null)
+
+        if (user == null || user.Haslo != loginModel.Password)
         {
             errorMessage = "Nieprawidłowy email lub hasło.";
             return;
         }
 
-        // Porównanie hasła – w produkcji należy stosować hash z solą!
-        if (user.Haslo != loginModel.Password)
+        // Pobierz dane do Claims
+        var email = user.Mail ?? "";
+        var rola = user.IdRoliNavigation?.Nazwa ?? "BrakRoli";
+        var imie = user.Imie ?? "";
+
+        // Rzutujemy do naszego customowego AuthProvidera
+        if (AuthenticationStateProvider is CustomAuthenticationStateProvider customAuthStateProvider)
         {
-            errorMessage = "Nieprawidłowy email lub hasło.";
-            return;
+            customAuthStateProvider.MarkUserAsAuthenticated(email, rola, imie);
         }
 
-        if (user.IdRoli == 4)
-        {
-            NavigationManager.NavigateTo("/admin");
-            return;
-        }
-        // Po pomyślnym zalogowaniu przekierowanie do strony głównej
         NavigationManager.NavigateTo("/");
     }
 
@@ -81,8 +81,4 @@
         [Required(ErrorMessage = "Hasło jest wymagane")]
         public string Password { get; set; }
     }
-
-
-
-
 }
