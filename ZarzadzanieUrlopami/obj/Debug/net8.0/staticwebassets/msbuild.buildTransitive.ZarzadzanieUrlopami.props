@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ZarzadzanieUrlopami.props" />
+</Project>

@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\adminpracownicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\adminpracownicy.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\data\\pracownicyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\data\\pracownicyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\models\\pracownicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\models\\pracownicy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\admintypyurlopow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\admintypyurlopow.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|c:\\users\\admin\\desktop\\zarzadzanie-urlopami\\zarzadzanieurlopami\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9DF15554-6ED4-4AAE-BCEC-11FFB01A804E}|ZarzadzanieUrlopami\\ZarzadzanieUrlopami.csproj|solutionrelative:zarzadzanieurlopami\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PracownicyService.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Data\\PracownicyService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T20:27:05.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminPracownicy.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\AdminPracownicy.razor",
+              "ViewState": "AgIAABAAAAAAAAAAAAAYwDMAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-14T15:27:38.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Pracownicy.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Models\\Pracownicy.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAuwBsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T19:57:05.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminTypyUrlopow.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\AdminTypyUrlopow.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-22T19:56:39.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\Zarzadzanie-Urlopami\\ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "RelativeToolTip": "ZarzadzanieUrlopami\\Pages\\Login.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-14T15:34:39.35Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

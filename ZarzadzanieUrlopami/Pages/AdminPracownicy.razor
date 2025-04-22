@@ -4,167 +4,187 @@
 @layout MainLayout
 
 
+<div class="mainP">
+	<div id="admin_p" class="section">
+	</div>
 
-  <div class="mainP">
-         <div id="admin_p" class="section">
-               
-                
-            </div>
+	<br><br />
+	@if (!string.IsNullOrEmpty(errorMessage))
+	{
+		<div class="alert alert-danger">@errorMessage</div>
+	}
+	@if (!string.IsNullOrEmpty(successMessage))
+	{
+		<div class="alert alert-success">@successMessage</div>
+	}
 
-<br><br />
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div class="alert alert-danger">@errorMessage</div>
-}
-@if (!string.IsNullOrEmpty(successMessage))
-{
-    <div class="alert alert-success">@successMessage</div>
-}
+	<div class="table-header">
+		<h2>Lista Pracowników</h2>
+	</div>
+	<table class="table_p">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Imię</th>
+				<th>Nazwisko</th>
+				<th>Email</th>
+				<th>Telefon</th>
+				<th>Hasło</th>
+				<th>Rola</th>
+				<th>Data rozpoczęcia</th>
+				<th>Akcje</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var pracownik in pracownicy)
+			{
+				<tr>
+					<td colspan="8">
+						<EditForm Model="@pracownik" OnValidSubmit="() => AktualizujPracownika(pracownik)">
+							<DataAnnotationsValidator />
+							<ValidationSummary />
 
- <div class="table-header">
-        <h2>Lista Pracowników</h2>
-    </div>
-<table class="table_p">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Email</th>
-            <th>Telefon</th>
-            <th>Rola</th>
-            <th>Data rozpoczęcia</th>
-            <th>Akcje</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var pracownik in pracownicy)
-        {
-            <tr>
-                <td>@pracownik.IdPracownika</td>
-                <td><input type="text" @bind="pracownik.Imie" class="form-control" /></td>
-                <td><input type="text" @bind="pracownik.Nazwisko" class="form-control" /></td>
-                <td><input type="email" @bind="pracownik.Mail" class="form-control" /></td>
-                <td><input type="text" @bind="pracownik.Telefon" class="form-control" /></td>
-                <td>
-                    <select @bind="pracownik.IdRoli" class="form-control">
-                        @foreach (var rola in role)
-                        {
-                            <option value="@rola.IdRoli">@rola.Nazwa</option>
-                        }
-                    </select>
-                </td>
-                <td><input type="date" @bind="pracownik.DataRozpoczecia" class="form-control" /></td>
-                <td>
-                    <button class="btn btn-success" @onclick="() => AktualizujPracownika(pracownik)">Zapisz</button>
-                    <button class="btn btn-danger" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
- 
-<br />
-<div class="form-container">
-<h2>Dodaj Pracownika</h2>
-<br />
+							<div class="row g-2">
+								<div class="col"><InputText @bind-Value="pracownik.Imie" class="form-control" /></div>
+								<div class="col"><InputText @bind-Value="pracownik.Nazwisko" class="form-control" /></div>
+								<div class="col"><InputText @bind-Value="pracownik.Mail" class="form-control" /></div>
+								<div class="col"><InputText @bind-Value="pracownik.Telefon" class="form-control" /></div>
+								<div class="col"><InputText @bind-Value="pracownik.Haslo" class="form-control"/></div>
 
-      <div class="form-row">
-        <input type="text" placeholder="Imię" @bind="nowyPracownik.Imie" class="form-control" />
-        <input type="text" placeholder="Nazwisko" @bind="nowyPracownik.Nazwisko" class="form-control" />
-        <input type="email" placeholder="Email" @bind="nowyPracownik.Mail" class="form-control" />
-        <input type="text" placeholder="Telefon" @bind="nowyPracownik.Telefon" class="form-control" />
-        <input type="password" placeholder="Hasło" @bind="nowyPracownik.Haslo" class="form-control" />
-    </div>
-        <div class="form-row">
-        <div class="form-group">
-            <label>Rola</label>
-            <select @bind="nowyPracownik.IdRoli" class="form-control">
-                <option value="">Wybierz rolę</option>
-                    @foreach (var rola in role)
-                    {
-                        <option value="@rola.IdRoli">@rola.Nazwa</option>
-                    }
-            </select>
-        </div>
+								<div class="col">
+									<select @bind="pracownik.IdRoli" class="form-control">
+										<option disabled selected value="">-- wybierz rolę --</option>
+										@foreach (var r in role)
+										{
+											<option value="@r.IdRoli">@r.Nazwa</option>
+										}
+									</select>
+								</div>
+								<div class="col"><InputDate @bind-Value="pracownik.DataRozpoczecia" class="form-control" /></div>
+								<div class="col">
+									<button type="submit" class="btn btn-success btn-sm">Zapisz</button>
+									<button type="button" class="btn btn-danger btn-sm" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
+								</div>
+							</div>
+						</EditForm>
+					</td>
+				</tr>
+			}
+		</tbody>
 
-        <div class="form-group">
-            <label>Data rozpoczęcia</label>
-            <input type="date" @bind="nowyPracownik.DataRozpoczecia" class="form-control" />
-        </div>
-    </div>
-    <button class="btn btn-success mt-2" @onclick="DodajPracownika">Dodaj</button>
-</div>
+
+	</table>
+
+	<br />
+	<div class="form-container">
+		<h2>Dodaj Pracownika</h2>
+		<br />
+
+		<EditForm Model="@nowyPracownik" OnValidSubmit="DodajPracownika">
+			<DataAnnotationsValidator />
+			<ValidationSummary />
+
+			<div class="form-row">
+				<InputText type="text" placeholder="Imię" class="form-control" @bind-Value="nowyPracownik.Imie" />
+				<InputText type="text" placeholder="Nazwisko" class="form-control" @bind-Value="nowyPracownik.Nazwisko" />
+				<InputText type="email" placeholder="Email" class="form-control" @bind-Value="nowyPracownik.Mail" />
+				<InputText type="text" placeholder="Telefon" class="form-control" @bind-Value="nowyPracownik.Telefon" />
+				<InputText type="password" placeholder="Hasło" class="form-control" @bind-Value="nowyPracownik.Haslo" />
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<label>Rola</label>
+					<select @bind="nowyPracownik.IdRoli" class="form-control">
+						<option value="">Wybierz rolę</option>
+						@foreach (var rola in role)
+						{
+							<option value="@rola.IdRoli">@rola.Nazwa</option>
+						}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Data rozpoczęcia</label>
+					<InputDate class="form-control" @bind-Value="nowyPracownik.DataRozpoczecia" />
+				</div>
+			</div>
+
+			<button class="btn btn-success mt-2" type="submit">Dodaj</button>
+		</EditForm>
+
+
+	</div>
 </div>
 @code {
-    private List<Pracownicy> pracownicy = new();
-    private List<Role> role = new();
-    private Pracownicy nowyPracownik = new();
-    private string? errorMessage;
-    private string? successMessage;
+	private List<Pracownicy> pracownicy = new();
+	private List<Role> role = new();
+	private Pracownicy nowyPracownik = new();
+	private string? errorMessage;
+	private string? successMessage;
 
-    protected override async Task OnInitializedAsync()
-    {
-        pracownicy = await PracownicyService.GetPracownicyAsync();
-        role = await PracownicyService.GetRoleAsync();
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		pracownicy = await PracownicyService.GetPracownicyAsync();
+		role = await PracownicyService.GetRoleAsync();
+	}
 
-    private async Task DodajPracownika()
-    {
-        if (string.IsNullOrWhiteSpace(nowyPracownik.Imie) || 
-            string.IsNullOrWhiteSpace(nowyPracownik.Nazwisko) || 
-            string.IsNullOrWhiteSpace(nowyPracownik.Mail) ||
-            nowyPracownik.IdRoli == null ||
-            string.IsNullOrWhiteSpace(nowyPracownik.Haslo) ||
-            nowyPracownik.DataRozpoczecia == null)
-        {
-            errorMessage = "Wszystkie pola muszą być wypełnione!";
-            return;
-        }
+	private async Task DodajPracownika()
+	{
+		if (string.IsNullOrWhiteSpace(nowyPracownik.Imie) ||
+			string.IsNullOrWhiteSpace(nowyPracownik.Nazwisko) ||
+			string.IsNullOrWhiteSpace(nowyPracownik.Mail) ||
+			nowyPracownik.IdRoli == null ||
+			string.IsNullOrWhiteSpace(nowyPracownik.Haslo) ||
+			nowyPracownik.DataRozpoczecia == null)
+		{
+			errorMessage = "Wszystkie pola muszą być wypełnione!";
+			return;
+		}
 
-        try
-        {
-            await PracownicyService.DodajPracownika(nowyPracownik);
-            nowyPracownik = new Pracownicy();
-            pracownicy = await PracownicyService.GetPracownicyAsync();
-            successMessage = "Pracownik dodany pomyślnie.";
-            errorMessage = null;
-        }
-        catch (Exception ex)
-        {
-            errorMessage = "Błąd podczas dodawania pracownika: " + ex.Message;
-        }
-    }
+		try
+		{
+			await PracownicyService.DodajPracownika(nowyPracownik);
+			nowyPracownik = new Pracownicy();
+			pracownicy = await PracownicyService.GetPracownicyAsync();
+			successMessage = "Pracownik dodany pomyślnie.";
+			errorMessage = null;
+		}
+		catch (Exception ex)
+		{
+			errorMessage = "Błąd podczas dodawania pracownika: " + ex.Message;
+		}
+	}
 
-    private async Task AktualizujPracownika(Pracownicy pracownik)
-    {
-        if (string.IsNullOrWhiteSpace(pracownik.Imie) || 
-            string.IsNullOrWhiteSpace(pracownik.Nazwisko) || 
-            string.IsNullOrWhiteSpace(pracownik.Mail) || 
-            pracownik.IdRoli == null || 
-            pracownik.DataRozpoczecia == null)
-        {
-            errorMessage = "Nie można zapisać zmian – uzupełnij wszystkie pola!";
-            return;
-        }
+	private async Task AktualizujPracownika(Pracownicy pracownik)
+	{
+		if (string.IsNullOrWhiteSpace(pracownik.Imie) ||
+			string.IsNullOrWhiteSpace(pracownik.Nazwisko) ||
+			string.IsNullOrWhiteSpace(pracownik.Mail) ||
+			pracownik.IdRoli == null ||
+			pracownik.DataRozpoczecia == null)
+		{
+			errorMessage = "Nie można zapisać zmian – uzupełnij wszystkie pola!";
+			return;
+		}
 
-        try
-        {
-            await PracownicyService.AktualizujPracownika(pracownik);
-            successMessage = "Dane pracownika zostały zaktualizowane.";
-            errorMessage = null;
-        }
-        catch (Exception ex)
-        {
-            errorMessage = "Błąd podczas aktualizacji: " + ex.Message;
-        }
-    }
+		try
+		{
+			await PracownicyService.AktualizujPracownika(pracownik);
+			successMessage = "Dane pracownika zostały zaktualizowane.";
+			errorMessage = null;
+		}
+		catch (Exception ex)
+		{
+			errorMessage = "Błąd podczas aktualizacji: " + ex.Message;
+		}
+	}
 
-    private async Task UsunPracownika(int id)
-    {
-        await PracownicyService.UsunPracownika(id);
-        pracownicy = await PracownicyService.GetPracownicyAsync();
-        successMessage = "Pracownik został usunięty.";
-        errorMessage = null;
-    }
+	private async Task UsunPracownika(int id)
+	{
+		await PracownicyService.UsunPracownika(id);
+		pracownicy = await PracownicyService.GetPracownicyAsync();
+		successMessage = "Pracownik został usunięty.";
+		errorMessage = null;
+	}
 }
