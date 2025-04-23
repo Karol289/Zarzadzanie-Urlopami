@@ -22,6 +22,41 @@
         margin-bottom: 0;
     }
 
+.pracownicy-col-1 {
+    width: calc(100%/8);
+}
+.pracownicy-col-2 {
+    width: calc(100%/8);
+}
+.pracownicy-col-3 {
+    width: calc(100%/8);
+}
+.pracownicy-col-4 {
+    width: calc(100%/8);
+}
+.pracownicy-col-5 {
+    width: calc(100%/8);
+}
+.pracownicy-col-6 {
+    width: calc(100%/8);
+}
+.pracownicy-col-7 {
+    width: calc(100%/8);
+}
+.pracownicy-col-8 {
+    width: calc(100%/8);
+}
+.form-cell {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+    border: none;
+    outline: none;
+}
+.
 /* Tabela */
 .table_p {
     width: 100%;
@@ -199,6 +234,9 @@ button.btn {
     .btn-danger:hover {
         background-color: #d32f2f;
     }
+
+
+
 
 
 

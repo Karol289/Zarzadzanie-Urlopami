@@ -1,7 +1,8 @@
 ﻿@page "/admin/pracownicy"
 @using ZarzadzanieUrlopami.Models
 @using ZarzadzanieUrlopami.Service
-@inject PracownicyService PracownicyService
+
+@inject PracownicyService PracownicyService;
 @layout MainLayout
 
 
@@ -22,58 +23,56 @@
 	<div class="table-header">
 		<h2>Lista Pracowników</h2>
 	</div>
-	<table class="table_p">
+	<table class="table_p" style="table-layout: fixed; width: 100%;">
 		<thead>
 			<tr>
-				<th>ID</th>
-				<th>Imię</th>
-				<th>Nazwisko</th>
-				<th>Email</th>
-				<th>Telefon</th>
-				<th>Hasło</th>
-				<th>Rola</th>
-				<th>Data rozpoczęcia</th>
-				<th>Akcje</th>
+				<th style="width: 10%;">Imię</th>
+				<th style="width: 10%;">Nazwisko</th>
+				<th style="width: 15%;">Email</th>
+				<th style="width: 10%;">Telefon</th>
+				<th style="width: 10%;">Hasło</th>
+				<th style="width: 10%;">Rola</th>
+				<th style="width: 15%;">Data rozpoczęcia</th>
+				<th style="width: 20%;">Akcje</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var pracownik in pracownicy)
 			{
 				<tr>
-					<td colspan="8">
+					<td colspan="16">
 						<EditForm Model="@pracownik" OnValidSubmit="() => AktualizujPracownika(pracownik)">
 							<DataAnnotationsValidator />
 							<ValidationSummary />
 
-							<div class="row g-2">
-								<div class="col"><InputText @bind-Value="pracownik.Imie" class="form-control" /></div>
-								<div class="col"><InputText @bind-Value="pracownik.Nazwisko" class="form-control" /></div>
-								<div class="col"><InputText @bind-Value="pracownik.Mail" class="form-control" /></div>
-								<div class="col"><InputText @bind-Value="pracownik.Telefon" class="form-control" /></div>
-								<div class="col"><InputText @bind-Value="pracownik.Haslo" class="form-control"/></div>
-
-								<div class="col">
-									<select @bind="pracownik.IdRoli" class="form-control">
-										<option disabled selected value="">-- wybierz rolę --</option>
-										@foreach (var r in role)
-										{
-											<option value="@r.IdRoli">@r.Nazwa</option>
-										}
-									</select>
-								</div>
-								<div class="col"><InputDate @bind-Value="pracownik.DataRozpoczecia" class="form-control" /></div>
-								<div class="col">
-									<button type="submit" class="btn btn-success btn-sm">Zapisz</button>
-									<button type="button" class="btn btn-danger btn-sm" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
-								</div>
-							</div>
+							<table style="width: 100%;">
+								<tr>
+									<td><InputText @bind-Value="pracownik.Imie" class="form-control form-cell" /></td>
+									<td><InputText @bind-Value="pracownik.Nazwisko" class="form-control form-cell" /></td>
+									<td><InputText @bind-Value="pracownik.Mail" class="form-control form-cell" /></td>
+									<td><InputText @bind-Value="pracownik.Telefon" class="form-control form-cell" /></td>
+									<td><InputText @bind-Value="pracownik.Haslo" class="form-control form-cell" /></td>
+									<td>
+										<select @bind="pracownik.IdRoli" class="form-control form-cell">
+											<option disabled selected value="">-- wybierz rolę --</option>
+											@foreach (var r in role)
+											{
+												<option value="@r.IdRoli">@r.Nazwa</option>
+											}
+										</select>
+									</td>
+									<td><InputDate @bind-Value="pracownik.DataRozpoczecia" class="form-control form-cell" /></td>
+									<td>
+										<button type="submit" class="btn btn-success btn-sm">Zapisz</button>
+										<button type="button" class="btn btn-danger btn-sm" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
+									</td>
+								</tr>
+							</table>
 						</EditForm>
 					</td>
 				</tr>
 			}
 		</tbody>
-
-
 	</table>
 
 	<br />
