@@ -198,7 +198,6 @@ label {
         position: absolute;
         top: 50%; /* Przesuwa na środek wysokości tabeli */
         transform: translateY(-50%);
-        z-index: 10;/* Zapewnia, że przyciski nie są przykryte */
     }
 
         .month .prev:hover,
@@ -213,15 +212,7 @@ label {
             border-color: #004a7c;
         }
 
-/*
-    .month .prev, .month .next {
-        font-size: 20px;
-        cursor: pointer;
-        padding-top: 10px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }*/
+
 
     .month .prev {
         left: 15px;
@@ -279,6 +270,9 @@ td {
         background-color: #f1f1f1;
     }
 
+.zmiana {
+    background-color: red;
+}
 
 .hero-image {
     max-width: 10000px; /* Zwiększenie rozmiaru obrazka */
@@ -286,4 +280,6 @@ td {
     position: relative;
     left: 0; /* Ustawienie po lewej stronie */
 }
+
+
 

@@ -1,9 +1,20 @@
 ﻿@page "/schedule"
 
+@using Models
+@using System.Security.Claims
+@using ZarzadzanieUrlopami.Pages.Components
+@using ZarzadzanieUrlopami.Models.Kalndarz
+
+@inject IServiceProvider ServiceProvider
+@inject Data.ScheduleService ScheeduleService
+@inject AuthenticationStateProvider AuthProvider
+
+
 <PageTitle>Grafik Pracy</PageTitle>
 <div id="schedule" class="section">
     <h2>Grafik</h2>
     <p>Tutaj będzie grafik pracy w przychodni.</p>
+    <button @onclick="ShowDialog">Test</button>
     <div class="calendar-container">
         <div class="month">
             <ul>
@@ -30,92 +41,189 @@
                         <tr>
                         @foreach (var day in row)
                         {
-                                    <td @onclick="() => SelectDay(day)">@day</td>
+                            @if(day == null)
+                            {
+                                <td></td>
+                            }
+                            else
+                            {
+                                <td @onclick="() => SelectDay(day)" class="@miesiac.getDzien(day.GetValueOrDefault()).getRodzaje()">
+                                        @day
+                                </td>
+                            }
                         }
                         </tr>
                 }
             </tbody>
         </table>
-        @if (!string.IsNullOrEmpty(SelectedDate))
-        {
-                <p>You selected: @SelectedDate</p>
-        }
     </div>
 </div>
 
+
+<Dialog Title="Hello World!" Opened="dialogShown" CloseButtonClicked="@(() => dialogShown = false)">
+    <BodyContent>
+           
+        <div>
+            @foreach(var zmiana in prac.Zmianies.Where(X => X.IdDniaNavigation.DataDnia.Value.Day == SelectedDay))
+            {
+                <div class=" dialog-zmiana">
+                    <p>Godzina rozpoczecia: @zmiana.GodzRozp</p>
+                    <p>Godzina zakonczenia: @zmiana.GodzZakon</p>
+                    <p>Kierownik zmiany:</p>
+                </div>
+            }
+        </div>
+
+    </BodyContent>
+
+    <FooterContent>
+        <button class="ok-button" @onclick="CloseDialog">Ok</button>
+    </FooterContent>
+</Dialog>
+
+
 @code {
-    private int CurrentMonth = 2;  // March (index 2)
-    private int CurrentYear = 2025;
-    private List<List<int?>> CalendarRows = new List<List<int?>>();
-    private string MonthName => new DateTime(CurrentYear, CurrentMonth + 1, 1).ToString("MMMM", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"));
-    private string SelectedDate;
+
+
+
+    private bool dialogShown = false;
+    private Pracownicy? prac = null;
+
+    private void ShowDialog()
+    {
+        dialogShown = true;
+    }
+
+    private void CloseDialog()
+    {
+        dialogShown = false; 
+    }
+
+    private ClaimsPrincipal user;
+
+    private DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+    private int CurrentMonth =  DateTime.Now.Month;
+    private int CurrentYear = DateTime.Now.Year;
+
+    private List<List<int?>> CalendarRows = null;
+
+    private string MonthName => new DateTime(CurrentYear, CurrentMonth, 1).ToString("MMMM", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"));
+    private int SelectedDay;
+
+    private Miesiac? miesiac;
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        user = authState.User;
+        //bledy to do
+
+        miesiac = new Miesiac(ServiceProvider, user.Identity.Name, CurrentMonth, CurrentYear);
+
+        await miesiac.generujMiesiac();
+    }
+
+
+    protected override void OnInitialized()
+    {
+        CalendarRows = new List<List<int?>>();
+        GenerateCalendar();
+    }
+
+
 
     // Method to generate the calendar for the current month
     private void GenerateCalendar()
     {
+
+
         CalendarRows.Clear();
 
-        int daysInMonth = DateTime.DaysInMonth(CurrentYear, CurrentMonth + 1);
-        int firstDayOfMonth = (int)new DateTime(CurrentYear, CurrentMonth + 1, 1).DayOfWeek;
+        int daysInMonth = DateTime.DaysInMonth(CurrentYear, CurrentMonth);
+        int firstDayOfMonth = (int)new DateTime(CurrentYear, CurrentMonth, 1).DayOfWeek - 1;
+
+        if (firstDayOfMonth == -1)
+            firstDayOfMonth = 6;
 
         List<int?> currentRow = new List<int?>();
         for (int i = 0; i < firstDayOfMonth; i++)
         {
-            currentRow.Add(null);  // Adding empty cells for the days before the first day of the month
+            currentRow.Add(null);  
         }
 
         for (int day = 1; day <= daysInMonth; day++)
         {
             currentRow.Add(day);
-            if (currentRow.Count == 7) // New row for the next week
+
+            if (currentRow.Count == 7) 
             {
                 CalendarRows.Add(new List<int?>(currentRow));
                 currentRow.Clear();
             }
         }
-        if (currentRow.Count > 0)  // Add remaining days to the last row
+        if (currentRow.Count > 0)  
         {
             CalendarRows.Add(currentRow);
         }
+
+
+
     }
 
     // Method to handle "previous month" button click
-    private void ShowPreviousMonth()
+    private async Task ShowPreviousMonth()
     {
         CurrentMonth--;
-        if (CurrentMonth < 0)
+        if (CurrentMonth < 1)
         {
-            CurrentMonth = 11;
+            CurrentMonth = 12;
             CurrentYear--;
         }
+
         GenerateCalendar();
+
+        miesiac.poprzedniMiesiac();
+
+        await miesiac.generujMiesiac();
+
     }
 
     // Method to handle "next month" button click
-    private void ShowNextMonth()
+    private async Task ShowNextMonth()
     {
+
         CurrentMonth++;
-        if (CurrentMonth > 11)
+        if (CurrentMonth > 12)
         {
-            CurrentMonth = 0;
+            CurrentMonth = 1;
             CurrentYear++;
         }
+
         GenerateCalendar();
+        miesiac.nastepnyMiesiac();
+
+        await miesiac.generujMiesiac();
     }
 
     // Method to handle day selection
-    private void SelectDay(int? day)
+    private async Task SelectDay(int? day)
     {
         if (day.HasValue)
         {
-            // Set the selected date and format it
-            SelectedDate = $"{day} {MonthName} {CurrentYear}";
-        }
-    }
+            if (day == null)
+                return;
 
-    // On page load, generate the calendar
-    protected override void OnInitialized()
-    {
-        GenerateCalendar();
+
+            SelectedDay = day.GetValueOrDefault();
+
+            DateOnly seletedDate = new DateOnly(CurrentYear, CurrentMonth, day.GetValueOrDefault());
+
+            List<Zmiany> wybranaZmian = await ScheeduleService.getZmianaByDate(seletedDate);
+
+            dialogShown = true;
+
+        }
     }
 }
