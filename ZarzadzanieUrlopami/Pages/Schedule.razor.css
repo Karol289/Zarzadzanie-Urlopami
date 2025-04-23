@@ -1,20 +1,44 @@
-﻿.zmiana
-{
-    background-color: forestgreen !important;
+﻿.zmiana {
+    background-color: #BBC6C8 !important;
 }
 
 .urlop {
-    background-color: red !important;
+    background-color: #015366 !important;
 }
 
 .zwolnienie{
-    background-color: gold !important;
+    background-color: #DDBEAA !important;
 }
 
-.zastepstwo{
-    background-color: darkblue !important;
+.zastepstwo {
+    background-color: #5BA199 !important;
 }
 
-.dzisiaj {
-    color: red !important;
+/*.dzisiaj {*/
+   /* background-color: #46ACC2; *//* niebieski */
+/*    color: white !important;*/
+   /* border-radius: 50%;*/
+    
+/*}*/
+
+td.dzisiaj {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    color: white; 
+    z-index: 1;
+    font-weight: normal; 
 }
+
+    td.dzisiaj::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 26px;
+        height: 26px;
+        background-color: #46ACC2; 
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }

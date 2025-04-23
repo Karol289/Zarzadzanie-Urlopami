@@ -106,19 +106,20 @@ body {
     }
 
 .user-info {
-    background: rgba(70, 172, 194, 0.7); /* B³êkitne szk³o z przezroczystoœci¹ */
+    background: rgba(70, 172, 194, 0.7); 
     padding: 12px 18px;
     border-radius: 12px;
-    border: 1px solid rgba(70, 172, 194, 0.2); /* Niebieskawe obramowanie */
+    border: 1px solid rgba(70, 172, 194, 0.2); 
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     gap: 8px;
     font-size: 14px;
     max-width: 300px;
-    backdrop-filter: blur(15px); 
-    transition: all 0.3s ease; 
+    backdrop-filter: blur(15px);
+    transition: all 0.3s ease;
 }
 .right-user-info {
     display: flex;
