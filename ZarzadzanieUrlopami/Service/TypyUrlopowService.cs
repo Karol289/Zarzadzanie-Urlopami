@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ZarzadzanieUrlopami.Data;
 using ZarzadzanieUrlopami.Models;
 
-namespace ZarzadzanieUrlopami.Data
+namespace ZarzadzanieUrlopami.Service
 {
     public class TypyUrlopowService
     {

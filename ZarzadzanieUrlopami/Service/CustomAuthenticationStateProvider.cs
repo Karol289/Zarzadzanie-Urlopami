@@ -1,32 +1,31 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
+using ZarzadzanieUrlopami.Services;
 
 public class CustomAuthenticationStateProvider : AuthenticationStateProvider
 {
-    private ClaimsPrincipal _user = new ClaimsPrincipal(new ClaimsIdentity());
+    private readonly AuthState _authState;
+
+    public CustomAuthenticationStateProvider(AuthState authState)
+    {
+        _authState = authState;
+    }
 
     public void MarkUserAsAuthenticated(string email, string rola, string imie)
     {
-        var identity = new ClaimsIdentity(new[]
-        {
-        new Claim(ClaimTypes.Name, email),
-        new Claim(ClaimTypes.Role, rola),
-        new Claim("Imie", imie)
-    }, "apiauth_type");
-
-        _user = new ClaimsPrincipal(identity);
-        NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(_user)));
+        _authState.SetUser(email, rola, imie);
+        NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
     }
-
 
     public void MarkUserAsLoggedOut()
     {
-        _user = new ClaimsPrincipal(new ClaimsIdentity());
-        NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(_user)));
+        _authState.ClearUser();
+        NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
     }
 
     public override Task<AuthenticationState> GetAuthenticationStateAsync()
     {
-        return Task.FromResult(new AuthenticationState(_user));
+        var user = _authState.User ?? new ClaimsPrincipal(new ClaimsIdentity());
+        return Task.FromResult(new AuthenticationState(user));
     }
 }

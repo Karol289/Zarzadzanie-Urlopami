@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ZarzadzanieUrlopami.Data;
 using ZarzadzanieUrlopami.Models;
 
-namespace ZarzadzanieUrlopami.Data
+namespace ZarzadzanieUrlopami.Service
 {
     public class PracownicyService
     {
@@ -43,5 +44,13 @@ namespace ZarzadzanieUrlopami.Data
             _context.Pracownicies.Update(pracownik);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Pracownicy?> GetPracownikByEmailAsync(string email)
+        {
+            return await _context.Pracownicies
+                .Include(p => p.IdRoliNavigation)
+                .FirstOrDefaultAsync(p => p.Mail == email);
+        }
+
     }
 }

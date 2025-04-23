@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZarzadzanieUrlopami")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe7568242b6b7af85bc3847cb02a37f056def4e5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8993b90bb70ff81937e536871402936a8a256d48")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZarzadzanieUrlopami")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZarzadzanieUrlopami")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

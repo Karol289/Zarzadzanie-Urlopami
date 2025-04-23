@@ -1,0 +1,144 @@
+﻿@page "/moje-dane"
+@inject Service.PracownicyService PracownicyService
+@inject NavigationManager Navigation
+@inject ZarzadzanieUrlopami.Services.AuthState AuthState
+@using Microsoft.AspNetCore.Components.Authorization
+@using ZarzadzanieUrlopami.Models
+@using System.Security.Claims
+
+<h3 class="mb-4">Moje dane osobiste</h3>
+<br/>
+@if (isLoading)
+{
+    <p>Ładowanie danych...</p>
+}
+else if (user == null)
+{
+    <div class="alert alert-danger">Nie udało się załadować danych użytkownika.</div>
+}
+else
+{
+    <EditForm Model="@user" OnSubmit="@ZapiszZmiany">
+        <DataAnnotationsValidator />
+
+        <div class="card shadow p-4">
+            <dl class="row">
+                <dd class="col-sm-9">@user.IdRoliNavigation?.Nazwa</dd>
+
+                <dd class="col-sm-9">@user.Imie</dd>
+
+                <dd class="col-sm-9">@user.Nazwisko</dd>
+
+                <dd class="col-sm-9">@user.Mail</dd>
+            </dl>
+
+            <hr />
+
+            <div class="mb-3">
+                <label>Telefon</label>
+                <InputText class="form-control" @bind-Value="user.Telefon" />
+            </div>
+
+            <div class="mb-3">
+                <label>Dzieci poniżej 14 r.ż.</label>
+                <InputNumber class="form-control" @bind-Value="user.DzieciPonizej14" />
+            </div>
+
+            <div class="mt-4">
+                <h5>Zmiana hasła (opcjonalnie)</h5>
+
+                <div class="mb-3">
+                    <label>Stare hasło</label>
+                    <InputText class="form-control" @bind-Value="stareHaslo" type="password" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Nowe hasło</label>
+                    <InputText class="form-control" @bind-Value="noweHaslo" type="password" />
+                </div>
+            </div>
+
+            <button class="btn btn-primary mt-3">Zapisz zmiany</button>
+
+            @if (!string.IsNullOrEmpty(komunikat))
+            {
+                <div class="alert alert-success mt-3">@komunikat</div>
+            }
+
+            @if (!string.IsNullOrEmpty(blad))
+            {
+                <div class="alert alert-danger mt-3">@blad</div>
+            }
+        </div>
+    </EditForm>
+}
+
+@code {
+    private Pracownicy? user;
+    private string stareHaslo = "";
+    private string noweHaslo = "";
+    private string komunikat = "";
+    private string blad = "";
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            if (!AuthState.IsAuthenticated || AuthState.User == null)
+            {
+                Navigation.NavigateTo("/login");
+                return;
+            }
+
+            var email = AuthState.User.FindFirst(ClaimTypes.Name)?.Value;
+
+            if (!string.IsNullOrEmpty(email))
+            {
+                user = await PracownicyService.GetPracownikByEmailAsync(email);
+            }
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private async Task ZapiszZmiany()
+    {
+        blad = komunikat = "";
+
+        if (user == null)
+        {
+            blad = "Nie znaleziono użytkownika.";
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(noweHaslo))
+        {
+            if (string.IsNullOrWhiteSpace(stareHaslo))
+            {
+                blad = "Aby zmienić hasło, musisz podać stare hasło.";
+                return;
+            }
+
+            if (user.Haslo != stareHaslo)
+            {
+                blad = "Stare hasło jest nieprawidłowe.";
+                return;
+            }
+
+            if (noweHaslo.Length < 8)
+            {
+                blad = "Nowe hasło musi mieć co najmniej 8 znaków.";
+                return;
+            }
+
+            user.Haslo = noweHaslo;
+        }
+
+        await PracownicyService.AktualizujPracownika(user);
+        komunikat = "Dane zostały zapisane.";
+        stareHaslo = noweHaslo = "";
+    }
+}
