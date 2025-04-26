@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using ZarzadzanieUrlopami.Data;
 using ZarzadzanieUrlopami.Service;
 using ZarzadzanieUrlopami.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add support for appsettings.local.json
+builder.Configuration.AddJsonFile("appsettings.local.json", optional: true, reloadOnChange: true);
 
 // Add services to the container.
 builder.Services.AddSingleton<AuthState>();
