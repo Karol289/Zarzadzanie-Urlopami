@@ -16,12 +16,13 @@ builder.Services.AddAuthorizationCore();
 
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
 builder.Services.AddScoped<PracownicyService>();
 builder.Services.AddScoped<TypyUrlopowService>();
 builder.Services.AddScoped<ScheduleService>();
+builder.Services.AddScoped<ReportsService>();
 
 builder.Services.AddAuthorizationCore();
-
 
 builder.Services.AddDbContext<UrlopyDbContext>(
     options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
