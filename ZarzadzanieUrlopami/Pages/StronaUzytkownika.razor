@@ -6,71 +6,73 @@
 @using ZarzadzanieUrlopami.Models
 @using System.Security.Claims
 
-<h3 class="mb-4">Moje dane osobiste</h3>
-<br/>
 @if (isLoading)
 {
-    <p>Ładowanie danych...</p>
+        <p>Ładowanie danych...</p>
 }
 else if (user == null)
 {
-    <div class="alert alert-danger">Nie udało się załadować danych użytkownika.</div>
+        <div class="alert alert-danger">Nie udało się załadować danych użytkownika.</div>
 }
 else
 {
-    <EditForm Model="@user" OnSubmit="@ZapiszZmiany">
-        <DataAnnotationsValidator />
+        <div class="moje-dane-container">
+            <h3 class="mb-4 text-center">Moje dane osobiste</h3>
 
-        <div class="card shadow p-4">
-            <dl class="row">
-                <dd class="col-sm-9">@user.IdRoliNavigation?.Nazwa</dd>
+                <div class="moje-dane-wrapper">
+               <EditForm class="moje-dane-form" Model="@user" OnSubmit="@ZapiszZmiany">
+                <DataAnnotationsValidator />
 
-                <dd class="col-sm-9">@user.Imie</dd>
+                <div class="card shadow p-4">
+                    <dl class="row">
+                        <dd class="col-sm-9">@user.IdRoliNavigation?.Nazwa</dd>
+                        <dd class="col-sm-9">@user.Imie</dd>
+                        <dd class="col-sm-9">@user.Nazwisko</dd>
+                        <dd class="col-sm-9">@user.Mail</dd>
+                    </dl>
 
-                <dd class="col-sm-9">@user.Nazwisko</dd>
+                    <hr />
 
-                <dd class="col-sm-9">@user.Mail</dd>
-            </dl>
+                    <div class="mb-3">
+                        <label>Telefon</label>
+                        <InputText class="form-control" @bind-Value="user.Telefon" />
+                    </div>
 
-            <hr />
+                    <div class="mb-3">
+                        <label>Dzieci poniżej 14 r.ż.</label>
+                        <InputNumber class="form-control" @bind-Value="user.DzieciPonizej14" />
+                    </div>
 
-            <div class="mb-3">
-                <label>Telefon</label>
-                <InputText class="form-control" @bind-Value="user.Telefon" />
-            </div>
 
-            <div class="mb-3">
-                <label>Dzieci poniżej 14 r.ż.</label>
-                <InputNumber class="form-control" @bind-Value="user.DzieciPonizej14" />
-            </div>
+                            <div class="password-section mt-4">
+                        <h5>Zmiana hasła (opcjonalnie)</h5>
 
-            <div class="mt-4">
-                <h5>Zmiana hasła (opcjonalnie)</h5>
+                        <div class="mb-3">
+                            <label>Stare hasło</label>
+                            <InputText class="form-control" @bind-Value="stareHaslo" type="password" />
+                        </div>
 
-                <div class="mb-3">
-                    <label>Stare hasło</label>
-                    <InputText class="form-control" @bind-Value="stareHaslo" type="password" />
+                        <div class="mb-3">
+                            <label>Nowe hasło</label>
+                            <InputText class="form-control" @bind-Value="noweHaslo" type="password" />
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary mt-3">Zapisz zmiany</button>
+
+                @if (!string.IsNullOrEmpty(komunikat))
+                {
+                            <div class="alert alert-success mt-3">@komunikat</div>
+                }
+
+                @if (!string.IsNullOrEmpty(blad))
+                {
+                            <div class="alert alert-danger mt-3">@blad</div>
+                }
                 </div>
-
-                <div class="mb-3">
-                    <label>Nowe hasło</label>
-                    <InputText class="form-control" @bind-Value="noweHaslo" type="password" />
-                </div>
+            </EditForm>
             </div>
-
-            <button class="btn btn-primary mt-3">Zapisz zmiany</button>
-
-            @if (!string.IsNullOrEmpty(komunikat))
-            {
-                <div class="alert alert-success mt-3">@komunikat</div>
-            }
-
-            @if (!string.IsNullOrEmpty(blad))
-            {
-                <div class="alert alert-danger mt-3">@blad</div>
-            }
         </div>
-    </EditForm>
 }
 
 @code {

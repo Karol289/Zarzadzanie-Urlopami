@@ -149,7 +149,7 @@ label {
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         position: absolute;
-        top: 50%; /* Przesuwa na środek wysokości tabeli */
+        top: 50%; 
         transform: translateY(-50%);
     }
 
@@ -230,11 +230,18 @@ td {
 
 
 .hero-image {
-    max-width: 10000px; /* Zwiększenie rozmiaru obrazka */
+    max-width: 10000px; 
     width: 100%;
     position: relative;
-    left: 0; /* Ustawienie po lewej stronie */
+    left: 0;
 }
 
 
 
+/*strona uzytkownika*/
+
+form.moje-dane-form {
+    width: 500px;
+    height:auto;
+  
+}
