@@ -84,8 +84,8 @@ button.btn {
 h3 {
     font-size: 2.5rem;
     font-weight: 600;
-    margin-top: -2rem; /* Zmniejszono margines górny, aby podnieść nagłówek */
-    margin-bottom: 1rem; /* Zwiększono margines dolny, aby lepiej wyglądało */
+    margin-top: -2rem; 
+    margin-bottom: 1rem; 
     color: #1e3a59;
     text-align: center;
    
