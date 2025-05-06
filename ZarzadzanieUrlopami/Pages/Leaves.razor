@@ -1,13 +1,103 @@
 ﻿@page "/leave"
 @namespace ZarzadzanieUrlopami.Pages
 @layout MainLayout
+@using System.ComponentModel.DataAnnotations
 
 
-    <div class="main">
-         <div id="leave" class="section">
-                <h2>Podanie o urlop</h2>
-                <p>Formularz składania wniosku o urlop.</p>
+
+<div class="moje-dane-container">
+    <div class="moje-dane-wrapper">
+        <EditForm class="moje-dane-form" Model="@leaveRequest" OnSubmit="SubmitRequest">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="card shadow p-4">
+                <!-- Nagłówek w ramce formularza -->
+                <h3 class="mb-4 text-center">Wniosek urlopowy</h3> <!-- Nagłówek w ramce -->
+
+                <dl class="row">
+                    <dd class="col-sm-9">
+                        <strong>Data rozpoczęcia:</strong>
+                        <InputDate class="form-control" @bind-Value="leaveRequest.StartDate" />
+                    </dd>
+                    <dd class="col-sm-9">
+                        <strong>Data zakończenia:</strong>
+                        <InputDate class="form-control" @bind-Value="leaveRequest.EndDate" />
+                    </dd>
+                    <dd class="col-sm-9">
+                        <strong>Powód:</strong>
+                        <InputTextArea class="form-control" @bind-Value="leaveRequest.Reason" />
+                    </dd>
+                    <dd class="col-sm-9">
+                        <strong>Typ urlopu:</strong>
+                        <InputSelect class="form-control" @bind-Value="leaveRequest.LeaveType">
+                            <option value="Wypoczynkowy">Wypoczynkowy</option>
+                            <option value="Chorobowy">Chorobowy</option>
+                            <option value="Opiekuńczy">Opiekuńczy</option>
+                        </InputSelect>
+                    </dd>
+                </dl>
+
+                <hr />
+
+                <button class="btn btn-primary mt-3">Wyślij wniosek</button>
+
+                @if (!string.IsNullOrEmpty(message))
+                {
+                    <div class="alert alert-success mt-3">@message</div>
+                }
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert alert-danger mt-3">@errorMessage</div>
+                }
             </div>
+        </EditForm>
+    </div>
+</div>
 
-        </div>
+@code {
+    private LeaveRequest leaveRequest = new LeaveRequest
+        {
+            StartDate = DateTime.Today,
+            EndDate = DateTime.Today,
+            Reason = string.Empty,
+            LeaveType = "Wypoczynkowy"
+        };
 
+    private string message = string.Empty;
+    private string errorMessage = string.Empty;
+
+    private async Task SubmitRequest()
+    {
+        errorMessage = message = string.Empty;
+
+        // Walidacja
+        if (leaveRequest.EndDate < leaveRequest.StartDate)
+        {
+            errorMessage = "Data zakończenia nie może być wcześniejsza niż data rozpoczęcia.";
+            return;
+        }
+
+        // Symulacja przetwarzania wniosku
+        await Task.Delay(500); // Udawany czas oczekiwania na zapisanie
+
+        message = "Wniosek został złożony pomyślnie!";
+        leaveRequest = new LeaveRequest(); // Reset formularza
+    }
+
+    public class LeaveRequest
+    {
+        [Required(ErrorMessage = "Data rozpoczęcia jest wymagana.")]
+        public DateTime StartDate { get; set; }
+
+        [Required(ErrorMessage = "Data zakończenia jest wymagana.")]
+        public DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "Musisz podać powód.")]
+        public string Reason { get; set; }
+
+        [Required(ErrorMessage = "Musisz wybrać typ urlopu.")]
+        public string LeaveType { get; set; }
+    }
+}
