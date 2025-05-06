@@ -3,6 +3,7 @@
 @layout MainLayout
 @using System.ComponentModel.DataAnnotations
 
+@inject AuthenticationStateProvider AuthProvider
 
 
 <div class="moje-dane-container">
@@ -64,6 +65,7 @@
             Reason = string.Empty,
             LeaveType = "Wypoczynkowy"
         };
+
 
     private string message = string.Empty;
     private string errorMessage = string.Empty;

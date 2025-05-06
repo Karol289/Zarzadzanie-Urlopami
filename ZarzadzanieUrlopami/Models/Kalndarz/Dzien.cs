@@ -51,11 +51,26 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
             }
         }
 
-
-
         public string getRodzaje()
         {
             return dane.rodzaje;
+        }
+
+        public List<Zmiany> getZmiany()
+        {
+            return dane.zmiany;
+        }
+        public List<Urlopy> getUrlopy()
+        {
+            return dane.urlopy;
+        }
+        public List<ZwolnieniaLekarskie> getZwolnienia()
+        {
+            return dane.zwolnienia;
+        }
+        public List<Zastepstwa> getZastepstwa()
+        {
+            return dane.zastepstwa;
         }
     }
 }
