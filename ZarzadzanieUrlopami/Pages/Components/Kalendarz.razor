@@ -1,0 +1,136 @@
+﻿@namespace ZarzadzanieUrlopami.Pages.Components
+
+<div class="calendar-container">
+    <div class="month">
+        <ul>
+            <li class="prev" @onclick="ShowPreviousMonth">&#10094;</li>
+            <li class="next" @onclick="ShowNextMonth">&#10095;</li>
+            <li>@MonthName <br><span style="font-size:18px">@CurrentYear</span></li>
+        </ul>
+    </div>
+    <table class="calendar">
+        <thead>
+            <tr>
+                <th>Pon</th>
+                <th>Wt</th>
+                <th>Śr</th>
+                <th>Cz</th>
+                <th>Pt</th>
+                <th>Sob</th>
+                <th>Nd</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var row in CalendarRows)
+            {
+                <tr>
+                    @foreach (var day in row)
+                    {
+                        @if (day == null)
+                        {
+                            <td></td>
+                        }
+                        else
+                        {
+                            <td @onclick="() => OnDayClick.InvokeAsync(day)"
+                                class="@GetDayClass(day)">
+                                @(day?.ToString() ?? "")
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+@code {
+    [Parameter] public int CurrentMonth { get; set; }
+    [Parameter] public int CurrentYear { get; set; }
+
+    [Parameter] public Func<int, int, Task>? GenerateMiesiac { get; set; }
+    [Parameter] public Func<int?, string>? GetDayClass { get; set; }
+    [Parameter] public EventCallback<int?> OnDayClick { get; set; }
+
+
+    private string MonthName => new DateTime(CurrentYear, CurrentMonth, 1)
+        .ToString("MMMM", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"));
+
+
+    private List<List<int?>> CalendarRows = new List<List<int?>>();
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        GenerateCalendar();
+
+        if (GenerateMiesiac is not null)
+            await GenerateMiesiac.Invoke(CurrentMonth, CurrentYear);
+    }
+
+
+
+    private void GenerateCalendar()
+    {
+        CalendarRows.Clear();
+
+        int daysInMonth = DateTime.DaysInMonth(CurrentYear, CurrentMonth);
+        int firstDayOfMonth = (int)new DateTime(CurrentYear, CurrentMonth, 1).DayOfWeek - 1;
+
+        if (firstDayOfMonth == -1)
+            firstDayOfMonth = 6;
+
+        List<int?> currentRow = new List<int?>();
+        for (int i = 0; i < firstDayOfMonth; i++)
+        {
+            currentRow.Add(null);
+        }
+
+        for (int day = 1; day <= daysInMonth; day++)
+        {
+            currentRow.Add(day);
+
+            if (currentRow.Count == 7)
+            {
+                CalendarRows.Add(new List<int?>(currentRow));
+                currentRow.Clear();
+            }
+        }
+        if (currentRow.Count > 0)
+        {
+            CalendarRows.Add(currentRow);
+        }
+    }
+
+    private async Task ShowPreviousMonth()
+    {
+        CurrentMonth--;
+        if (CurrentMonth < 1)
+        {
+            CurrentMonth = 12;
+            CurrentYear--;
+        }
+
+        GenerateCalendar();
+
+        await OnParametersSetAsync();
+    }
+
+
+    private async Task ShowNextMonth()
+    {
+
+        CurrentMonth++;
+        if (CurrentMonth > 12)
+        {
+            CurrentMonth = 1;
+            CurrentYear++;
+        }
+
+        GenerateCalendar();
+
+        await OnParametersSetAsync();
+    }
+}

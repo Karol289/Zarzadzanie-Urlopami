@@ -62,14 +62,12 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
         {
             this.miesiac = new Dictionary<int, Dzien>();
 
+            if(miesiac == null || mailPracownika == null || miesiacKalendarza == null || rokKalendarza == null)
+                return;
+
+
             generujDni();
 
-            // tu uzycie tych 4 metod
-
-
-
-
-            // zmiany, urlopy, zwolnienia, zastepstwo, dzisiaj
             var t2 = generujZmiany();
             var t3 = generujUrlopy();
             var t4 = generujZwolnienia();
