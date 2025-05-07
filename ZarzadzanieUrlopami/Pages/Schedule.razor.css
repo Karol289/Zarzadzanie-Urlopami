@@ -14,10 +14,7 @@
     background-color: #5BA199 !important;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5943e9de84498251c35b8c56315fe06502b2e9b4
 
 td.dzisiaj {
     position: relative;
@@ -39,4 +36,165 @@ td.dzisiaj {
         border-radius: 50%;
         transform: translate(-50%, -50%);
         z-index: -1;
+  
+       }
+
+
+/*dialog*/
+button.ok-button {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #46ACC2;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button.ok-button:hover {
+        background-color: #1e3a59;
     }
+
+
+.dialog {
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F8FA;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #cce5ea;
+}
+
+    .dialog-header h2 {
+        font-size: 2rem;
+        color: #1e3a59;
+        margin: 0;
+        font-weight: 600;
+    }
+
+.close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #46ACC2;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+    .close:hover {
+        color: #1e3a59;
+    }
+
+.dialog-body {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.dialog-footer {
+    padding: 1.5rem 2rem;
+    background-color: #F0F8FA;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #cce5ea;
+}
+
+/* Przycisk OK */
+/*.ok-button {
+    background-color: #46ACC2;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .ok-button:hover {
+        background-color: #1e3a59;
+    }*/
+
+
+
+/* Kolory dla różnych typów dni w dialogu */
+.holiday-day {
+    background-color: #e0f1f3;
+    color: #015366;
+    border-left: 5px solid #015366;
+}
+
+.sick-day {
+    background-color: #f0e3d6;
+    color: #5c3b24;
+    border-left: 5px solid #c28f6d;
+}
+
+.substitute-day {
+    background-color: #d3eeeb;
+    color: #376f69;
+    border-left: 5px solid #5BA199;
+}
+
+.work-shift-day {
+    background-color: #e4e8ea;
+    color: #4a5a5c;
+    border-left: 5px solid #BBC6C8;
+}
+
+
+/* Legenda statusów w footerze */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f8f9fa; /* jasne tło */
+    border-top: 1px solid #e0e0e0; /* delikatna linia oddzielająca */
+}
+
+.footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-icon {
+    text-align: center;
+}
+
+    .footer-icon i {
+        font-size: 1.5rem;
+        color: #6c757d; /* szary kolor */
+    }
+
+    .footer-icon span {
+        display: block;
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+    }
+
+    .footer-icon:hover i {
+        color: #1e3a59; /* Zmiana koloru ikony na niebieski przy hover */
+        transform: scale(1.2); /* Powiększenie ikony przy najechaniu */
+    }
+
+    .footer-icon:hover span {
+        color: #1e3a59; /* Zmiana koloru napisu na niebieski przy hover */
+    }
+

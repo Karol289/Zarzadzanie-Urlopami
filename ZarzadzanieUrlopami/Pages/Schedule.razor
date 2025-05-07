@@ -64,66 +64,95 @@
     }
 </div>
 
-
 <Dialog Title="Plan na dzień" Opened="dialogShown" CloseButtonClicked="@(() => dialogShown = false)">
     <BodyContent>
-           
         <div>
             @{
                 Dzien dzien = miesiac.getDzien(SelectedDay);
                 bool wolne = false;
             }
+
             @if (dzien.getUrlopy() != null)
             {
                 wolne = true;
                 @foreach (var urlop in dzien.getUrlopy())
                 {
-                    <div class="body-div">
-                        <h3>W tym dniu masz wpisany urlop</h3>
+                    <div class="body-div holiday-day">
+                        <h3><i class="bi bi-calendar-check"></i> W tym dniu masz wpisany urlop</h3>
                         <p>Rodzaj Urlopu: @urlop.IdTypuUrlopuNavigation.Nazwa</p>
-                        <p>Status: @urlop.IdStatusuNavigation.IdTypuStatusuNavigation.Nazwa</p>
+
+                        <p>
+                            Status:
+                            @{
+                                string statusIcon = "";
+                                string statusText = "";
+                                string statusClass = "";
+
+                                switch (urlop.IdStatusuNavigation.IdTypuStatusuNavigation.Nazwa)
+                                {
+                                    case "zatwierdzony":
+                                        statusIcon = "bi-check-circle-fill";
+                                        statusText = "Wniosek zatwierdzony";
+                                        statusClass = "text-success";
+                                        break;
+                                    case "oczekujący":
+                                        statusIcon = "bi-hourglass-split";
+                                        statusText = "Wniosek oczekujący";
+                                        statusClass = "text-warning";
+                                        break;
+                                    case "odrzucony":
+                                        statusIcon = "bi-x-circle-fill";
+                                        statusText = "Wniosek odrzucony";
+                                        statusClass = "text-danger";
+                                        break;
+                                }
+                            }
+                            <i class="bi @statusIcon @statusClass"></i> @statusText
+                        </p>
+
                         <p>Wyjasnienie: @urlop.IdStatusuNavigation.Wyjaśnienie</p>
                         <p>Poczatek: @urlop.DataPocz.ToString()</p>
                         <p>Koniec: @urlop.DataKon.ToString()</p>
                     </div>
                 }
             }
+
             @if (dzien.getZwolnienia() != null)
             {
                 wolne = true;
                 @foreach (var zwolnienie in dzien.getZwolnienia())
                 {
-                    <div class="body-div">
-                        <h3>W tym dniu masz zwolnienie</h3>
+                    <div class="body-div sick-day">
+                        <h3><i class="bi bi-calendar-x"></i> W tym dniu masz zwolnienie</h3>
                         <p>Rodzaj: @zwolnienie.IdTypuNavigation.Nazwa</p>
                         <p>Wystawca: @zwolnienie.IdWystawcyNavigation.Nazwa</p>
                         <p>Poczatek: @zwolnienie.DataPocz</p>
                         <p>Koniec: @zwolnienie.DataKon</p>
-                        
                     </div>
                 }
             }
+
             @if (dzien.getZastepstwa() != null)
             {
                 @foreach (var zastepstwo in dzien.getZastepstwa())
                 {
-                    <div class="body-div">
-                        <h3>Zastepstwo za pracownika @zastepstwo.IdZmianyNavigation.IdPracownikaNavigation.Imie @zastepstwo.IdZmianyNavigation.IdPracownikaNavigation.Nazwisko</h3>
+                    <div class="body-div substitute-day">
+                        <h3><i class="bi bi-person-check"></i> Zastepstwo za pracownika @zastepstwo.IdZmianyNavigation.IdPracownikaNavigation.Imie @zastepstwo.IdZmianyNavigation.IdPracownikaNavigation.Nazwisko</h3>
                         <p>Zmiana dnia @CurrentYear-@CurrentMonth-@SelectedDay</p>
                         <p>Godzina Rozpoczecia: @zastepstwo.IdZmianyNavigation.GodzRozp</p>
                         <p>Godzina Zakończenia: @zastepstwo.IdZmianyNavigation.GodzZakon</p>
                         <p>Czas trwania: @ObliczGodziny(@zastepstwo.IdZmianyNavigation.GodzRozp.GetValueOrDefault(), @zastepstwo.IdZmianyNavigation.GodzZakon.GetValueOrDefault())h</p>
                         <p>Kierownik zmiany: @zastepstwo.IdZmianyNavigation.IdDniaNavigation.IdKierownikaNavigation.Imie @zastepstwo.IdZmianyNavigation.IdDniaNavigation.IdKierownikaNavigation.Nazwisko</p>
-
                     </div>
                 }
             }
-            @if(dzien.getZmiany() != null)
+
+            @if (dzien.getZmiany() != null)
             {
-                @foreach(var zmiana in dzien.getZmiany())
+                @foreach (var zmiana in dzien.getZmiany())
                 {
-                    <div class = "body-div">
-                        <h3>Zmiana dnia @CurrentYear-@CurrentMonth-@SelectedDay</h3>
+                    <div class="body-div work-shift-day">
+                        <h3><i class="bi bi-calendar-event"></i> Zmiana dnia @CurrentYear-@CurrentMonth-@SelectedDay</h3>
                         <p>Godzina Rozpoczecia: @zmiana.GodzRozp</p>
                         <p>Godzina Zakończenia: @zmiana.GodzZakon</p>
                         <p>Czas trwania: @ObliczGodziny(@zmiana.GodzRozp.GetValueOrDefault(), @zmiana.GodzZakon.GetValueOrDefault())h</p>
@@ -131,18 +160,24 @@
                     </div>
                 }
             }
-
-
-
         </div>
-
     </BodyContent>
-
     <FooterContent>
-        <button class="ok-button" @onclick="CloseDialog">Ok</button>
+        <div class="footer-container">
+            <div class="footer-icons">
+                <div class="footer-icon">
+                    <i class="bi bi-calendar"></i>
+                    <span>Planowanie</span>
+                </div>
+                <div class="footer-icon">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Informacje</span>
+                </div>
+              
+            </div>
+        </div>
     </FooterContent>
 </Dialog>
-
 
 @code {
 
