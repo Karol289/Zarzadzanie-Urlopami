@@ -1,8 +1,12 @@
 ﻿@page "/leave"
 @namespace ZarzadzanieUrlopami.Pages
 @layout MainLayout
-@using System.ComponentModel.DataAnnotations
 
+
+@using System.ComponentModel.DataAnnotations
+@using System.Security.Claims
+
+@inject ZarzadzanieUrlopami.Service.PodaniaService PodaniaService
 @inject AuthenticationStateProvider AuthProvider
 
 
@@ -31,11 +35,18 @@
                     </dd>
                     <dd class="col-sm-9">
                         <strong>Typ urlopu:</strong>
-                        <InputSelect class="form-control" @bind-Value="leaveRequest.LeaveType">
-                            <option value="Wypoczynkowy">Wypoczynkowy</option>
-                            <option value="Chorobowy">Chorobowy</option>
-                            <option value="Opiekuńczy">Opiekuńczy</option>
+                        <InputSelect class="form-control" Value="leaveRequest.LeaveType"
+                            ValueChanged="@((string value) => ustawDni(value))"
+                            ValueExpression="@(() => leaveRequest.LeaveType)">
+                            @if (dostepneDni != null)
+                            @foreach (var typ in dostepneDni)
+                            {
+                             <option value="@typ.IdTypuUrlopuNavigation.Nazwa">@typ.IdTypuUrlopuNavigation.Nazwa</option>
+                            }       
                         </InputSelect>
+                    </dd>
+                    <dd>
+                        <strong>Dostepne dni urlopowe: @dni</strong>
                     </dd>
                 </dl>
 
@@ -70,6 +81,37 @@
     private string message = string.Empty;
     private string errorMessage = string.Empty;
 
+    private int? dni = null;
+
+    //private ClaimsPrincipal user;
+
+    private List<ZarzadzanieUrlopami.Models.DostepneUrlopyRoczne>? dostepneDni = null;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        ClaimsPrincipal user = authState.User;
+
+
+
+        if (user.Identity == null || 
+            user.Identity.IsAuthenticated == false ||
+            user.Identity.Name == null)
+            return;
+
+        dostepneDni = await PodaniaService.GetDostepneUrlopy(user.Identity.Name);
+    }
+
+
+    private void ustawDni(string value)
+    {
+        //int id = int.Parse(value);
+
+        //dni = dostepneDni.Where(x => x.IdDostepnegoUrlopu == id).FirstOrDefault().Ilosc;
+
+    }
+
     private async Task SubmitRequest()
     {
         errorMessage = message = string.Empty;
@@ -101,5 +143,6 @@
 
         [Required(ErrorMessage = "Musisz wybrać typ urlopu.")]
         public string LeaveType { get; set; }
+
     }
 }

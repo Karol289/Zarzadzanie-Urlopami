@@ -19,6 +19,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<PracownicyService>();
 builder.Services.AddScoped<TypyUrlopowService>();
 builder.Services.AddScoped<ScheduleService>();
+builder.Services.AddScoped<PodaniaService>();
 
 builder.Services.AddAuthorizationCore();
 

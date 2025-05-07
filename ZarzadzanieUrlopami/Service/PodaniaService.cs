@@ -17,6 +17,22 @@ namespace ZarzadzanieUrlopami.Service
         {
             return await _context.TypyUrlopows.ToListAsync();
         }
+
+        public async Task<List<DostepneUrlopyRoczne>> GetDostepneUrlopy(string mail)
+        {
+            return await _context.DostepneUrlopyRocznes
+                .Include(x => x.IdPracownikaNavigation)
+                .Where(x => x.IdPracownikaNavigation.Mail == mail)
+                .Include(x => x.IdTypuUrlopuNavigation)
+                .ToListAsync();
+        }
+
+        public async Task DodajUrlop(Urlopy urlop)
+        {
+            _context.Urlopies.Add(urlop);
+            _context.SaveChanges();
+        }
+
     }
 
 }
