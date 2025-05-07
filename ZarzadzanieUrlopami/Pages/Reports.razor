@@ -52,7 +52,6 @@
                                             {
                                                 <li>
                                                     <strong>@urlop.IdTypuUrlopuNavigation?.Nazwa</strong>
-                                                    <br />
                                                     @FormatDateRange(urlop.DataPocz, urlop.DataKon)
                                                     <br />
                                                     <span class="badge @GetStatusClass(urlop.IdStatusu)">
@@ -75,7 +74,6 @@
                                             {
                                                 <li>
                                                     <strong>@zwolnienie.IdTypuNavigation?.Nazwa</strong>
-                                                    <br />
                                                     @FormatDateRange(zwolnienie.DataPocz, zwolnienie.DataKon)
                                                     @if (!string.IsNullOrEmpty(zwolnienie.Opis))
                                                     {

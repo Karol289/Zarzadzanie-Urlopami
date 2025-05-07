@@ -6,66 +6,68 @@ namespace ZarzadzanieUrlopami.Service;
 
 public class ReportsService
 {
-    private readonly UrlopyDbContext _context;
+    private readonly IServiceScopeFactory _serviceScopeFactory;
 
-    public ReportsService(UrlopyDbContext context)
+    public ReportsService(IServiceScopeFactory serviceScopeFactory)
     {
-        _context = context;
+        _serviceScopeFactory = serviceScopeFactory;
     }
 
     public async Task<List<Urlopy>> GetAllUrlopiesInMonth(int month, int year)
     {
-        return await _context.Urlopies
-            .Include(u => u.IdPracownikaNavigation)
-            .Include(u => u.IdTypuUrlopuNavigation)
-            .Include(u => u.IdStatusuNavigation)
-            .Where(u => (u.DataPocz.HasValue && u.DataPocz.Value.Month == month && u.DataPocz.Value.Year == year) ||
-                        (u.DataKon.HasValue && u.DataKon.Value.Month == month && u.DataKon.Value.Year == year) ||
-                        (u.DataPocz.HasValue && u.DataKon.HasValue &&
-                         u.DataPocz.Value < new DateOnly(year, month, 1) &&
-                         u.DataKon.Value >= new DateOnly(year, month, 1)))
+        using var scope = _serviceScopeFactory.CreateScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<UrlopyDbContext>();
+
+        return await ctx.Urlopies
+            .Where(u =>
+                (u.DataPocz.HasValue && u.DataPocz.Value.Month == month && u.DataPocz.Value.Year == year) ||
+                (u.DataKon.HasValue && u.DataKon.Value.Month == month && u.DataKon.Value.Year == year) ||
+                (u.DataPocz.HasValue && u.DataKon.HasValue &&
+                 u.DataPocz.Value <= new DateOnly(year, month, DateTime.DaysInMonth(year, month)) &&
+                 u.DataKon.Value >= new DateOnly(year, month, 1)))
             .ToListAsync();
     }
 
     public async Task<List<ZwolnieniaLekarskie>> GetAllZwolnieniaInMonth(int month, int year)
     {
-        return await _context.ZwolnieniaLekarskies
-            .Include(z => z.IdPracownikaNavigation)
-            .Include(z => z.IdTypuNavigation)
-            .Include(z => z.IdWystawcyNavigation)
-            .Where(z => (z.DataPocz.HasValue && z.DataPocz.Value.Month == month && z.DataPocz.Value.Year == year) ||
-                        (z.DataKon.HasValue && z.DataKon.Value.Month == month && z.DataKon.Value.Year == year) ||
-                        (z.DataPocz.HasValue && z.DataKon.HasValue &&
-                         z.DataPocz.Value < new DateOnly(year, month, 1) &&
-                         z.DataKon.Value >= new DateOnly(year, month, 1)))
+        using var scope = _serviceScopeFactory.CreateScope();
+        var ctx = scope.ServiceProvider.GetRequiredService<UrlopyDbContext>();
+
+        return await ctx.ZwolnieniaLekarskies
+            .Where(z =>
+                (z.DataPocz.HasValue && z.DataPocz.Value.Month == month && z.DataPocz.Value.Year == year) ||
+                (z.DataKon.HasValue && z.DataKon.Value.Month == month && z.DataKon.Value.Year == year) ||
+                (z.DataPocz.HasValue && z.DataKon.HasValue &&
+                 z.DataPocz.Value <= new DateOnly(year, month, DateTime.DaysInMonth(year, month)) &&
+                 z.DataKon.Value >= new DateOnly(year, month, 1)))
             .ToListAsync();
     }
 
     public async Task<List<Pracownicy>> GetPracownicyWithAbsencesInMonth(int month, int year)
     {
-        var urlopyInMonth = await GetAllUrlopiesInMonth(month, year);
-        var zwolnieniaInMonth = await GetAllZwolnieniaInMonth(month, year);
+        using var scope = _serviceScopeFactory.CreateScope();
 
-        // Get unique employee IDs who have absences in this month
-        var pracownicyIds = urlopyInMonth.Select(u => u.IdPracownika)
-            .Concat(zwolnieniaInMonth.Select(z => z.IdPracownika))
-            .Distinct();
+        var ctx = scope.ServiceProvider.GetRequiredService<UrlopyDbContext>();
 
-        // Get all those employees with their related data
-        return await _context.Pracownicies
+        var urlopyTask = GetAllUrlopiesInMonth(month, year);
+        var zwolnieniaTask = GetAllZwolnieniaInMonth(month, year);
+
+        await Task.WhenAll(urlopyTask, zwolnieniaTask);
+
+        var urlopy = await urlopyTask;
+        var zwolnienia = await zwolnieniaTask;
+
+        var pracownicyIds = urlopy.Select(u => u.IdPracownika)
+            .Concat(zwolnienia.Select(z => z.IdPracownika))
+            .Distinct().ToList();
+
+        var urlopyIds = urlopy.Select(u => u.IdUrlopu);
+        var zwolnieniaIds = zwolnienia.Select(z => z.IdZwolnienia);
+
+        return await ctx.Pracownicies
             .Where(p => pracownicyIds.Contains(p.IdPracownika))
-            .Include(p => p.Urlopies.Where(u =>
-                (u.DataPocz.HasValue && u.DataPocz.Value.Month == month && u.DataPocz.Value.Year == year) ||
-                (u.DataKon.HasValue && u.DataKon.Value.Month == month && u.DataKon.Value.Year == year) ||
-                (u.DataPocz.HasValue && u.DataKon.HasValue &&
-                 u.DataPocz.Value < new DateOnly(year, month, 1) &&
-                 u.DataKon.Value >= new DateOnly(year, month, 1))))
-            .Include(p => p.ZwolnieniaLekarskies.Where(z =>
-                (z.DataPocz.HasValue && z.DataPocz.Value.Month == month && z.DataPocz.Value.Year == year) ||
-                (z.DataKon.HasValue && z.DataKon.Value.Month == month && z.DataKon.Value.Year == year) ||
-                (z.DataPocz.HasValue && z.DataKon.HasValue &&
-                 z.DataPocz.Value < new DateOnly(year, month, 1) &&
-                 z.DataKon.Value >= new DateOnly(year, month, 1))))
+            .Include(p => p.Urlopies.Where(u => urlopyIds.Contains(u.IdUrlopu)))
+            .Include(p => p.ZwolnieniaLekarskies.Where(z => zwolnieniaIds.Contains(z.IdZwolnienia)))
             .ToListAsync();
     }
 }
