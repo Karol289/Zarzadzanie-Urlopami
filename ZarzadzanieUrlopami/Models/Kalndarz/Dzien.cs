@@ -15,7 +15,7 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
 
         public void dodajRodzaj(string rodzaj)
         {
-            dane.rodzaje += rodzaj;
+            dane.rodzaje += " " + rodzaj;
         }
 
         public void dodajZmiane(List<Zmiany> zmiany)

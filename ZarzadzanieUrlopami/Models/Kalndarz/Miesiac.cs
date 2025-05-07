@@ -98,7 +98,7 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
             lock (miesiacLock)
             {
                 if(miesiacKalendarza == dzisiaj.Month && rokKalendarza == dzisiaj.Year)
-                    miesiac[dzisiaj.Day].dodajRodzaj("dzisiaj");
+                    miesiac[dzisiaj.Day].dodajRodzaj("dzisiaj ");
             }
 
 
@@ -184,7 +184,7 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
                     if (!tempRodzaje.ContainsKey(day))
                         tempUrlopy[day] = new List<Urlopy>();
 
-                    tempRodzaje[day] = "urlop";
+                    tempRodzaje[day] = "urlop ";
 
 
 
@@ -241,7 +241,7 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
                     if (!tempRodzaje.ContainsKey(day))
                         tempZwolnienia[day] = new List<ZwolnieniaLekarskie>();
 
-                    tempRodzaje[day] = "zwolnienie";
+                    tempRodzaje[day] = "zwolnienie ";
 
 
                     tempZwolnienia[day].Add(a);
@@ -291,7 +291,7 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
 
                     tempZastepstwa[day].Add(a);
 
-                    tempRodzaje[day] = "zastepstwo";
+                    tempRodzaje[day] = "zastepstwo ";
                 }
             }
 
