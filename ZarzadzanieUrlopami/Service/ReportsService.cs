@@ -66,8 +66,8 @@ public class ReportsService
 
         return await ctx.Pracownicies
             .Where(p => pracownicyIds.Contains(p.IdPracownika))
-            .Include(p => p.Urlopies.Where(u => urlopyIds.Contains(u.IdUrlopu)))
-            .Include(p => p.ZwolnieniaLekarskies.Where(z => zwolnieniaIds.Contains(z.IdZwolnienia)))
+            .Include(p => p.Urlopies.Where(u => urlopyIds.Contains(u.IdUrlopu))).ThenInclude(u => u.IdStatusuNavigation)
+            .Include(p => p.ZwolnieniaLekarskies.Where(z => zwolnieniaIds.Contains(z.IdZwolnienia))).ThenInclude(z => z.IdTypuNavigation)
             .ToListAsync();
     }
 }
