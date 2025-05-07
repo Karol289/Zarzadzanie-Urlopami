@@ -1,0 +1,153 @@
+﻿
+
+
+.moje-dane-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 1rem;
+   
+}
+
+
+.moje-dane-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -1rem; 
+}
+
+.card {
+    max-width: 1000px;
+    width: 100%;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 0.1rem;
+    color: #1e3a59;
+}
+
+/* Formularz po środku */
+form,
+.edit-form-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+
+
+dl.row {
+    margin: 0;
+    padding: 0;
+}
+
+    dl.row dd {
+        background-color: #F0F8FA;
+        border-left: 4px solid #46ACC2;
+        padding: 0.6rem 0.9rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.8rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+/* Etykiety */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+/* Pola formularza */
+input.form-control,
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    box-sizing: border-box;
+ 
+}
+
+input:focus {
+    border-color: #46ACC2;
+}
+
+
+
+
+.password-section {
+    background-color: #F0F8FA;
+    padding: 1rem; 
+    border-radius: 0.75rem;
+    border: 0.5px solid #cce5ea; 
+    font-size: 1.1rem; 
+}
+
+    .password-section h5 {
+        font-weight: 800;
+        color: #000;
+        border-left: 4px solid #46ACC2;
+        padding-left: 0.75rem;
+        background-color: #F0F8FA;
+        border-radius: 0.5rem;
+        margin-top: 0; 
+        margin-bottom: 1rem;
+    }
+
+/* Przycisk */
+button.btn {
+    display: block;
+    margin-top: 1rem; 
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #46ACC2;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button.btn:hover {
+        background-color: #1e3a59;
+    }
+
+/* Alerty */
+.alert {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.alert-success {
+    background-color: #e0f2f1;
+    color: #00796b;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+

@@ -1,10 +1,22 @@
 
 
+
+
+
+
+
 html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    overflow-y: auto;
+}
+
+/*html, body {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-}
+    overflow-y: auto;
+}*/
 
 body {
     background-color: #e6f7fb;
@@ -28,14 +40,18 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px;
-  /*  background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);*/
-      background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-      /*background-color: #e6f7fb;*/
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     flex-grow: 1;
     height: calc(100vh - 60px);
     width: 100%;
     height: 80%;
+    overflow-y:scroll;
+     min-height: 82vh;
 }
+
+
+
+
 
 
 
@@ -60,18 +76,6 @@ body {
     height: 100%;
 }
 
-/*.header {
-    background-color: #1e3a59;
-    text-align: center;
-    color: white;
-    font-size: 36px;
-    padding: 25px;
-    position: relative;
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-    height:10%;
-    line-height: 1.2;
-}*/
 
 /*logowanie */
 
@@ -204,70 +208,7 @@ body {
     border-radius: 0 0 10px 10px;
 }
 
-.circle, .ring {
-    position: absolute;
-    z-index: -1;
-    border-radius: 50%;
-    opacity: 0.6;
-}
 
-
-.circle {
-    background-color: #1c3757;
-}
-
-
-.ring {
-    border: 10px solid #1c3757;
-    background: transparent;
-}
-
-
-.circle.circle-1 {
-    width: 150px;
-    height: 150px;
-    left: -6%;
-    top: 50%;
-}
-
-.circle.circle-2 {
-    background-color: #46ACC2;
-    width: 150px;
-    height: 150px;
-    right: 10%;
-    top: 22%;
-}
-
-.circle.circle-3 {
-    background-color: #1c3757;
-    opacity: 0;
-    width: 200px;
-    height: 200px;
-    left: 50%;
-    top: 8%;
-}
-
-.ring.ring-1 {
-    width: 100px;
-    height: 100px;
-    right: 5%;
-    top: 5%;
-}
-
-.ring.ring-2 {
-    width: 180px;
-    height: 180px;
-    left: 5%;
-    bottom: 15%;
-}
-
-.ring.ring-3 {
-    border: 10px solid #3f6f7a;
-    width: 150px;
-    height: 150px;
-    right: -10%;
-    top: 80%;
-}
 
 .sidebar {
     background-color: #1e3a59;

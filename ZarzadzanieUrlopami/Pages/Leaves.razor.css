@@ -1,0 +1,92 @@
+﻿/* Struktura kontenera */
+.moje-dane-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2rem;
+}
+
+/* Wrapper dla formularza */
+.moje-dane-wrapper {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Definicje pól formularza */
+.card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+    .card .row dd {
+        margin-bottom: 1rem;
+    }
+
+    .card label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+input.form-control,
+textarea.form-control,
+select.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+button.btn {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #46ACC2;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button.btn:hover {
+        background-color: #1e3a59;
+    }
+
+/* Komunikaty */
+.alert {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.alert-success {
+    background-color: #e0f2f1;
+    color: #00796b;
+}
+
+.alert-danger {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+
+h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-top: -2rem; 
+    margin-bottom: 1rem; 
+    color: #1e3a59;
+    text-align: center;
+   
+}
