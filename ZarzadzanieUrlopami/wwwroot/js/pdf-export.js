@@ -142,7 +142,7 @@ window.exportToPdf = async function (elementId, title) {
         );
         
         // Save the PDF
-        pdf.save(`Raport_${title.replace(/\s+/g, '_')}.pdf`);
+        pdf.save(`Raport_${title.replace(/\s+/g, '_').replace(/_-_/g, '_')}.pdf`);
         
     } catch (error) {
         console.error('B³¹d podczas generowania PDF:', error);
