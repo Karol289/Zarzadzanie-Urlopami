@@ -64,10 +64,13 @@ public class ReportsService
         var urlopyIds = urlopy.Select(u => u.IdUrlopu);
         var zwolnieniaIds = zwolnienia.Select(z => z.IdZwolnienia);
 
-        return await ctx.Pracownicies
+        var pracownicy = await ctx.Pracownicies
             .Where(p => pracownicyIds.Contains(p.IdPracownika))
             .Include(p => p.Urlopies.Where(u => urlopyIds.Contains(u.IdUrlopu))).ThenInclude(u => u.IdStatusuNavigation)
+            .Include(p => p.Urlopies.Where(u => urlopyIds.Contains(u.IdUrlopu))).ThenInclude(u => u.IdTypuUrlopuNavigation)
             .Include(p => p.ZwolnieniaLekarskies.Where(z => zwolnieniaIds.Contains(z.IdZwolnienia))).ThenInclude(z => z.IdTypuNavigation)
             .ToListAsync();
+
+        return pracownicy;
     }
 }
