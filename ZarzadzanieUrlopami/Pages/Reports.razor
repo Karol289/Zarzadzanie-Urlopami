@@ -2,7 +2,7 @@
 @using ZarzadzanieUrlopami.Models
 @using ZarzadzanieUrlopami.Service
 @using System.Globalization
-
+@inject IJSRuntime JSRuntime
 @inject ReportsService reportsService
 
 <div class="report-page">
@@ -19,6 +19,10 @@
                     </ul>
                 </div>
                 <button class="report-button" @onclick="LoadReport">Pokaż raport</button>
+                @if (pracownicy != null && pracownicy.Any())
+                {
+                    <button class="export-button" @onclick="ExportToPdf">Eksportuj do PDF</button>
+                }
             </div>
         </div>
 
@@ -30,7 +34,7 @@
         }
         else if (pracownicy != null && pracownicy.Any())
         {
-            <div class="table-responsive">
+            <div id="reportContent" class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
@@ -47,38 +51,40 @@
                                 <td>
                                     @if (pracownik.Urlopies.Any())
                                     {
-                                        <ul class="absence-list">
+                                        <ul class="absence-list pdf-compact">
                                             @foreach (var urlop in pracownik.Urlopies)
                                             {
                                                 <li>
-                                                    <strong>@urlop.IdTypuUrlopuNavigation?.Nazwa</strong>
-                                                    @FormatDateRange(urlop.DataPocz, urlop.DataKon)
-                                                    <br />
-                                                    <span class="badge @GetStatusClass(urlop.IdStatusu)">
-                                                        @urlop.IdStatusuNavigation?.Wyjaśnienie
-                                                    </span>
+                                                    <div>
+                                                        <span class="absence-type">@urlop.IdTypuUrlopuNavigation?.Nazwa</span>
+                                                        <span class="absence-date">@FormatDateRange(urlop.DataPocz, urlop.DataKon)</span>
+                                                    </div>
+                                                    <div class="status-badge">
+                                                        <span class="badge @GetStatusClass(urlop.IdStatusu)">
+                                                            @urlop.IdStatusuNavigation?.Wyjaśnienie
+                                                        </span>
+                                                    </div>
                                                 </li>
                                             }
                                         </ul>
                                     }
                                     else
                                     {
-                                        <span>Brak urlopów w tym miesiącu</span>
+                                        <span>Brak urlopów</span>
                                     }
                                 </td>
                                 <td>
                                     @if (pracownik.ZwolnieniaLekarskies.Any())
                                     {
-                                        <ul class="absence-list">
+                                        <ul class="absence-list pdf-compact">
                                             @foreach (var zwolnienie in pracownik.ZwolnieniaLekarskies)
                                             {
                                                 <li>
-                                                    <strong>@zwolnienie.IdTypuNavigation?.Nazwa</strong>
-                                                    @FormatDateRange(zwolnienie.DataPocz, zwolnienie.DataKon)
+                                                    <span class="absence-type">@zwolnienie.IdTypuNavigation?.Nazwa</span>
+                                                    <span class="absence-date">@FormatDateRange(zwolnienie.DataPocz, zwolnienie.DataKon)</span>
                                                     @if (!string.IsNullOrEmpty(zwolnienie.Opis))
                                                     {
-                                                        <br />
-                                                        <small>@zwolnienie.Opis</small>
+                                                        <small class="absence-note">@zwolnienie.Opis</small>
                                                     }
                                                 </li>
                                             }
@@ -86,7 +92,7 @@
                                     }
                                     else
                                     {
-                                        <span>Brak zwolnień lekarskich w tym miesiącu</span>
+                                        <span>Brak zwolnień</span>
                                     }
                                 </td>
                             </tr>
@@ -141,6 +147,19 @@
         pracownicy = await reportsService.GetPracownicyWithAbsencesInMonth(CurrentMonth, CurrentYear);
         isLoading = false;
         StateHasChanged();
+    }
+
+    private async Task ExportToPdf()
+    {
+        if (pracownicy == null || !pracownicy.Any())
+        {
+            await JSRuntime.InvokeVoidAsync("alert", "Brak danych do wygenerowania raportu PDF.");
+            return;
+        }
+
+        var reportTitle = $"Raport nieobecności - {CurrentMonthName} {CurrentYear}";
+        
+        await JSRuntime.InvokeVoidAsync("exportToPdf", "reportContent", reportTitle);
     }
 
     private string FormatDateRange(DateOnly? start, DateOnly? end)

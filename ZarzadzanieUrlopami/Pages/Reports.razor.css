@@ -95,22 +95,47 @@
     width: 90%;
 }
 
+.export-button {
+    padding: 10px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(40, 167, 69, 0.2);
+    margin: 0 auto 15px;
+    display: block;
+    width: 90%;
+}
+
 .report-button:hover {
     background: #025aa5;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(2, 117, 216, 0.3);
 }
 
-.report-button:active {
+.export-button:hover {
+    background: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(40, 167, 69, 0.3);
+}
+
+.report-button:active, .export-button:active {
     transform: translateY(0);
 }
 
 .absence-list {
-    padding-left: 10px; 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .absence-list li {
-    margin-bottom: 2px; 
+    margin-bottom: 0.5rem;
     padding: 4px;
     border-left: 3px solid #0275d8;
     background-color: rgba(2, 117, 216, 0.05);
@@ -119,6 +144,47 @@
 
 .absence-list li:empty {
     display: none;
+}
+
+.absence-type {
+    font-weight: bold;
+    display: block;
+    margin-right: 5px;
+}
+
+.absence-date {
+    display: block;
+    color: #555;
+    font-size: 11px;
+}
+
+.absence-note {
+    font-size: 0.9rem;
+    color: #777;
+    display: block;
+    width: 100%;
+    margin-top: 2px;
+}
+
+.pdf-compact {
+    padding-left: 5px;
+    margin: 0;
+}
+
+.pdf-compact li {
+    padding: 2px 4px;
+    margin-bottom: 1px;
+    font-size: 12px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+
+  
+}
+
+.pdf-compact li > div:first-child {
+    width: 100%;
 }
 
 .table-responsive {
@@ -154,6 +220,23 @@
     background-color: #f1f1f1;
 }
 
+.status-badge {
+    margin-top: 0.5rem;
+    display: block;
+    width: 100%;
+}
+
+
+.bg-success {
+    background-color: #28a745;
+    color: white;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    display: inline-block;
+}
+   
+
 @media (max-width: 768px) {
     .month ul li {
         font-size: 14px;
@@ -163,7 +246,7 @@
         font-size: 12px;
     }
     
-    .report-button {
+    .report-button, .export-button {
         padding: 10px 14px;
         font-size: 14px;
     }
