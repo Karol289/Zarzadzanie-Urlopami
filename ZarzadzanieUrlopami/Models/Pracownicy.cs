@@ -40,9 +40,7 @@ public partial class Pracownicy
     [Phone(ErrorMessage = "Nieprawidłowy format numeru telefonu")]
     public string? Telefon { get; set; }
 
-    [Required(ErrorMessage = "Hasło jest wymagane")]
-    [MinLength(8, ErrorMessage = "Hasło musi mieć co najmniej 8 znaków")]
-    public string? Haslo { get; set; }
+    public string? HasloHash { get; set; }
 
     public virtual ICollection<DniRobocze> DniRoboczes { get; set; } = new List<DniRobocze>();
 

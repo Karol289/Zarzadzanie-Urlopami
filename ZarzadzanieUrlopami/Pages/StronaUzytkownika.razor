@@ -124,7 +124,7 @@ else
                 return;
             }
 
-            if (user.Haslo != stareHaslo)
+            if (user.HasloHash != stareHaslo)
             {
                 blad = "Stare hasło jest nieprawidłowe.";
                 return;
@@ -136,7 +136,7 @@ else
                 return;
             }
 
-            user.Haslo = noweHaslo;
+            user.HasloHash = noweHaslo;
         }
 
         await PracownicyService.AktualizujPracownika(user);
