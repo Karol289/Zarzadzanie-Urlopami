@@ -1,6 +1,5 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-
 * {
     padding: 0;
     margin: 0;
@@ -25,12 +24,7 @@ body {
     position: relative;
 }
 
-
-
-
-/*// logowanie */
-
-
+/* Logowanie */
 .validation-errors {
     list-style: none;
     margin-top: 20px;
@@ -48,8 +42,6 @@ body {
         margin-bottom: 5px;
     }
 
-
-
 label {
     font-size: 14px;
     font-weight: 600;
@@ -58,12 +50,9 @@ label {
     display: block;
 }
 
-
 .form-group {
     margin-bottom: 20px;
 }
-
-
 
 .form-control {
     width: 100%;
@@ -76,25 +65,17 @@ label {
 }
 
     .form-control:focus {
-        border-color: #5cb85c; 
+        border-color: #5cb85c;
         outline: none;
     }
 
-
 .login-image {
     display: block;
-    margin: 0 auto 20px auto; 
+    margin: 0 auto 20px auto;
     width: 25%;
-    max-width: 200px; 
+    max-width: 200px;
     height: auto;
 }
-
-
-
-
-
-
-
 
 .calendar-container {
     position: relative;
@@ -110,10 +91,8 @@ label {
     overflow: auto;
 }
 
-
-
 .month {
-    position: relative; 
+    position: relative;
     background-color: #1e3a59;
     color: white;
     text-align: center;
@@ -136,8 +115,6 @@ label {
             letter-spacing: 2px;
         }
 
-
-
     .month .prev,
     .month .next {
         font-size: 30px;
@@ -149,7 +126,7 @@ label {
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s;
         position: absolute;
-        top: 50%; 
+        top: 50%;
         transform: translateY(-50%);
     }
 
@@ -165,8 +142,6 @@ label {
             border-color: #004a7c;
         }
 
-
-
     .month .prev {
         left: 15px;
     }
@@ -174,7 +149,6 @@ label {
     .month .next {
         right: 15px;
     }
-
 
 .calendar td:nth-child(6) {
     background-color: #e6f7fb;
@@ -186,13 +160,11 @@ label {
     font-weight: bold;
 }
 
-
     .calendar td:nth-child(6):hover,
     .calendar td:nth-child(7):hover {
         background-color: #b0e0e6;
         cursor: pointer;
     }
-
 
 table.calendar {
     border-collapse: collapse;
@@ -227,24 +199,145 @@ td {
     background-color: red;
 }
 
-
-
 .hero-image {
-    max-width: 10000px; 
+    max-width: 10000px;
     width: 100%;
     position: relative;
     left: 0;
 }
 
-
-
-/*strona uzytkownika*/
-
 form.moje-dane-form {
     width: 500px;
-    height:auto;
-  
+    height: auto;
 }
 
+/* Tryb średniego kontrastu */
+.medium-contrast table.calendar th,
+.medium-contrast table.calendar td {
+    background-color: #ccc; /* Jasnoszare tło */
+    color: #000; /* Ciemny tekst */
+    border: 2px solid #888; /* Szare obramowanie */
+}
+
+.medium-contrast .month {
+    background-color: #1e3a59;
+    color: white;
+    border-bottom: 3px solid #4d6d8b; /* Subtelny niebieski akcent na miesiąc */
+}
+
+.medium-contrast .calendar td {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #e0e0e0; /* Delikatne, szare obramowanie komórek */
+}
+
+    .medium-contrast .calendar td:hover {
+        background-color: #a2c2e2; /* Subtelny niebieski na hover */
+        border-color: #d0e6f2; /* Jaśniejsze obramowanie przy hover */
+    }
+
+.medium-contrast .month .prev,
+.medium-contrast .month .next {
+    background-color: #1e3a59;
+    color: white;
+    border: 2px solid #4d6d8b; /* Subtelne niebieskie obramowanie przycisków nawigacji */
+}
+
+    .medium-contrast .month .prev:hover,
+    .medium-contrast .month .next:hover {
+        background-color: #e6f7fb;
+        color: #1e3a59; /* Jasnoniebieskie tło z ciemniejszym tekstem przy hover */
+    }
+
+/* Dostosowanie przycisków w trybach kontrastów */
+.medium-contrast .month .prev,
+.medium-contrast .month .next {
+    background-color: #1e3a59;
+    color: white;
+}
+
+/* Tryb wysokiego kontrastu */
+.high-contrast table.calendar th,
+.high-contrast table.calendar td {
+    background-color: #000; /* Czarne tło */
+    color: #fff; /* Biały tekst */
+    border: 2px solid #ffcc00; /* Żółte obramowanie */
+}
+
+.high-contrast .month {
+    background-color: #000;
+    color: #fff;
+    border-bottom: 3px solid #ffcc00; /* Dodanie żółtego akcentu */
+}
+
+.high-contrast .calendar td {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #ffcc00; /* Żółte obramowanie komórek */
+}
+
+    .high-contrast .calendar td:hover {
+        background-color: #555; /* Jaśniejszy szary na hover */
+        border-color: #ffcc00; /* Żółte obramowanie przy hover */
+    }
+
+.high-contrast .month .prev,
+.high-contrast .month .next {
+    background-color: #ffffff;
+    color: #000;
+    border: 2px solid #ffcc00; /* Żółte obramowanie przycisków nawigacji */
+}
+
+    .high-contrast .month .prev:hover,
+    .high-contrast .month .next:hover {
+        background-color: #ffcc00;
+        color: #000;
+    }
+
+/* Dostosowanie przycisków w trybach kontrastów */
+.low-contrast .month .prev,
+.low-contrast .month .next {
+    background-color: #004a7c;
+    color: white;
+}
+
+.medium-contrast .month .prev,
+.medium-contrast .month .next {
+    background-color: #1e3a59;
+    color: white;
+}
+
+.high-contrast .month .prev,
+.high-contrast .month .next {
+    background-color: #ffffff;
+    color: #000;
+}
+
+    .high-contrast .month .prev:hover,
+    .high-contrast .month .next:hover {
+        background-color: #f1f1f1;
+        color: #000;
+    }
 
 
+
+/* Skalowanie rozmiaru czcionki dla całego kontenera */
+.small-font {
+    font-size: 0.875rem; /* ~14px */
+}
+
+.normal-font {
+    font-size: 1rem; /* ~16px */
+}
+
+.large-font {
+    font-size: 1.5rem; /* ~20px */
+}
+
+/* Przycisk nawigacji w kalendarzu dziedziczy rozmiar */
+.month .prev,
+.month .next,
+.calendar th,
+.calendar td {
+    font-size: inherit;
+}

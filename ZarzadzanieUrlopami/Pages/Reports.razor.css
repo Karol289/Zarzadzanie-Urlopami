@@ -207,7 +207,7 @@
 }
 
 .table-responsive th {
-    background-color: #0275d8;
+    background-color: #00acc1;
     color: white;
     font-weight: bold;
 }
@@ -254,4 +254,109 @@
     .absence-list li {
         padding: 5px;
     }
+}
+
+/* --- Tryby kontrastu --- */
+
+/* Domyœlny, niski kontrast - ³agodny, stonowany */
+.report-page.low-contrast {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+    .report-page.low-contrast a,
+    .report-page.low-contrast th,
+    .report-page.low-contrast .status-badge {
+        color: #0275d8; /* niebieski */
+    }
+
+    .report-page.low-contrast .month {
+        background-color: #0275d8;
+        color: white;
+    }
+
+/* Œredni kontrast - wyraŸniejszy, mocniejsze kolory */
+.report-page.medium-contrast {
+    background-color: #f0f8ff; /* jasny b³êkit */
+    color: #000000;
+}
+
+    .report-page.medium-contrast a,
+    .report-page.medium-contrast th,
+    .report-page.medium-contrast .status-badge {
+        color: #0056b3; /* ciemniejszy niebieski */
+    }
+
+    .report-page.medium-contrast .month {
+        background-color: #0056b3;
+        color: white;
+    }
+
+/* Wysoki kontrast - bardzo mocne odcienie i kontrasty */
+.report-page.high-contrast {
+    background-color: black;
+    color: #ffffff;
+}
+
+    .report-page.high-contrast a,
+    .report-page.high-contrast th,
+    .report-page.high-contrast .status-badge {
+        color: #ffff00; /* ¿ó³ty dla kontrastu */
+        font-weight: bold;
+    }
+
+    .report-page.high-contrast .month {
+        background-color: #000000;
+        color: #ffff00;
+        border-bottom: 2px solid #ffff00;
+    }
+
+/* --- Rozmiary czcionki --- */
+
+.report-page.small-font {
+    font-size: 0.8rem;
+}
+
+.report-page.normal-font {
+    font-size: 1rem; /* domyœlny */
+}
+
+.report-page.large-font {
+    font-size: 1.25rem;
+}
+
+/* Mo¿esz dopasowaæ wielkoœci w elementach szczegó³owych */
+
+.report-page.small-font .report-button,
+.report-page.small-font .export-button {
+    font-size: 12px;
+}
+
+.report-page.large-font .report-button,
+.report-page.large-font .export-button {
+    font-size: 18px;
+}
+
+/* Skalowanie nag³ówków */
+
+.report-page.small-font h3 {
+    font-size: 1.2rem;
+}
+
+.report-page.normal-font h3 {
+    font-size: 1.5rem;
+}
+
+.report-page.large-font h3 {
+    font-size: 1.8rem;
+}
+
+/* Paddingi i marginesy w trybie du¿ej czcionki */
+
+.report-page.large-font .month ul li {
+    font-size: 22px;
+}
+
+.report-page.small-font .month ul li {
+    font-size: 14px;
 }

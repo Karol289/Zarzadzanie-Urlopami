@@ -2,73 +2,104 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 
-<div class="container">
-
+<div class="container @GetContrastClass() @GetFontSizeClass()">
     <div class="sidebar">
         <NavMenu />
     </div>
 
     <div class="mainbar">
-     <div class="header">
-    <p class="title">Zarządzanie Urlopami</p>
+        <div class="header">
+            <!-- Lewy panel z przyciskami dostępności -->
+         <div class="accessibility-left-buttons">
+    <button @onclick="ToggleContrastMode"
+            class="@(contrastMode == "low-contrast" ? "active" : "")">
+        🧩 Tryb kontrastu
+    </button>
 
-    <AuthorizeView>
-        <Authorized Context="authContext">
-            <div class="user-info fade-in">
-                 
-               
-                     <a href="/moje-dane"><img src="images/person.png" alt="Avatar" class="login-im"></a>
+    <button @onclick='() => SetFontSizeMode("small-font")' 
+            class="@(fontSizeMode == "small-font" ? "active" : "")">
+        A-
+    </button>
+    <button @onclick='() => SetFontSizeMode("normal-font")' 
+            class="@(fontSizeMode == "normal-font" ? "active" : "")">
+        A
+    </button>
+    <button @onclick='() => SetFontSizeMode("large-font")' 
+            class="@(fontSizeMode == "large-font" ? "active" : "")">
+        A+
+    </button>
+</div>
 
-                     <div class="right-user-info">
-                          <div>
-                    Zalogowano jako:
-                            @{
-                                var imie = authContext.User.FindFirst("Imie")?.Value;
-                                var wyswietlonaNazwa = !string.IsNullOrWhiteSpace(imie)
+
+            <p class="title">Zarządzanie Urlopami</p>
+
+            <AuthorizeView>
+                <Authorized Context="authContext">
+                    <div class="user-info fade-in">
+                        <a href="/moje-dane"><img src="images/person.png" alt="Avatar" class="login-img" /></a>
+                        <div class="right-user-info">
+                            <div>
+                                Zalogowano jako:
+                                @{
+                                    var imie = authContext.User.FindFirst("Imie")?.Value;
+                                    var wyswietlonaNazwa = !string.IsNullOrWhiteSpace(imie)
                                     ? imie
                                     : authContext.User.Identity?.Name;
-                            }
-                    <strong>@wyswietlonaNazwa</strong>
-                </div>
-                <div>
-                    Rola:
-                    <strong>@authContext.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</strong>
-                </div>
-                <button class="logout-btn" @onclick="Logout">
-                    <span class="oi oi-account-logout"></span> Wyloguj
-                </button>
-               </div>
-            </div>
-        </Authorized>
-    </AuthorizeView>
-</div>
+                                }
+                                <strong>@wyswietlonaNazwa</strong>
+                            </div>
+                            <div>
+                                Rola:
+                                <strong>@authContext.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</strong>
+                            </div>
+                            <button class="logout-btn" @onclick="Logout">
+                                <span class="oi oi-account-logout"></span> Wyloguj
+                            </button>
+                        </div>
+                    </div>
+                </Authorized>
+            </AuthorizeView>
+        </div>
 
         <div class="decorative-bar"></div>
 
         <div class="main">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
-            <div class="circle circle-3"></div>
-            <div class="ring ring-1"></div>
-            <div class="ring ring-2"></div>
-            <div class="ring ring-3"></div>
             @Body
         </div>
 
-        <footer class="footer">
-          
-        </footer>
+        <footer class="footer"></footer>
     </div>
 </div>
 
 @code {
+    private string contrastMode = "low-contrast"; // Domyślny tryb kontrastu
+    private string fontSizeMode = "normal-font";  // Domyślny rozmiar czcionki
+
+    private string GetContrastClass() => contrastMode;
+    private string GetFontSizeClass() => fontSizeMode;
+
+    private void ToggleContrastMode()
+    {
+        contrastMode = contrastMode switch
+        {
+            "" => "low-contrast",
+            "low-contrast" => "medium-contrast",
+            "medium-contrast" => "high-contrast",
+            _ => ""
+        };
+    }
+
+    private void SetFontSizeMode(string mode)
+    {
+        fontSizeMode = mode;
+    }
+
     private void Logout()
     {
         if (AuthenticationStateProvider is CustomAuthenticationStateProvider auth)
         {
             auth.MarkUserAsLoggedOut();
         }
-
         NavigationManager.NavigateTo("/login", forceLoad: true);
     }
 }

@@ -8,37 +8,43 @@
 
 <div class="main">
     <div id="login" class="section">
-        <h2> Logowanie użytkowników </h2>
+        <h2>Logowanie użytkowników</h2>
     </div>
 
     <img src="images/user2.png" alt="Login Image" class="login-image" />
 
     <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
-        @* Formularz logowania *@
-        <DataAnnotationsValidator /> @* Umożliwia walidację adnotacji *@
-        <ValidationSummary /> @* Wyświetla błędy walidacji *@
+
+        <DataAnnotationsValidator />
+
+        <ValidationSummary aria-live="assertive" />
 
         <div class="form-group">
             <i class="fas fa-user"></i>
-            <label>Email:</label>
-            <InputText class="form-control" @bind-Value="loginModel.Email" type="email" />
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="loginModel.Email" type="email" />
+
         </div>
 
         <div class="form-group">
             <i class="fas fa-lock"></i>
-            <label>Hasło:</label>
-            <InputText class="form-control" @bind-Value="loginModel.Password" type="password" />
+
+            <label for="password">Hasło:</label>
+            <InputText id="password" class="form-control" @bind-Value="loginModel.Password" type="password" />
+
         </div>
 
         <button type="submit" class="btn btn-primary">Zaloguj</button>
     </EditForm>
 
-    @* Wyświetlenie błędu, jeśli wystąpił *@
+
     @if (!string.IsNullOrEmpty(errorMessage))
     {
-        <div class="alert alert-danger">@errorMessage</div>
+        <div class="alert alert-danger" aria-live="assertive">@errorMessage</div>
     }
-</div>
+    </div>
+
+
 
 @code {
     private LoginModel loginModel = new LoginModel();
@@ -65,7 +71,6 @@
         var rola = user.IdRoliNavigation?.Nazwa ?? "BrakRoli";
         var imie = user.Imie ?? "";
 
-        // Ustawienie użytkownika jako zalogowanego
         if (AuthenticationStateProvider is CustomAuthenticationStateProvider customAuthStateProvider)
         {
             customAuthStateProvider.MarkUserAsAuthenticated(email, rola, imie);

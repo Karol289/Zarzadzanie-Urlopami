@@ -157,13 +157,13 @@ button.ok-button {
 }
 
 
-/* Legenda statusów w footerze */
+
 .footer-container {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    background-color: #f8f9fa; /* jasne tło */
-    border-top: 1px solid #e0e0e0; /* delikatna linia oddzielająca */
+    background-color: #f8f9fa; 
+    border-top: 1px solid #e0e0e0;
 }
 
 .footer-icons {
@@ -177,7 +177,7 @@ button.ok-button {
 
     .footer-icon i {
         font-size: 1.5rem;
-        color: #6c757d; /* szary kolor */
+        color: #6c757d;
     }
 
     .footer-icon span {
@@ -188,11 +188,176 @@ button.ok-button {
     }
 
     .footer-icon:hover i {
-        color: #1e3a59; /* Zmiana koloru ikony na niebieski przy hover */
-        transform: scale(1.2); /* Powiększenie ikony przy najechaniu */
+        color: #1e3a59; 
+        transform: scale(1.2); 
     }
 
     .footer-icon:hover span {
-        color: #1e3a59; /* Zmiana koloru napisu na niebieski przy hover */
+        color: #1e3a59; 
     }
 
+/* === TRYB ŚREDNI KONTRAST === */
+.medium-contrast .dialog,
+.medium-contrast .dialog-body,
+.medium-contrast .dialog-header,
+.medium-contrast .dialog-footer,
+.medium-contrast .footer-container {
+    background-color: #f5faff;
+    color: #000;
+}
+
+.medium-contrast .holiday-day,
+.medium-contrast .sick-day,
+.medium-contrast .substitute-day,
+.medium-contrast .work-shift-day {
+    color: #000;
+    border-left: 5px solid #888;
+}
+
+.medium-contrast .footer-icon i,
+.medium-contrast .footer-icon span {
+    color: #333;
+}
+
+
+/* Kolory dla różnych typów dni w kalendarzu */
+.medium-contrast .zmiana {
+    background-color: #d1d8dc !important; /* Jaśniejszy odcień szarości */
+}
+
+.medium-contrast .urlop {
+    background-color: #014f61 !important; /* Ciemniejszy odcień niebieskiego */
+}
+
+.medium-contrast .zwolnienie {
+    background-color: #d1c0a1 !important; /* Jasny beż */
+}
+
+.medium-contrast .zastepstwo {
+    background-color: #68b1a7 !important; /* Jasna zieleń */
+}
+
+/* Dzień dzisiejszy */
+.medium-contrast td.dzisiaj {
+    background-color: #a2c2e2; /* Jasnoniebieskie tło dla dnia dzisiejszego */
+    color: #000;
+}
+
+    .medium-contrast td.dzisiaj::before {
+        background-color: #66b3cc; /* Delikatniejszy niebieski */
+    }
+
+/* Przycisk OK w dialogu */
+.medium-contrast button.ok-button {
+    background-color: #66b3cc;
+    color: #fff;
+}
+
+.medium-contrast .dialog-header {
+    background-color: #f5faff;
+    color: #000;
+}
+
+/* Zmiany kolorów w stopce */
+.medium-contrast .footer-container {
+    background-color: #f0f8fa;
+}
+
+.medium-contrast .footer-icon i,
+.medium-contrast .footer-icon span {
+    color: #333;
+}
+
+.medium-contrast .footer-icon:hover i,
+.medium-contrast .footer-icon:hover span {
+    color: #1e3a59;
+}
+
+
+
+
+
+/* === TRYB WYSOKI KONTRAST === */
+.high-contrast .dialog,
+.high-contrast .dialog-body,
+.high-contrast .dialog-header,
+.high-contrast .dialog-footer,
+.high-contrast .footer-container {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid yellow;
+}
+
+.high-contrast .holiday-day,
+.high-contrast .sick-day,
+.high-contrast .substitute-day,
+.high-contrast .work-shift-day {
+    background-color: #000 !important;
+    color: yellow !important;
+    border-left: 5px solid yellow;
+}
+
+.high-contrast .footer-icon i,
+.high-contrast .footer-icon span {
+    color: yellow;
+}
+
+.high-contrast .footer-icon:hover i,
+.high-contrast .footer-icon:hover span {
+    color: orange;
+}
+
+/* Kolory dla różnych typów dni w kalendarzu */
+.high-contrast .zmiana {
+    background-color: #a7aaac !important; /* Bardziej nasycony, intensywniejszy szary */
+}
+
+.high-contrast .urlop {
+    background-color: #3ca2dd !important; /* Ciemniejszy, bardziej nasycony niebieski */
+}
+
+.high-contrast .zwolnienie {
+    background-color: #fecd58 !important; /* Głębszy, bardziej wyrazisty brązowo-czerwony */
+}
+
+.high-contrast .zastepstwo {
+    background-color: #3bd0b2 !important; /* Bardziej nasycony morski kolor */
+}
+
+
+/* Dzień dzisiejszy */
+.high-contrast td.dzisiaj {
+    background-color: #ffcc00; /* Żółte tło dla dnia dzisiejszego */
+    color: #000;
+}
+
+    .high-contrast td.dzisiaj::before {
+        background-color: #ff9900; /* Ciemniejszy żółty */
+    }
+
+/* Przycisk OK w dialogu */
+.high-contrast button.ok-button {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.high-contrast .dialog-header {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Zmiany kolorów w stopce */
+.high-contrast .footer-container {
+    background-color: #000;
+    color: #fff;
+}
+
+.high-contrast .footer-icon i,
+.high-contrast .footer-icon span {
+    color: yellow;
+}
+
+.high-contrast .footer-icon:hover i,
+.high-contrast .footer-icon:hover span {
+    color: orange;
+}
