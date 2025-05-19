@@ -109,7 +109,7 @@ public partial class UrlopyDbContext : DbContext
             entity.Property(e => e.DzieciPonizej14)
                 .HasDefaultValue(0)
                 .HasColumnName("dzieci_ponizej_14");
-            entity.Property(e => e.Haslo)
+            entity.Property(e => e.HasloHash)
                 .HasMaxLength(30)
                 .HasColumnName("haslo");
             entity.Property(e => e.IdRoli).HasColumnName("id_roli");

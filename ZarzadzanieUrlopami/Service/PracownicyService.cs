@@ -7,10 +7,12 @@ namespace ZarzadzanieUrlopami.Service
     public class PracownicyService
     {
         private readonly UrlopyDbContext _context;
+        private readonly PasswordService _passwordService;
 
         public PracownicyService(UrlopyDbContext context)
         {
             _context = context;
+            _passwordService = new PasswordService();
         }
 
         public async Task<List<Pracownicy>> GetPracownicyAsync()
@@ -23,10 +25,21 @@ namespace ZarzadzanieUrlopami.Service
             return await _context.Roles.ToListAsync();
         }
 
-        public async Task DodajPracownika(Pracownicy pracownik)
+        public async Task DodajPracownika(Pracownicy pracownik, string plainPassword)
         {
+            pracownik.HasloHash = _passwordService.HashPassword(plainPassword);
             _context.Pracownicies.Add(pracownik);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task AktualizujHasloPracownika(int id, string newPassword)
+        {
+            var pracownik = await _context.Pracownicies.FindAsync(id);
+            if (pracownik != null)
+            {
+                pracownik.HasloHash = _passwordService.HashPassword(newPassword);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task UsunPracownika(int id)
@@ -51,6 +64,5 @@ namespace ZarzadzanieUrlopami.Service
                 .Include(p => p.IdRoliNavigation)
                 .FirstOrDefaultAsync(p => p.Mail == email);
         }
-
     }
 }
