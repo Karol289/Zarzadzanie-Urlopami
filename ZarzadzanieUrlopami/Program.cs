@@ -22,6 +22,8 @@ builder.Services.AddScoped<TypyUrlopowService>();
 builder.Services.AddScoped<ScheduleService>();
 builder.Services.AddScoped<ReportsService>();
 builder.Services.AddScoped<PodaniaService>();
+builder.Services.AddScoped<PasswordService>();
+
 
 builder.Services.AddAuthorizationCore();
 

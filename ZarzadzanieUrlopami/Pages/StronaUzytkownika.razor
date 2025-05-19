@@ -5,6 +5,7 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using ZarzadzanieUrlopami.Models
 @using System.Security.Claims
+@inject Service.PasswordService _passwordService
 
 @if (isLoading)
 {
@@ -124,7 +125,10 @@ else
                 return;
             }
 
-            if (user.HasloHash != stareHaslo)
+            // Weryfikacja hasła za pomocą serwisu
+            bool poprawne = _passwordService.VerifyPassword(user.HasloHash, stareHaslo);
+
+            if (!poprawne)
             {
                 blad = "Stare hasło jest nieprawidłowe.";
                 return;
@@ -136,11 +140,12 @@ else
                 return;
             }
 
-            user.HasloHash = noweHaslo;
+            user.HasloHash = _passwordService.HashPassword(noweHaslo);
         }
 
         await PracownicyService.AktualizujPracownika(user);
         komunikat = "Dane zostały zapisane.";
         stareHaslo = noweHaslo = "";
     }
+
 }
