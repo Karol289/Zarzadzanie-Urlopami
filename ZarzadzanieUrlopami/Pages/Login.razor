@@ -6,40 +6,37 @@
 @inject ZarzadzanieUrlopami.Data.UrlopyDbContext DbContext
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
- <div class="main">
-         <div id="login" class="section">
-                <h2> Logowanie uzytkowników </h2>
-                           </div>
-            
-                <img src="images/user2.png" alt="Login Image" class="login-image">
-            
-
-
-<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
-    <DataAnnotationsValidator />
-   @*  <ValidationSummary class="validation-errors" /> *@
-
-    <ValidationSummary />
-
-    <div class="form-group">
-         <i class="fas fa-user"></i>
-        <label>Email:</label>
-        <InputText class="form-control" @bind-Value="loginModel.Email"  type="email" />
+<div class="main">
+    <div id="login" class="section">
+        <h2>Logowanie użytkowników</h2>
     </div>
-    <div class="form-group">
-        <i class="fas fa-lock"></i>
-        <label>Hasło:</label>
-        <InputText class="form-control"  @bind-Value="loginModel.Password" type="password" />
-    </div>
-    <button type="submit" class="btn btn-primary">Zaloguj</button>
-</EditForm>
 
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div  class="alert alert-danger">@errorMessage</div>
-}
+    <img src="images/user2.png" alt="Login Image" class="login-image" />
 
+    <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+        <DataAnnotationsValidator />
 
+        <ValidationSummary aria-live="assertive" />
+
+        <div class="form-group">
+            <i class="fas fa-user"></i>
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="loginModel.Email" type="email" />
+        </div>
+
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <label for="password">Hasło:</label>
+            <InputText id="password" class="form-control" @bind-Value="loginModel.Password" type="password" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Zaloguj</button>
+    </EditForm>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger" aria-live="assertive">@errorMessage</div>
+    }
 </div>
 
 @code {
@@ -58,12 +55,10 @@
             return;
         }
 
-        // Pobierz dane do Claims
         var email = user.Mail ?? "";
         var rola = user.IdRoliNavigation?.Nazwa ?? "BrakRoli";
         var imie = user.Imie ?? "";
 
-        // Rzutujemy do naszego customowego AuthProvidera
         if (AuthenticationStateProvider is CustomAuthenticationStateProvider customAuthStateProvider)
         {
             customAuthStateProvider.MarkUserAsAuthenticated(email, rola, imie);

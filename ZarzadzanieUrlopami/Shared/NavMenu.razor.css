@@ -22,17 +22,30 @@
     font-size: 0.85rem;
 }
 
-
+/*
 .logo {
     position: absolute;
     left: 65px;
     top: 9%;
     transform: translateY(-50%);
-    height: 12%;
+    height: 100px;
+    width : 100px;
     margin-bottom: 20px;
     text-align: center;
 }
+*/
 
+.logo {
+    position: absolute;
+    top: 20px; /*  sta³a odleg³oœæ od góry */
+    left: 50%; /*  wyœrodkowanie poziome */
+    transform: translateX(-50%); /*  tylko poziome przesuniêcie! */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 3px #031f3c;
+    display: block;
+}
 
 
 .flex-column{
@@ -95,3 +108,32 @@
     align-items: center
         }
 
+/*sdreni kontrast*/
+.medium-contrast .nav-item ::deep a {
+    background-color: #ddd !important;
+    color: #000 !important;
+}
+
+    .medium-contrast .nav-item ::deep a.active {
+        background-color: #aaa !important;
+        color: #000 !important;
+    }
+
+/*duzy kotrast*/
+.high-contrast .nav-item ::deep a {
+    background-color: #000 !important;
+    color: yellow !important;
+}
+
+    .high-contrast .nav-item ::deep a.active {
+        background-color: yellow !important;
+        color: black !important;
+    }
+
+.high-contrast .sidebar .logo {
+    box-shadow: 0 0 8px 3px yellow;
+    /* border: 3px solid yellow; 
+    padding: 10px;
+    border-radius: 50%; 
+    display: inline-block*/
+}

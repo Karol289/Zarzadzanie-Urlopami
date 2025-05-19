@@ -39,6 +39,7 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\Components\Calendar.razor" />
     <_ContentIncludedByDefault Remove="Pages\Components\Kalendarz.razor" />
+    <_ContentIncludedByDefault Remove="wwwroot\images\logo3a.png" />
   </ItemGroup>
 
   <ItemGroup>

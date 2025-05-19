@@ -90,3 +90,67 @@ h3 {
     text-align: center;
    
 }
+
+
+/* Tryb wysoki kontrast */
+.high-contrast .moje-dane-wrapper,
+.high-contrast .card {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid yellow;
+}
+
+.high-contrast input.form-control,
+.high-contrast textarea.form-control,
+.high-contrast select.form-control {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid yellow;
+}
+
+.high-contrast button.btn {
+    background-color: yellow;
+    color: black;
+}
+
+    .high-contrast button.btn:hover {
+        background-color: orange;
+        color: black;
+    }
+
+.high-contrast h3 {
+    color: yellow;
+}
+
+
+/* ROZMIAR CZCIONKI – skalowanie całego kontenera */
+.small-font .moje-dane-container {
+    font-size: 0.85rem;
+}
+
+.normal-font .moje-dane-container {
+    font-size: 1rem; /* Domyślna wartość */
+}
+
+.large-font .moje-dane-container {
+    font-size: 1.25rem;
+}
+
+/* Ewentualnie dla nagłówka, jeśli chcesz go skalować osobno */
+.small-font .moje-dane-container h3 {
+    font-size: 2rem;
+}
+
+.normal-font .moje-dane-container h3 {
+    font-size: 2.5rem;
+}
+
+.large-font .moje-dane-container h3 {
+    font-size: 2.8rem;
+}
+
+button.btn,
+.font-size-button {
+    font-size: inherit;
+}
+
