@@ -2,8 +2,8 @@
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    height: 600px;
-     background-image: url("images/login4.png");
+    min-height: 600px;
+    background-image: url("images/login4.png");
     background-size: cover;
     background-position: center;
     border-radius: 8px;
@@ -40,3 +40,136 @@ button.btn {
 
 
 
+/* === TRYB ŚREDNI KONTRAST === */
+.medium-contrast .main {
+    background-image: url("images/login4.png");
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f0f0;
+}
+
+.medium-contrast #login h2 {
+    color: #333; 
+}
+
+.medium-contrast button.btn {
+    background: linear-gradient(45deg, #5dbbcd, #7bb8d9);
+    color: #fff;
+}
+
+    .medium-contrast button.btn:hover {
+        background: linear-gradient(45deg, #336a9a, #1d3b4c);
+    }
+
+.medium-contrast .form-group {
+    color: #333; 
+}
+
+.medium-contrast .form-control {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+    .medium-contrast .form-control:focus {
+        border-color: #41c4ee;
+    }
+
+/* === TRYB WYSOKI KONTRAST === */
+.high-contrast .main {
+    background-color: #000;
+    color: #fff;
+    background-image: none;
+    border: 3px solid yellow; 
+}
+
+.high-contrast .form-control {
+    background-color: #333;
+    border: 1px solid yellow; 
+    color: #fff;
+}
+
+    .high-contrast .form-control:focus {
+        border-color: yellow; 
+    }
+
+.high-contrast button.btn {
+    background: linear-gradient(45deg, #ffcc00, #ff9900);
+    color: #fff;
+    border: 2px solid yellow; 
+}
+
+.high-contrast #login h2 {
+    color: #f5b700; 
+}
+
+.high-contrast button.btn {
+    background: linear-gradient(45deg, #f5b700, #f9c34c); 
+}
+
+    .high-contrast button.btn:hover {
+        background: linear-gradient(45deg, red, yellow); 
+    }
+
+
+/* === ROZMIARY CZCIONKI (globalne) === */
+.normal-font {
+    font-size: 1rem;
+}
+
+.large-font {
+    font-size: 1.25rem;
+}
+
+.small-font {
+    font-size: 0.85rem;
+}
+
+/* === ROZMIARY NAGŁÓWKA === */
+.normal-font h1,
+.normal-font h2,
+.normal-font h3 {
+    font-size: 24px !important;
+}
+
+.large-font h1,
+.large-font h2,
+.large-font h3 {
+    font-size: 36px !important;
+}
+
+.small-font h1,
+.small-font h2,
+.small-font h3 {
+    font-size: 16px !important;
+}
+
+/* === ROZMIARY LABELI === */
+.normal-font label {
+    font-size: 18px;
+}
+
+.large-font label {
+    font-size: 22px;
+}
+
+.small-font label {
+    font-size: 14px;
+}
+
+/* === ROZMIARY PRZYCISKÓW === */
+.normal-font button.btn {
+    font-size: 18px;
+    padding: 14px;
+}
+
+.large-font button.btn {
+    font-size: 22px;
+    padding: 16px;
+}
+
+.small-font button.btn {
+    font-size: 14px;
+    padding: 12px;
+}
+}

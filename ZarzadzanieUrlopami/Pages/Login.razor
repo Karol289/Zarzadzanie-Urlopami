@@ -1,46 +1,50 @@
-﻿@page "/login"
+﻿@page "/login"  // Ustala adres URL strony jako /login
 @using ZarzadzanieUrlopami.Models
 @using Microsoft.EntityFrameworkCore
 @using System.ComponentModel.DataAnnotations
-@inject NavigationManager NavigationManager
-@inject ZarzadzanieUrlopami.Data.UrlopyDbContext DbContext
-@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager  // Wstrzyknięcie serwisu do nawigacji
+@inject ZarzadzanieUrlopami.Data.UrlopyDbContext DbContext  // Wstrzyknięcie kontekstu bazy danych
+@inject AuthenticationStateProvider AuthenticationStateProvider  // Wstrzyknięcie providera uwierzytelnienia
 
- <div class="main">
-         <div id="login" class="section">
-                <h2> Logowanie uzytkowników </h2>
-                           </div>
-            
-                <img src="images/user2.png" alt="Login Image" class="login-image">
-            
-
-
-<EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
-    <DataAnnotationsValidator />
-   @*  <ValidationSummary class="validation-errors" /> *@
-
-    <ValidationSummary />
-
-    <div class="form-group">
-         <i class="fas fa-user"></i>
-        <label>Email:</label>
-        <InputText class="form-control" @bind-Value="loginModel.Email"  type="email" />
+<div class="main">
+    <div id="login" class="section">
+        <h2>Logowanie użytkowników</h2>
     </div>
-    <div class="form-group">
-        <i class="fas fa-lock"></i>
-        <label>Hasło:</label>
-        <InputText class="form-control"  @bind-Value="loginModel.Password" type="password" />
+
+    <img src="images/user2.png" alt="Login Image" class="login-image" />
+
+    <EditForm Model="@loginModel" OnValidSubmit="HandleLogin">
+
+        <DataAnnotationsValidator />
+
+        <ValidationSummary aria-live="assertive" />
+
+        <div class="form-group">
+            <i class="fas fa-user"></i>
+            <label for="email">Email:</label>
+            <InputText id="email" class="form-control" @bind-Value="loginModel.Email" type="email" />
+
+        </div>
+
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+
+            <label for="password">Hasło:</label>
+            <InputText id="password" class="form-control" @bind-Value="loginModel.Password" type="password" />
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Zaloguj</button>
+    </EditForm>
+
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger" aria-live="assertive">@errorMessage</div>
+    }
     </div>
-    <button type="submit" class="btn btn-primary">Zaloguj</button>
-</EditForm>
-
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div  class="alert alert-danger">@errorMessage</div>
-}
 
 
-</div>
 
 @code {
     private LoginModel loginModel = new LoginModel();
@@ -48,22 +52,25 @@
 
     private async Task HandleLogin()
     {
+        // Pobranie użytkownika z bazy danych po adresie email
         var user = await DbContext.Pracownicies
             .Include(u => u.IdRoliNavigation)
             .FirstOrDefaultAsync(u => u.Mail == loginModel.Email);
 
-        if (user == null || user.Haslo != loginModel.Password)
+        // Sprawdzenie poprawności danych logowania przy użyciu haszowania
+        var passwordService = new ZarzadzanieUrlopami.Service.PasswordService();
+
+        if (user == null || !passwordService.VerifyPassword(user.HasloHash, loginModel.Password))
         {
             errorMessage = "Nieprawidłowy email lub hasło.";
             return;
         }
 
-        // Pobierz dane do Claims
+        // Pobranie danych użytkownika do tokena uwierzytelniającego
         var email = user.Mail ?? "";
         var rola = user.IdRoliNavigation?.Nazwa ?? "BrakRoli";
         var imie = user.Imie ?? "";
 
-        // Rzutujemy do naszego customowego AuthProvidera
         if (AuthenticationStateProvider is CustomAuthenticationStateProvider customAuthStateProvider)
         {
             customAuthStateProvider.MarkUserAsAuthenticated(email, rola, imie);
@@ -81,3 +88,4 @@
         public string Password { get; set; }
     }
 }
+

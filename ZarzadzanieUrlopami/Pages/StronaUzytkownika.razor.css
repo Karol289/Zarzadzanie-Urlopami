@@ -1,21 +1,16 @@
-﻿
-
-
-.moje-dane-container {
+﻿.moje-dane-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2rem;
     margin-top: 1rem;
-   
 }
-
 
 .moje-dane-wrapper {
     display: flex;
     justify-content: center;
     padding: 2rem;
-    margin-top: -1rem; 
+    margin-top: -1rem;
 }
 
 .card {
@@ -41,9 +36,6 @@ form,
     justify-content: center;
     margin: 0 auto;
 }
-
-
-
 
 dl.row {
     margin: 0;
@@ -81,22 +73,18 @@ input[type="number"] {
     transition: border-color 0.3s ease;
     font-size: 1rem;
     box-sizing: border-box;
- 
 }
 
 input:focus {
     border-color: #46ACC2;
 }
 
-
-
-
 .password-section {
     background-color: #F0F8FA;
-    padding: 1rem; 
+    padding: 1rem;
     border-radius: 0.75rem;
-    border: 0.5px solid #cce5ea; 
-    font-size: 1.1rem; 
+    border: 0.5px solid #cce5ea;
+    font-size: 1.1rem;
 }
 
     .password-section h5 {
@@ -106,14 +94,14 @@ input:focus {
         padding-left: 0.75rem;
         background-color: #F0F8FA;
         border-radius: 0.5rem;
-        margin-top: 0; 
+        margin-top: 0;
         margin-bottom: 1rem;
     }
 
 /* Przycisk */
 button.btn {
     display: block;
-    margin-top: 1rem; 
+    margin-top: 1rem;
     margin-left: auto;
     margin-right: auto;
     background-color: #46ACC2;
@@ -150,4 +138,400 @@ button.btn {
     color: #c62828;
 }
 
+/* === TRYB ŚREDNIEGO KONTRASTU === */
+.medium-contrast .moje-dane-container {
+    background-color: #f4f7f7;
+    color: #333;
+    padding: 2rem;
+    margin-top: 1rem;
+}
 
+.medium-contrast .moje-dane-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -1rem;
+}
+
+.medium-contrast .card {
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.medium-contrast h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #00acc1;
+    margin-bottom: 0.1rem;
+}
+
+.medium-contrast form,
+.medium-contrast .edit-form-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.medium-contrast dl.row dd {
+    background-color: #f0f8fa;
+    border-left: 4px solid #00acc1;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.medium-contrast label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #00acc1;
+}
+
+.medium-contrast input.form-control,
+.medium-contrast input[type="text"],
+.medium-contrast input[type="password"],
+.medium-contrast input[type="number"] {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d0e6ea;
+    background-color: #ffffff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.medium-contrast input:focus {
+    border-color: #00acc1;
+}
+
+.medium-contrast .password-section {
+    background-color: #f0f8fa;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 0.5px solid #d0e6ea;
+    font-size: 1.1rem;
+}
+
+    .medium-contrast .password-section h5 {
+        font-weight: 800;
+        color: #333;
+        border-left: 4px solid #00acc1;
+        padding-left: 0.75rem;
+        background-color: #f0f8fa;
+        border-radius: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+.medium-contrast button.btn {
+    background-color: #00acc1;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .medium-contrast button.btn:hover {
+        background-color: #007c91;
+    }
+
+.medium-contrast .alert-success {
+    background-color: #e0f7f9;
+    color: #00796b;
+}
+
+.medium-contrast .alert-danger {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.medium-contrast .alert {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* === TRYB WYSOKIEGO KONTRASTU === */
+.high-contrast .moje-dane-container {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2rem;
+    margin-top: 1rem;
+}
+
+.high-contrast .moje-dane-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -1rem;
+}
+
+.high-contrast .card {
+    background-color: #212121;
+    color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.high-contrast h3 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffeb3b;
+    margin-bottom: 0.01rem;
+}
+
+.high-contrast form,
+.high-contrast .edit-form-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.high-contrast dl.row dd {
+    background-color: #424242;
+    border-left: 4px solid #ffeb3b;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.high-contrast label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #ffeb3b;
+}
+
+.high-contrast input.form-control,
+.high-contrast input[type="text"],
+.high-contrast input[type="password"],
+.high-contrast input[type="number"] {
+    width: 100%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.75rem;
+    border: 1px solid #ffeb3b;
+    background-color: #212121;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.high-contrast input:focus {
+    border-color: #ffeb3b;
+}
+
+.high-contrast .password-section {
+    background-color: #424242;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 0.5px solid #ffeb3b;
+    font-size: 1.1rem;
+}
+
+    .high-contrast .password-section h5 {
+        font-weight: 800;
+        color: #ffffff;
+        border-left: 4px solid #ffeb3b;
+        padding-left: 0.75rem;
+        background-color: #424242;
+        border-radius: 0.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+.high-contrast button.btn {
+    background-color: #ffeb3b;
+    color: #000000;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .high-contrast button.btn:hover {
+        background-color: #fdd835;
+    }
+
+.high-contrast .alert-success {
+    background-color: #a5d6a7;
+    color: #1b5e20;
+}
+
+.high-contrast .alert-danger {
+    background-color: #ef9a9a;
+    color: #b71c1c;
+}
+
+.high-contrast .alert {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* === TRYB ROZMIARU CZCIONKI === */
+
+/* Normalny rozmiar */
+.normal-font {
+    font-size: 1rem;
+}
+
+    .normal-font h3 {
+        font-size: 2.5rem;
+    }
+
+    .normal-font h5 {
+        font-size: 1.2rem;
+    }
+
+    .normal-font label,
+    .normal-font dd,
+    .normal-font input,
+    .normal-font button,
+    .normal-font .password-section {
+        font-size: 1rem;
+    }
+
+/* Duży rozmiar */
+.font-large {
+    font-size: 1.2rem;
+}
+
+    .font-large h3 {
+        font-size: 3rem;
+    }
+
+    .font-large h5 {
+        font-size: 1.4rem;
+    }
+
+    .font-large label,
+    .font-large dd,
+    .font-large input,
+    .font-large button,
+    .font-large .password-section {
+        font-size: 1.6rem;
+    }
+
+/* Mały rozmiar */
+.small-font {
+    font-size: 0.8rem;
+}
+
+    .small-font h3 {
+        font-size: 2rem;
+    }
+
+    .small-font h5 {
+        font-size: 1rem;
+    }
+
+    .small-font label,
+    .small-font dd,
+    .small-font input,
+    .small-font button,
+    .small-font .password-section {
+        font-size: 0.9rem;
+    }
+/* Podstawowy tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        width: max-content;
+        max-width: 250px;
+        background-color: #F0F8FA; /* pastelowy jasny kolor */
+        color: #333;
+        text-align: left;
+        border-radius: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        position: absolute;
+        z-index: 10;
+        bottom: 125%; /* nad elementem */
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .tooltip:hover .tooltip-text,
+    .tooltip:focus-within .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Strzałka pod tooltipem */
+    .tooltip .tooltip-text::after {
+        content: "";
+        position: absolute;
+        top: 100%; /* u dołu tooltipa */
+        left: 50%;
+        margin-left: -6px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: #F0F8FA transparent transparent transparent;
+    }
+
+/* === Tryb średniego kontrastu === */
+.medium-contrast .tooltip .tooltip-text {
+    background-color: #e0f7f9; /* trochę bardziej intensywny pastel */
+    color: #007c91;
+    box-shadow: 0 4px 12px rgba(0, 140, 160, 0.2);
+}
+
+    .medium-contrast .tooltip .tooltip-text::after {
+        border-color: #e0f7f9 transparent transparent transparent;
+    }
+
+/* === Tryb wysokiego kontrastu === */
+.high-contrast .tooltip .tooltip-text {
+    background-color: #212121;
+    color: #ffeb3b;
+    box-shadow: 0 4px 12px rgba(255, 235, 59, 0.6);
+}
+
+    .high-contrast .tooltip .tooltip-text::after {
+        border-color: #212121 transparent transparent transparent;
+    }

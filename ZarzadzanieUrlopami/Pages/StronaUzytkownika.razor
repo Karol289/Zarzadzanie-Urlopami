@@ -5,22 +5,23 @@
 @using Microsoft.AspNetCore.Components.Authorization
 @using ZarzadzanieUrlopami.Models
 @using System.Security.Claims
+@inject Service.PasswordService _passwordService
 
 @if (isLoading)
 {
-        <p>Ładowanie danych...</p>
+    <p>Ładowanie danych...</p>
 }
 else if (user == null)
 {
-        <div class="alert alert-danger">Nie udało się załadować danych użytkownika.</div>
+    <div class="alert alert-danger">Nie udało się załadować danych użytkownika.</div>
 }
 else
 {
-        <div class="moje-dane-container">
-            <h3 class="mb-4 text-center">Moje dane osobiste</h3>
+    <div class="moje-dane-container">
+        <h3 class="mb-4 text-center">Moje dane osobiste</h3>
 
-                <div class="moje-dane-wrapper">
-               <EditForm class="moje-dane-form" Model="@user" OnSubmit="@ZapiszZmiany">
+        <div class="moje-dane-wrapper">
+            <EditForm class="moje-dane-form" Model="@user" OnSubmit="@ZapiszZmiany">
                 <DataAnnotationsValidator />
 
                 <div class="card shadow p-4">
@@ -34,45 +35,68 @@ else
                     <hr />
 
                     <div class="mb-3">
-                        <label>Telefon</label>
-                        <InputText class="form-control" @bind-Value="user.Telefon" />
+                        <label for="telefon">
+                            Telefon
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Wprowadź aktualny numer kontaktowy</span>
+                            </span>
+                        </label>
+                        <InputText id="telefon" class="form-control" @bind-Value="user.Telefon" />
                     </div>
 
                     <div class="mb-3">
-                        <label>Dzieci poniżej 14 r.ż.</label>
-                        <InputNumber class="form-control" @bind-Value="user.DzieciPonizej14" />
+                        <label for="dzieci">
+                            Dzieci poniżej 14 r.ż.
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Podaj liczbę dzieci w wieku do 14 lat</span>
+                            </span>
+                        </label>
+                        <InputNumber id="dzieci" class="form-control" @bind-Value="user.DzieciPonizej14" />
                     </div>
 
-
-                            <div class="password-section mt-4">
+                    <div class="password-section mt-4">
                         <h5>Zmiana hasła (opcjonalnie)</h5>
 
                         <div class="mb-3">
-                            <label>Stare hasło</label>
-                            <InputText class="form-control" @bind-Value="stareHaslo" type="password" />
+                            <label for="stareHaslo">
+                                Stare hasło
+                                <span tabindex="0" class="tooltip ms-1 text-muted">
+                                    <i class="bi bi-info-circle"></i>
+                                    <span class="tooltip-text">Wprowadź swoje obecne hasło, jeśli chcesz je zmienić</span>
+                                </span>
+                            </label>
+                            <InputText id="stareHaslo" class="form-control" @bind-Value="stareHaslo" type="password" />
                         </div>
 
                         <div class="mb-3">
-                            <label>Nowe hasło</label>
-                            <InputText class="form-control" @bind-Value="noweHaslo" type="password" />
+                            <label for="noweHaslo">
+                                Nowe hasło
+                                <span tabindex="0" class="tooltip ms-1 text-muted">
+                                    <i class="bi bi-info-circle"></i>
+                                    <span class="tooltip-text">Hasło powinno mieć co najmniej 8 znaków</span>
+                                </span>
+                            </label>
+                            <InputText id="noweHaslo" class="form-control" @bind-Value="noweHaslo" type="password" />
                         </div>
                     </div>
 
                     <button class="btn btn-primary mt-3">Zapisz zmiany</button>
 
-                @if (!string.IsNullOrEmpty(komunikat))
-                {
-                            <div class="alert alert-success mt-3">@komunikat</div>
-                }
+                    @if (!string.IsNullOrEmpty(komunikat))
+                    {
+                        <div class="alert alert-success mt-3">@komunikat</div>
+                    }
 
-                @if (!string.IsNullOrEmpty(blad))
-                {
-                            <div class="alert alert-danger mt-3">@blad</div>
-                }
+                    @if (!string.IsNullOrEmpty(blad))
+                    {
+                        <div class="alert alert-danger mt-3">@blad</div>
+                    }
                 </div>
             </EditForm>
-            </div>
         </div>
+    </div>
 }
 
 @code {
@@ -124,7 +148,10 @@ else
                 return;
             }
 
-            if (user.Haslo != stareHaslo)
+            // Weryfikacja hasła za pomocą serwisu
+            bool poprawne = _passwordService.VerifyPassword(user.HasloHash, stareHaslo);
+
+            if (!poprawne)
             {
                 blad = "Stare hasło jest nieprawidłowe.";
                 return;
@@ -136,11 +163,12 @@ else
                 return;
             }
 
-            user.Haslo = noweHaslo;
+            user.HasloHash = _passwordService.HashPassword(noweHaslo);
         }
 
         await PracownicyService.AktualizujPracownika(user);
         komunikat = "Dane zostały zapisane.";
         stareHaslo = noweHaslo = "";
     }
+
 }

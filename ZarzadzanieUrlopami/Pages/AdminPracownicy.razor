@@ -2,15 +2,10 @@
 @using ZarzadzanieUrlopami.Models
 @using ZarzadzanieUrlopami.Service
 
-@inject PracownicyService PracownicyService;
+@inject PracownicyService PracownicyService
 @layout MainLayout
 
-
 <div class="mainP">
-	<div id="admin_p" class="section">
-	</div>
-
-	<br><br />
 	@if (!string.IsNullOrEmpty(errorMessage))
 	{
 		<div class="alert alert-danger">@errorMessage</div>
@@ -20,106 +15,76 @@
 		<div class="alert alert-success">@successMessage</div>
 	}
 
-	<div class="table-header">
-		<h2>Lista Pracowników</h2>
-	</div>
-	<table class="table_p" style="table-layout: fixed; width: 100%;">
+	<h2>Lista Pracowników</h2>
+	<table class="table">
 		<thead>
 			<tr>
-				<th style="width: 10%;">Imię</th>
-				<th style="width: 10%;">Nazwisko</th>
-				<th style="width: 15%;">Email</th>
-				<th style="width: 10%;">Telefon</th>
-				<th style="width: 10%;">Hasło</th>
-				<th style="width: 10%;">Rola</th>
-				<th style="width: 15%;">Data rozpoczęcia</th>
-				<th style="width: 20%;">Akcje</th>
+				<th>Imię</th>
+				<th>Nazwisko</th>
+				<th>Email</th>
+				<th>Telefon</th>
+				<th>Rola</th>
+				<th>Data rozpoczęcia</th>
+				<th>Akcje</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach (var pracownik in pracownicy)
 			{
 				<tr>
-					<td colspan="16">
-						<EditForm Model="@pracownik" OnValidSubmit="() => AktualizujPracownika(pracownik)">
-							<DataAnnotationsValidator />
-							<ValidationSummary />
-
-							<table style="width: 100%;">
-								<tr>
-									<td><InputText @bind-Value="pracownik.Imie" class="form-control form-cell" /></td>
-									<td><InputText @bind-Value="pracownik.Nazwisko" class="form-control form-cell" /></td>
-									<td><InputText @bind-Value="pracownik.Mail" class="form-control form-cell" /></td>
-									<td><InputText @bind-Value="pracownik.Telefon" class="form-control form-cell" /></td>
-									<td><InputText @bind-Value="pracownik.Haslo" class="form-control form-cell" /></td>
-									<td>
-										<select @bind="pracownik.IdRoli" class="form-control form-cell">
-											<option disabled selected value="">-- wybierz rolę --</option>
-											@foreach (var r in role)
-											{
-												<option value="@r.IdRoli">@r.Nazwa</option>
-											}
-										</select>
-									</td>
-									<td><InputDate @bind-Value="pracownik.DataRozpoczecia" class="form-control form-cell" /></td>
-									<td>
-										<button type="submit" class="btn btn-success btn-sm">Zapisz</button>
-										<button type="button" class="btn btn-danger btn-sm" @onclick="() => UsunPracownika(pracownik.IdPracownika)">Usuń</button>
-									</td>
-								</tr>
-							</table>
-						</EditForm>
+					<td><InputText @bind-Value="pracownik.Imie" class="form-control" /></td>
+					<td><InputText @bind-Value="pracownik.Nazwisko" class="form-control" /></td>
+					<td><InputText @bind-Value="pracownik.Mail" class="form-control" /></td>
+					<td><InputText @bind-Value="pracownik.Telefon" class="form-control" /></td>
+					<td>
+						<select @bind="pracownik.IdRoli" class="form-control">
+							<option value="">-- Wybierz rolę --</option>
+							@foreach (var r in role)
+							{
+								<option value="@r.IdRoli">@r.Nazwa</option>
+							}
+						</select>
+					</td>
+					<td><InputDate @bind-Value="pracownik.DataRozpoczecia" class="form-control" /></td>
+					<td>
+						<button class="btn btn-success btn-sm" @onclick="async () => await AktualizujPracownika(pracownik)">Zapisz</button>
+						<button class="btn btn-danger btn-sm" @onclick="async () => await UsunPracownika(pracownik.IdPracownika)">Usuń</button>
 					</td>
 				</tr>
 			}
 		</tbody>
 	</table>
 
-	<br />
-	<div class="form-container">
-		<h2>Dodaj Pracownika</h2>
-		<br />
+	<h2>Dodaj Pracownika</h2>
+	<EditForm Model="@nowyPracownik" OnValidSubmit="DodajPracownika">
+		<DataAnnotationsValidator />
+		<ValidationSummary />
 
-		<EditForm Model="@nowyPracownik" OnValidSubmit="DodajPracownika">
-			<DataAnnotationsValidator />
-			<ValidationSummary />
+		<InputText placeholder="Imię" class="form-control mb-2" @bind-Value="nowyPracownik.Imie" />
+		<InputText placeholder="Nazwisko" class="form-control mb-2" @bind-Value="nowyPracownik.Nazwisko" />
+		<InputText placeholder="Email" class="form-control mb-2" @bind-Value="nowyPracownik.Mail" />
+		<InputText placeholder="Telefon" class="form-control mb-2" @bind-Value="nowyPracownik.Telefon" />
+		<InputText type="password" placeholder="Hasło" class="form-control mb-2" @bind-Value="noweHaslo" />
 
-			<div class="form-row">
-				<InputText type="text" placeholder="Imię" class="form-control" @bind-Value="nowyPracownik.Imie" />
-				<InputText type="text" placeholder="Nazwisko" class="form-control" @bind-Value="nowyPracownik.Nazwisko" />
-				<InputText type="email" placeholder="Email" class="form-control" @bind-Value="nowyPracownik.Mail" />
-				<InputText type="text" placeholder="Telefon" class="form-control" @bind-Value="nowyPracownik.Telefon" />
-				<InputText type="password" placeholder="Hasło" class="form-control" @bind-Value="nowyPracownik.Haslo" />
-			</div>
+		<select @bind="nowyPracownik.IdRoli" class="form-control mb-2">
+			<option value="">-- Wybierz rolę --</option>
+			@foreach (var rola in role)
+			{
+				<option value="@rola.IdRoli">@rola.Nazwa</option>
+			}
+		</select>
 
-			<div class="form-row">
-				<div class="form-group">
-					<label>Rola</label>
-					<select @bind="nowyPracownik.IdRoli" class="form-control">
-						<option value="">Wybierz rolę</option>
-						@foreach (var rola in role)
-						{
-							<option value="@rola.IdRoli">@rola.Nazwa</option>
-						}
-					</select>
-				</div>
+		<InputDate @bind-Value="nowyPracownik.DataRozpoczecia" class="form-control mb-2" />
 
-				<div class="form-group">
-					<label>Data rozpoczęcia</label>
-					<InputDate class="form-control" @bind-Value="nowyPracownik.DataRozpoczecia" />
-				</div>
-			</div>
-
-			<button class="btn btn-success mt-2" type="submit">Dodaj</button>
-		</EditForm>
-
-
-	</div>
+		<button class="btn btn-primary" type="submit">Dodaj</button>
+	</EditForm>
 </div>
+
 @code {
 	private List<Pracownicy> pracownicy = new();
 	private List<Role> role = new();
 	private Pracownicy nowyPracownik = new();
+	private string noweHaslo = string.Empty;
 	private string? errorMessage;
 	private string? successMessage;
 
@@ -134,26 +99,28 @@
 		if (string.IsNullOrWhiteSpace(nowyPracownik.Imie) ||
 			string.IsNullOrWhiteSpace(nowyPracownik.Nazwisko) ||
 			string.IsNullOrWhiteSpace(nowyPracownik.Mail) ||
+			string.IsNullOrWhiteSpace(noweHaslo) || // TYLKO noweHaslo, nie HasloHash!
 			nowyPracownik.IdRoli == null ||
-			string.IsNullOrWhiteSpace(nowyPracownik.Haslo) ||
 			nowyPracownik.DataRozpoczecia == null)
 		{
-			errorMessage = "Wszystkie pola muszą być wypełnione!";
+			errorMessage = "Wszystkie pola oraz hasło muszą być wypełnione!";
 			return;
 		}
 
 		try
 		{
-			await PracownicyService.DodajPracownika(nowyPracownik);
+			await PracownicyService.DodajPracownika(nowyPracownik, noweHaslo);
 			nowyPracownik = new Pracownicy();
+			noweHaslo = string.Empty;
 			pracownicy = await PracownicyService.GetPracownicyAsync();
 			successMessage = "Pracownik dodany pomyślnie.";
 			errorMessage = null;
 		}
 		catch (Exception ex)
 		{
-			errorMessage = "Błąd podczas dodawania pracownika: " + ex.Message;
+			errorMessage = "Błąd podczas dodawania pracownika: " + ex.InnerException?.Message ?? ex.Message;
 		}
+
 	}
 
 	private async Task AktualizujPracownika(Pracownicy pracownik)
