@@ -2,6 +2,8 @@
 using ZarzadzanieUrlopami.Data;
 
 
+
+
 namespace ZarzadzanieUrlopami.Models.Kalndarz
 {
     public class Miesiac
@@ -68,17 +70,35 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
 
             generujDni();
 
+            var t1 = generujSwieta();
             var t2 = generujZmiany();
             var t3 = generujUrlopy();
             var t4 = generujZwolnienia();
             var t5 = generujZastepstwa();
             var t6 = generujDzisiaj();
 
-            await Task.WhenAll(t2, t3, t4, t5, t6);
+            await Task.WhenAll(t1, t2, t3, t4, t5, t6);
 
 
         }
 
+
+        private async Task generujSwieta()
+        {
+            var dniSwieta = Swieta.getSwieta(rokKalendarza);
+            
+            foreach (var x in dniSwieta)
+            {
+                if (x.Month == miesiacKalendarza)
+                {
+                    lock (miesiacLock)
+                    {
+                        miesiac[x.Day].dodajRodzaj("swieto");
+                    }
+                }
+            }
+
+        }
 
         private async Task generujDni()
         {

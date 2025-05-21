@@ -32,6 +32,17 @@ namespace ZarzadzanieUrlopami.Service
 
         }
 
+        public async Task<List<Zmiany>> GetZmianyDlaDniaAsync(DateOnly date)
+        {
+            var dzien = await _context.DniRoboczes
+                .Include(d => d.Zmianies)
+                    .ThenInclude(z => z.IdPracownikaNavigation)
+                .Include(d => d.IdKierownikaNavigation)
+                .FirstOrDefaultAsync(d => d.DataDnia == date);
+
+            return dzien?.Zmianies.ToList() ?? new List<Zmiany>();
+        }
+
         public async Task DodajZmianeAsync(Zmiany zmiana)
         {
             _context.Zmianies.Add(zmiana);

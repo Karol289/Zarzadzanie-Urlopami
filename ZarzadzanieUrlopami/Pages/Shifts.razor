@@ -15,7 +15,7 @@
 
 <PageTitle>Grafik Pracy</PageTitle>
 <div id="schedule" class="section">
-    <h2>Grafik</h2>
+    <h2>Układanie grafiku</h2>
     @if (user.Identity.IsAuthenticated == true)
     {
         <div class="calendar-container">
@@ -73,54 +73,71 @@
         <div>
             @{
                 Dzien dzien = miesiac.getDzien(SelectedDay);
-                bool wolne = false;
+                //bool wolne = false;
+                <h3><i class="bi bi-calendar-event"></i> Zmiany dnia @SelectedDay/@CurrentMonth/@CurrentYear</h3>
+                <br />
             }
 
-            @if (dzien.getZmiany() != null)
-            {
-                <p>Znaleziono @dzien?.getZmiany()?.Count zmian</p>
-
-                foreach (var zmiana in dzien.getZmiany())
+            @if (ZmianyWyswietlane != null && ZmianyWyswietlane.Any()) 
+            {                
+                foreach (var zmiana in ZmianyWyswietlane)
                 {
                     <div class="body-div work-shift-day">
-                        <h3><i class="bi bi-calendar-event"></i> Zmiana dnia @CurrentYear-@CurrentMonth-@SelectedDay</h3>
                         <p>Godzina Rozpoczęcia: @zmiana.GodzRozp</p>
                         <p>Godzina Zakończenia: @zmiana.GodzZakon</p>
-                        <p>Czas trwania: @ObliczGodziny(@zmiana.GodzRozp.GetValueOrDefault(), @zmiana.GodzZakon.GetValueOrDefault())h</p>
-                        <p>Kierownik zmiany: @zmiana.IdDniaNavigation?.IdKierownikaNavigation?.Imie @zmiana.IdDniaNavigation?.IdKierownikaNavigation?.Nazwisko</p>
+                        <p><b>Czas trwania:</b> @ObliczGodziny(@zmiana.GodzRozp.GetValueOrDefault(), @zmiana.GodzZakon.GetValueOrDefault())h</p>
+                        <p>Pracownik zmiany: @zmiana.IdPracownikaNavigation?.Imie @zmiana.IdPracownikaNavigation?.Nazwisko</p>
 
-                        <button @onclick="@(() => EdytujZmiane(zmiana))">Edytuj</button>
-                        <button @onclick="@(() => UsunZmiane(zmiana.IdZmiany))">Usuń</button>
+                        <button class="btn btn-sm btn-primary" @onclick="@(() => EdytujZmiane(zmiana))">Edytuj</button>
+                        <button class="btn btn-sm btn-danger" @onclick="@(() => UsunZmiane(zmiana.IdZmiany))">Usuń</button>
                     </div>
                 }
             }
+            else
+            {
+                <p>Brak zmian dla tego dnia.</p>
+            }
 
-            <EditForm Model="@nowaZmiana" OnValidSubmit="ZapiszZmiane">
-                <label>Pracownik</label>
-                <select @bind="SelectedEmployeeId">
-                    @foreach (var pracownik in pracownicy)
+            <hr />
+
+            @if (isSaveMode)
+            {
+                <h4>@(isEditMode ? "Edytuj zmianę" : "Dodaj nową zmianę")</h4>
+
+                <EditForm Model="@nowaZmiana" OnValidSubmit="ZapiszZmiane">
+                    <div>
+                        <label>Pracownik</label>
+                        <select @bind="SelectedEmployeeId">
+                            @foreach (var pracownik in pracownicy)
+                            {
+                                if (pracownik.IdRoli == 1 || pracownik.IdRoli == 2)
+                                {
+                                    <option value="@pracownik.IdPracownika">@pracownik.Imie @pracownik.Nazwisko</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Godzina rozpoczęcia:</label>
+                        <InputDate Type="InputDateType.Time" @bind-Value="@nowaZmiana.GodzRozp" class="form-control" />
+                    </div>
+
+                    <div>
+                        <label>Godzina zakończenia:</label>
+                        <InputDate Type="InputDateType.Time" @bind-Value="@nowaZmiana.GodzZakon" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-2">@((isEditMode ? "Zapisz zmiany" : "Dodaj"))</button>
+
+                    @if (isEditMode)
                     {
-                        if (pracownik.IdRoli == 1 || pracownik.IdRoli == 2)
-                        {
-                            <option value="@pracownik.IdPracownika">@pracownik.Imie @pracownik.Nazwisko</option>
-                        }
+                        <button type="button" class="btn btn-secondary mt-2" @onclick="AnulujEdycje">Anuluj</button>
                     }
-                </select>
+                </EditForm>
+            }
 
-                <label>Godzina rozpoczęcia:</label>
-                <InputDate Type="InputDateType.Time" @bind-Value="@nowaZmiana.GodzRozp" class="form-control" />
-
-                <label>Godzina zakończenia:</label>
-                <InputDate Type="InputDateType.Time" @bind-Value="@nowaZmiana.GodzZakon" class="form-control" step="60" />
-
-                <button type="submit">@((isEditMode ? "Zapisz zmiany" : "Dodaj"))</button>
-
-                @if (isEditMode)
-                {
-                    <button type="button" class="btn btn-secondary" @onclick="AnulujEdycje">Anuluj</button>
-                }
-            </EditForm>
-
+            <br />
 
             @if (!string.IsNullOrWhiteSpace(alertMessage))
             {
@@ -128,9 +145,6 @@
                     @alertMessage
                 </div>
             }
-
-
-
         </div>
     </BodyContent>
     <FooterContent>
@@ -144,7 +158,7 @@
                     <i class="bi bi-info-circle"></i>
                     <span>Informacje</span>
                 </div>
-
+              
             </div>
         </div>
     </FooterContent>
@@ -153,25 +167,22 @@
 @code {
 
     [BindProperty] public int SelectedEmployeeId { get; set; }
-    [BindProperty] public TimeOnly StartTime { get; set; }
-    [BindProperty] public TimeOnly EndTime { get; set; }
-    [BindProperty] public DateTime SelectedDate { get; set; }
 
-    public List<Zmiany> ZmianyWyswietlane { get; set; }
+    public List<Zmiany> ZmianyWyswietlane = new();
     private List<Pracownicy> pracownicy = new();
     Zmiany nowaZmiana = new();
-    Zmiany zmianaEdytowana = null;
-
-    private bool dialogShown = false;
-    private bool isEditMode = false;
-    DniRobocze selectedDzienRoboczy;
-    List<DniRobocze> dniRoboczeList;
-    private List<List<int?>> CalendarRows = null;
+    DniRobocze selectedDzienRoboczy = new();
+    List<DniRobocze> dniRoboczeList = new();
+    private List<List<int?>> CalendarRows = new();
+    private ClaimsPrincipal user = new();
 
     private string alertMessage = "";
     private string alertCss = "";
 
-    private ClaimsPrincipal user;
+    private bool dialogShown = false;
+    private bool isEditMode = false;
+    private bool isSaveMode = false;
+
     private int CurrentMonth = DateTime.Now.Month;
     private int CurrentYear = DateTime.Now.Year;
     private int SelectedDay;
@@ -211,12 +222,26 @@
                 return;
             }
 
+            if (nowaZmiana.GodzRozp >= nowaZmiana.GodzZakon)
+            {
+                alertMessage = "Godzina zakończenia musi być późniejsza niż rozpoczęcia!";
+                return;
+            }
+
             nowaZmiana.IdDnia = selectedDzienRoboczy.IdDnia;
             nowaZmiana.IdPracownika = SelectedEmployeeId;
 
-            if (isEditMode && zmianaEdytowana != null)
+            if (nowaZmiana.IdPracownika <= 0 ||
+                nowaZmiana.GodzRozp == null ||
+                nowaZmiana.GodzZakon == null)
             {
-                //nowaZmiana.IdZmiany = zmianaEdytowana.IdZmiany;
+                alertMessage = "Uzupełnij wszystkie wymagane pola!";
+                return;
+            }
+
+            // Edycja vs dodanie nowej zmiany
+            if (isEditMode)
+            {
                 await ZmianyService.EdytujZmianeAsync(nowaZmiana);
                 alertMessage = "Zmiana została zaktualizowana.";
             }
@@ -227,8 +252,7 @@
             }
 
             await OdswiezDzien(selectedDzienRoboczy.DataDnia.Value);
-            AnulujEdycje();
-            //dialogShown = false;
+            AnulujEdycje(); // Reset formularza
         }
         catch (Exception ex)
         {
@@ -237,26 +261,18 @@
     }
 
 
-    private async Task EdytujZmiane(Zmiany zmiana)
+
+    private void EdytujZmiane(Zmiany zmiana)
     {
         isEditMode = true;
-        zmianaEdytowana = zmiana;
-
-        nowaZmiana = new Zmiany
-        {
-            GodzRozp = zmiana.GodzRozp,
-            GodzZakon = zmiana.GodzZakon,
-            IdPracownika = zmiana.IdPracownika,
-            IdDnia = zmiana.IdDnia,
-            IdZmiany = zmiana.IdZmiany
-        };
-
+        nowaZmiana = zmiana; // używamy bezpośrednio edytowanej zmiany
         SelectedEmployeeId = zmiana.IdPracownika;
     }
 
 
     private async Task UsunZmiane(int idZmiany)
     {
+        alertMessage = "Zmiana została usunięta";
         await ZmianyService.UsunZmianeAsync(idZmiany);
         await OdswiezDzien(new DateOnly(CurrentYear, CurrentMonth, SelectedDay));
     }
@@ -265,13 +281,13 @@
     {
         dniRoboczeList = await ZmianyService.GetDniRoboczeAsync(CurrentYear, CurrentMonth);
         selectedDzienRoboczy = dniRoboczeList.FirstOrDefault(d => d.DataDnia == date);
+        ZmianyWyswietlane = await ZmianyService.GetZmianyDlaDniaAsync(selectedDzienRoboczy.DataDnia.Value);
     }
 
     private void AnulujEdycje()
     {
         isEditMode = false;
         nowaZmiana = new Zmiany();
-        zmianaEdytowana = null;
     }
 
     private void ShowDialog()
@@ -367,6 +383,8 @@
 
     private async Task SelectDay(int? day)
     {
+        alertMessage = "";
+        ZmianyWyswietlane.Clear();
         if (day is null)
             return;
 
@@ -378,6 +396,12 @@
         if (selectedDzienRoboczy == null)
         {
             alertMessage = "To nie jest dzień roboczy!";
+            isSaveMode = false;
+        }
+        else
+        {
+            isSaveMode = true;
+            ZmianyWyswietlane = await ZmianyService.GetZmianyDlaDniaAsync(selectedDzienRoboczy.DataDnia.Value);
         }
 
         dialogShown = true;
