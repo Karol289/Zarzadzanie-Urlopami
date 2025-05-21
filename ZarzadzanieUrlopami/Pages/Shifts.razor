@@ -1,0 +1,387 @@
+﻿@page "/schedule-shifts"
+
+@using Microsoft.AspNetCore.Mvc
+@using Microsoft.AspNetCore.Components.Forms
+@using Models
+@using System.Security.Claims
+@using ZarzadzanieUrlopami.Pages.Components
+@using ZarzadzanieUrlopami.Models.Kalndarz
+@using ZarzadzanieUrlopami.Service
+
+@inject IServiceProvider ServiceProvider
+@inject ZmianyService ZmianyService;
+@inject AuthenticationStateProvider AuthProvider
+
+
+<PageTitle>Grafik Pracy</PageTitle>
+<div id="schedule" class="section">
+    <h2>Grafik</h2>
+    @if (user.Identity.IsAuthenticated == true)
+    {
+        <div class="calendar-container">
+            <div class="month">
+                <ul>
+                    <li class="prev" @onclick="ShowPreviousMonth">&#10094;</li>
+                    <li class="next" @onclick="ShowNextMonth">&#10095;</li>
+                    <li>@MonthName <br><span style="font-size:18px">@CurrentYear</span></li>
+                </ul>
+            </div>
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Pon</th>
+                        <th>Wt</th>
+                        <th>Śr</th>
+                        <th>Cz</th>
+                        <th>Pt</th>
+                        <th>Sob</th>
+                        <th>Nd</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in CalendarRows)
+                    {
+                        <tr>
+                            @foreach (var day in row)
+                            {
+                                @if (day == null)
+                                {
+                                    <td></td>
+                                }
+                                else
+                                {
+                                    <td @onclick="() => SelectDay(day)"
+                                    class="@miesiac.getDzien(day.GetValueOrDefault()).getRodzaje()">
+                                        @day
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>Dostep do tej strony maja jedynie zalogowani uzytkownicy</p>
+    }
+</div>
+
+<Dialog Title="Plan na dzień" Opened="dialogShown" CloseButtonClicked="@(() => dialogShown = false)">
+    <BodyContent>
+        <div>
+            @{
+                Dzien dzien = miesiac.getDzien(SelectedDay);
+                bool wolne = false;
+            }
+
+            @if (dzien.getZmiany() != null)
+            {
+                <p>Znaleziono @dzien?.getZmiany()?.Count zmian</p>
+
+                foreach (var zmiana in dzien.getZmiany())
+                {
+                    <div class="body-div work-shift-day">
+                        <h3><i class="bi bi-calendar-event"></i> Zmiana dnia @CurrentYear-@CurrentMonth-@SelectedDay</h3>
+                        <p>Godzina Rozpoczęcia: @zmiana.GodzRozp</p>
+                        <p>Godzina Zakończenia: @zmiana.GodzZakon</p>
+                        <p>Czas trwania: @ObliczGodziny(@zmiana.GodzRozp.GetValueOrDefault(), @zmiana.GodzZakon.GetValueOrDefault())h</p>
+                        <p>Kierownik zmiany: @zmiana.IdDniaNavigation?.IdKierownikaNavigation?.Imie @zmiana.IdDniaNavigation?.IdKierownikaNavigation?.Nazwisko</p>
+
+                        <button @onclick="@(() => EdytujZmiane(zmiana))">Edytuj</button>
+                        <button @onclick="@(() => UsunZmiane(zmiana.IdZmiany))">Usuń</button>
+                    </div>
+                }
+            }
+
+            <EditForm Model="@nowaZmiana" OnValidSubmit="ZapiszZmiane">
+                <label>Pracownik</label>
+                <select @bind="SelectedEmployeeId">
+                    @foreach (var pracownik in pracownicy)
+                    {
+                        if (pracownik.IdRoli == 1 || pracownik.IdRoli == 2)
+                        {
+                            <option value="@pracownik.IdPracownika">@pracownik.Imie @pracownik.Nazwisko</option>
+                        }
+                    }
+                </select>
+
+                <label>Godzina rozpoczęcia:</label>
+                <InputDate Type="InputDateType.Time" @bind-Value="@nowaZmiana.GodzRozp" class="form-control" />
+
+                <label>Godzina zakończenia:</label>
+                <InputDate Type="InputDateType.Time" @bind-Value="@nowaZmiana.GodzZakon" class="form-control" step="60" />
+
+                <button type="submit">@((isEditMode ? "Zapisz zmiany" : "Dodaj"))</button>
+
+                @if (isEditMode)
+                {
+                    <button type="button" class="btn btn-secondary" @onclick="AnulujEdycje">Anuluj</button>
+                }
+            </EditForm>
+
+
+            @if (!string.IsNullOrWhiteSpace(alertMessage))
+            {
+                <div class="alert @alertCss">
+                    @alertMessage
+                </div>
+            }
+
+
+
+        </div>
+    </BodyContent>
+    <FooterContent>
+        <div class="footer-container">
+            <div class="footer-icons">
+                <div class="footer-icon">
+                    <i class="bi bi-calendar"></i>
+                    <span>Planowanie</span>
+                </div>
+                <div class="footer-icon">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Informacje</span>
+                </div>
+
+            </div>
+        </div>
+    </FooterContent>
+</Dialog>
+
+@code {
+
+    [BindProperty] public int SelectedEmployeeId { get; set; }
+    [BindProperty] public TimeOnly StartTime { get; set; }
+    [BindProperty] public TimeOnly EndTime { get; set; }
+    [BindProperty] public DateTime SelectedDate { get; set; }
+
+    public List<Zmiany> ZmianyWyswietlane { get; set; }
+    private List<Pracownicy> pracownicy = new();
+    Zmiany nowaZmiana = new();
+    Zmiany zmianaEdytowana = null;
+
+    private bool dialogShown = false;
+    private bool isEditMode = false;
+    DniRobocze selectedDzienRoboczy;
+    List<DniRobocze> dniRoboczeList;
+    private List<List<int?>> CalendarRows = null;
+
+    private string alertMessage = "";
+    private string alertCss = "";
+
+    private ClaimsPrincipal user;
+    private int CurrentMonth = DateTime.Now.Month;
+    private int CurrentYear = DateTime.Now.Year;
+    private int SelectedDay;
+    private string MonthName => new DateTime(CurrentYear, CurrentMonth, 1).ToString("MMMM", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"));
+    private Miesiac? miesiac;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        CalendarRows = new List<List<int?>>();
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        user = authState.User;
+
+        if (user.Identity.IsAuthenticated == false)
+            return;
+
+        pracownicy = await ZmianyService.GetAllPracownicyAsync();
+        dniRoboczeList = await ZmianyService.GetDniRoboczeAsync(CurrentYear, CurrentMonth);
+
+        miesiac = new Miesiac(ServiceProvider, user.Identity.Name, CurrentMonth, CurrentYear);
+
+        await miesiac.generujMiesiac();
+
+        CalendarRows = new List<List<int?>>();
+        GenerateCalendar();
+    }
+
+    private async Task ZapiszZmiane()
+    {
+        alertMessage = "";
+        try
+        {
+            if (selectedDzienRoboczy == null || selectedDzienRoboczy.DataDnia == null)
+            {
+                alertMessage = "Brak daty dla wybranego dnia roboczego!";
+                isEditMode = false;
+                return;
+            }
+
+            nowaZmiana.IdDnia = selectedDzienRoboczy.IdDnia;
+            nowaZmiana.IdPracownika = SelectedEmployeeId;
+
+            if (isEditMode && zmianaEdytowana != null)
+            {
+                //nowaZmiana.IdZmiany = zmianaEdytowana.IdZmiany;
+                await ZmianyService.EdytujZmianeAsync(nowaZmiana);
+                alertMessage = "Zmiana została zaktualizowana.";
+            }
+            else
+            {
+                await ZmianyService.DodajZmianeAsync(nowaZmiana);
+                alertMessage = "Zmiana została dodana.";
+            }
+
+            await OdswiezDzien(selectedDzienRoboczy.DataDnia.Value);
+            AnulujEdycje();
+            //dialogShown = false;
+        }
+        catch (Exception ex)
+        {
+            alertMessage = $"Wystąpił błąd: {ex.Message}";
+        }
+    }
+
+
+    private async Task EdytujZmiane(Zmiany zmiana)
+    {
+        isEditMode = true;
+        zmianaEdytowana = zmiana;
+
+        nowaZmiana = new Zmiany
+        {
+            GodzRozp = zmiana.GodzRozp,
+            GodzZakon = zmiana.GodzZakon,
+            IdPracownika = zmiana.IdPracownika,
+            IdDnia = zmiana.IdDnia,
+            IdZmiany = zmiana.IdZmiany
+        };
+
+        SelectedEmployeeId = zmiana.IdPracownika;
+    }
+
+
+    private async Task UsunZmiane(int idZmiany)
+    {
+        await ZmianyService.UsunZmianeAsync(idZmiany);
+        await OdswiezDzien(new DateOnly(CurrentYear, CurrentMonth, SelectedDay));
+    }
+
+    private async Task OdswiezDzien(DateOnly date)
+    {
+        dniRoboczeList = await ZmianyService.GetDniRoboczeAsync(CurrentYear, CurrentMonth);
+        selectedDzienRoboczy = dniRoboczeList.FirstOrDefault(d => d.DataDnia == date);
+    }
+
+    private void AnulujEdycje()
+    {
+        isEditMode = false;
+        nowaZmiana = new Zmiany();
+        zmianaEdytowana = null;
+    }
+
+    private void ShowDialog()
+    {
+        dialogShown = true;
+    }
+
+    private void CloseDialog()
+    {
+        dialogShown = false;
+    }
+
+    public static double ObliczGodziny(TimeOnly czasPoczatkowy, TimeOnly czasKoncowy)
+    {
+        if (czasKoncowy < czasPoczatkowy)
+        {
+            czasKoncowy = czasKoncowy.AddHours(24);
+        }
+
+        TimeSpan roznica = czasKoncowy.ToTimeSpan() - czasPoczatkowy.ToTimeSpan();
+
+        return roznica.TotalHours;
+    }
+
+
+    private void GenerateCalendar()
+    {
+        CalendarRows.Clear();
+
+        int daysInMonth = DateTime.DaysInMonth(CurrentYear, CurrentMonth);
+        int firstDayOfMonth = (int)new DateTime(CurrentYear, CurrentMonth, 1).DayOfWeek - 1;
+
+        if (firstDayOfMonth == -1)
+            firstDayOfMonth = 6;
+
+        List<int?> currentRow = new List<int?>();
+        for (int i = 0; i < firstDayOfMonth; i++)
+        {
+            currentRow.Add(null);
+        }
+
+        for (int day = 1; day <= daysInMonth; day++)
+        {
+            currentRow.Add(day);
+
+            if (currentRow.Count == 7)
+            {
+                CalendarRows.Add(new List<int?>(currentRow));
+                currentRow.Clear();
+            }
+        }
+        if (currentRow.Count > 0)
+        {
+            CalendarRows.Add(currentRow);
+        }
+    }
+
+
+    private async Task ShowPreviousMonth()
+    {
+        CurrentMonth--;
+        if (CurrentMonth < 1)
+        {
+            CurrentMonth = 12;
+            CurrentYear--;
+        }
+
+        GenerateCalendar();
+
+        miesiac.poprzedniMiesiac();
+
+        await miesiac.generujMiesiac();
+
+    }
+
+
+    private async Task ShowNextMonth()
+    {
+
+        CurrentMonth++;
+        if (CurrentMonth > 12)
+        {
+            CurrentMonth = 1;
+            CurrentYear++;
+        }
+
+        GenerateCalendar();
+        miesiac.nastepnyMiesiac();
+
+        await miesiac.generujMiesiac();
+    }
+
+
+    private async Task SelectDay(int? day)
+    {
+        if (day is null)
+            return;
+
+        SelectedDay = day.GetValueOrDefault();
+
+        selectedDzienRoboczy = dniRoboczeList.FirstOrDefault(d =>
+            d.DataDnia == new DateOnly(CurrentYear, CurrentMonth, SelectedDay));
+
+        if (selectedDzienRoboczy == null)
+        {
+            alertMessage = "To nie jest dzień roboczy!";
+        }
+
+        dialogShown = true;
+    }
+
+
+}

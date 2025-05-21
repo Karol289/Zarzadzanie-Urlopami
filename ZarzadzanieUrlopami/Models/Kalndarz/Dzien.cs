@@ -27,6 +27,27 @@ namespace ZarzadzanieUrlopami.Models.Kalndarz
 
         }
 
+        public void DodajZmiane(Zmiany nowaZmiana)
+        {
+            if (dane.zmiany == null)
+                dane.zmiany = new List<Zmiany>();
+
+            dane.zmiany.Add(nowaZmiana);
+        }
+
+        public void EdytujZmiane(int zmianaId, Zmiany noweDane)
+        {
+            var zmiana = dane.zmiany?.FirstOrDefault(z => z.IdZmiany == zmianaId);
+            if (zmiana != null)
+            {
+                zmiana.GodzRozp = noweDane.GodzRozp;
+                zmiana.GodzZakon = noweDane.GodzZakon;
+                zmiana.IdDnia = noweDane.IdDnia;
+                zmiana.IdPracownika = noweDane.IdPracownika;
+            }
+        }
+
+
         public void dodajUrlop(List<Urlopy> urlopy)
         {
             foreach (var z in urlopy)
