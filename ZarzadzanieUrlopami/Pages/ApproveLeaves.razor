@@ -1,0 +1,331 @@
+@page "/approve-leaves"
+@namespace ZarzadzanieUrlopami.Pages
+@layout MainLayout
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using ZarzadzanieUrlopami.Models
+@using System.Globalization
+
+@inject ZarzadzanieUrlopami.Service.PodaniaService PodaniaService
+@inject AuthenticationStateProvider AuthProvider
+@inject NavigationManager NavigationManager
+
+<div class="report-page">
+    <h3>Zatwierdzanie urlopów</h3>
+
+    <div class="report-container">
+        @if (isLoading)
+        {
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">£adowanie...</span>
+                </div>
+            </div>
+        }
+        else if (pendingLeaves.Count == 0)
+        {
+            <div class="alert alert-info">
+                <span class="oi oi-info mr-2"></span>
+                Brak wniosków urlopowych oczekuj¹cych na zatwierdzenie.
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Pracownik</th>
+                            <th>Typ urlopu</th>
+                            <th>Termin</th>
+                            <th>Dni</th>
+                            <th>Powód</th>
+                            <th>Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var leave in pendingLeaves)
+                        {
+                            <tr>
+                                <td>@leave.IdPracownikaNavigation?.Imie @leave.IdPracownikaNavigation?.Nazwisko</td>
+                                <td>@leave.IdTypuUrlopuNavigation?.Nazwa</td>
+                                <td>
+                                    <span class="absence-date">@FormatDateRange(leave.DataPocz, leave.DataKon)</span>
+                                </td>
+                                <td>
+                                    @CalculateLeaveDays(leave.DataPocz, leave.DataKon)
+                                </td>
+                                <td>
+                                    <div class="status-badge">
+                                        <span class="badge bg-warning">
+                                            @leave.IdStatusuNavigation?.Wyjaœnienie
+                                        </span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-success btn-sm approve-btn" @onclick="() => ApproveLeave(leave.IdUrlopu)">
+                                            <span class="oi oi-check"></span> ZatwierdŸ
+                                        </button>
+                                        <button class="btn btn-danger btn-sm reject-btn" @onclick="() => RejectLeave(leave.IdUrlopu)">
+                                            <span class="oi oi-x"></span> Odrzuæ
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(message))
+        {
+            <div class="alert alert-success mt-3">
+                <span class="oi oi-check mr-2"></span>
+                @message
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger mt-3">
+                <span class="oi oi-warning mr-2"></span>
+                @errorMessage
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .report-page {
+        padding: 20px;
+    }
+
+    .report-container {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .absence-date {
+        font-weight: 500;
+    }
+
+    .status-badge {
+        margin-top: 5px;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+    }
+
+    /* Stylowanie przycisków akceptacji/odrzucenia */
+    .approve-btn {
+        font-weight: bold;
+        border: 2px solid #198754;
+        background-color: #198754;
+        color: #fff;
+        transition: background 0.2s, color 0.2s, border 0.2s;
+        font-size: 1rem;
+        min-width: 110px;
+    }
+    .approve-btn:hover {
+        background-color: #145c32;
+        color: #fff;
+        border-color: #145c32;
+    }
+
+    .reject-btn {
+        font-weight: bold;
+        border: 2px solid #dc3545;
+        background-color: #dc3545;
+        color: #fff;
+        transition: background 0.2s, color 0.2s, border 0.2s;
+        font-size: 1rem;
+        min-width: 110px;
+    }
+    .reject-btn:hover {
+        background-color: #a71d2a;
+        color: #fff;
+        border-color: #a71d2a;
+    }
+
+    /* High contrast mode styles (zgodne z MainLayout.razor) */
+    .high-contrast .report-container,
+    .medium-contrast .report-container,
+    .low-contrast .report-container {
+        background-color: #111 !important;
+        color: #fff !important;
+        border: 2px solid #fff;
+    }
+    .high-contrast table,
+    .medium-contrast table,
+    .low-contrast table {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+    .high-contrast th, .high-contrast td,
+    .medium-contrast th, .medium-contrast td,
+    .low-contrast th, .low-contrast td {
+        background-color: #000 !important;
+        color: #fff !important;
+        border-color: #fff !important;
+    }
+    .high-contrast .absence-date,
+    .medium-contrast .absence-date,
+    .low-contrast .absence-date {
+        color: #ff0 !important;
+    }
+    .high-contrast .badge.bg-warning,
+    .medium-contrast .badge.bg-warning,
+    .low-contrast .badge.bg-warning {
+        background-color: #ff0 !important;
+        color: #000 !important;
+    }
+    .high-contrast .approve-btn,
+    .medium-contrast .approve-btn,
+    .low-contrast .approve-btn {
+        background-color: #fff !important;
+        color: #198754 !important;
+        border-color: #fff !important;
+    }
+    .high-contrast .approve-btn:hover,
+    .medium-contrast .approve-btn:hover,
+    .low-contrast .approve-btn:hover {
+        background-color: #198754 !important;
+        color: #fff !important;
+        border-color: #fff !important;
+    }
+    .high-contrast .reject-btn,
+    .medium-contrast .reject-btn,
+    .low-contrast .reject-btn {
+        background-color: #fff !important;
+        color: #dc3545 !important;
+        border-color: #fff !important;
+    }
+    .high-contrast .reject-btn:hover,
+    .medium-contrast .reject-btn:hover,
+    .low-contrast .reject-btn:hover {
+        background-color: #dc3545 !important;
+        color: #fff !important;
+        border-color: #fff !important;
+    }
+
+    .absence-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .absence-list li {
+        margin-bottom: 8px;
+        padding: 6px;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+    }
+
+    .absence-type {
+        font-weight: 500;
+        display: block;
+    }
+</style>
+
+@code {
+    private List<Urlopy> pendingLeaves = new List<Urlopy>();
+    private ClaimsPrincipal? user;
+    private string role = "brak roli";
+    private bool isLoading = true;
+    private string message = string.Empty;
+    private string errorMessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthProvider.GetAuthenticationStateAsync();
+        user = authState.User;
+        role = user.FindFirst(ClaimTypes.Role)?.Value ?? "brak roli";
+
+        // Przekierowanie jeœli u¿ytkownik nie ma uprawnieñ
+        if (role != "Kierownik" && role != "Administrator")
+        {
+            NavigationManager.NavigateTo("/");
+            return;
+        }
+
+        await LoadPendingLeaves();
+    }
+
+    private async Task LoadPendingLeaves()
+    {
+        isLoading = true;
+        try
+        {
+            pendingLeaves = await PodaniaService.GetPendingLeavesAsync();
+            message = string.Empty;
+            errorMessage = string.Empty;
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"B³¹d podczas wczytywania wniosków: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
+        }
+    }
+
+    private async Task ApproveLeave(int leaveId)
+    {
+        try
+        {
+            await PodaniaService.UpdateLeaveStatusAsync(leaveId, 1, "Zatwierdzono przez: " + user?.Identity?.Name);
+            message = "Wniosek zosta³ pomyœlnie zatwierdzony.";
+            await LoadPendingLeaves();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"B³¹d podczas zatwierdzania wniosku: {ex.Message}";
+            StateHasChanged();
+        }
+    }
+
+    private async Task RejectLeave(int leaveId)
+    {
+        try
+        {
+            await PodaniaService.UpdateLeaveStatusAsync(leaveId, 2, "Odrzucono przez: " + user?.Identity?.Name);
+            message = "Wniosek zosta³ odrzucony.";
+            await LoadPendingLeaves();
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"B³¹d podczas odrzucania wniosku: {ex.Message}";
+            StateHasChanged();
+        }
+    }
+
+    private string FormatDateRange(DateOnly? start, DateOnly? end)
+    {
+        if (!start.HasValue && !end.HasValue)
+            return "Brak danych";
+
+        if (start.HasValue && !end.HasValue)
+            return $"Od {start.Value.ToString("dd.MM.yyyy")}";
+
+        if (!start.HasValue && end.HasValue)
+            return $"Do {end.Value.ToString("dd.MM.yyyy")}";
+
+        return $"{start.Value.ToString("dd.MM.yyyy")} - {end.Value.ToString("dd.MM.yyyy")}";
+    }
+
+    private int CalculateLeaveDays(DateOnly? startDate, DateOnly? endDate)
+    {
+        if (!startDate.HasValue || !endDate.HasValue)
+            return 0;
+
+        return (endDate.Value.DayNumber - startDate.Value.DayNumber) + 1;
+    }
+}
