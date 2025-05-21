@@ -1,0 +1,363 @@
+﻿.zmiana {
+    background-color: #BBC6C8 !important;
+}
+
+.urlop {
+    background-color: #015366 !important;
+}
+
+.zwolnienie{
+    background-color: #DDBEAA !important;
+}
+
+.zastepstwo {
+    background-color: #5BA199 !important;
+}
+
+td.dzisiaj {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    color: white; 
+    z-index: 1;
+    font-weight: normal; 
+}
+
+    td.dzisiaj::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 26px;
+        height: 26px;
+        background-color: #46ACC2; 
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+  
+       }
+
+
+/*dialog*/
+button.ok-button {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #46ACC2;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    button.ok-button:hover {
+        background-color: #1e3a59;
+    }
+
+
+.dialog {
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0F8FA;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #cce5ea;
+}
+
+    .dialog-header h2 {
+        font-size: 2rem;
+        color: #1e3a59;
+        margin: 0;
+        font-weight: 600;
+    }
+
+.close {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #46ACC2;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+    .close:hover {
+        color: #1e3a59;
+    }
+
+.dialog-body {
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.dialog-footer {
+    padding: 1.5rem 2rem;
+    background-color: #F0F8FA;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #cce5ea;
+}
+
+/* Przycisk OK */
+/*.ok-button {
+    background-color: #46ACC2;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .ok-button:hover {
+        background-color: #1e3a59;
+    }*/
+
+
+
+/* Kolory dla różnych typów dni w dialogu */
+.holiday-day {
+    background-color: #e0f1f3;
+    color: #015366;
+    border-left: 5px solid #015366;
+}
+
+.sick-day {
+    background-color: #f0e3d6;
+    color: #5c3b24;
+    border-left: 5px solid #c28f6d;
+}
+
+.substitute-day {
+    background-color: #d3eeeb;
+    color: #376f69;
+    border-left: 5px solid #5BA199;
+}
+
+.work-shift-day {
+    background-color: #e4e8ea;
+    color: #4a5a5c;
+    border-left: 5px solid #BBC6C8;
+}
+
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f8f9fa; 
+    border-top: 1px solid #e0e0e0;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-icon {
+    text-align: center;
+}
+
+    .footer-icon i {
+        font-size: 1.5rem;
+        color: #6c757d;
+    }
+
+    .footer-icon span {
+        display: block;
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+    }
+
+    .footer-icon:hover i {
+        color: #1e3a59; 
+        transform: scale(1.2); 
+    }
+
+    .footer-icon:hover span {
+        color: #1e3a59; 
+    }
+
+/* === TRYB ŚREDNI KONTRAST === */
+.medium-contrast .dialog,
+.medium-contrast .dialog-body,
+.medium-contrast .dialog-header,
+.medium-contrast .dialog-footer,
+.medium-contrast .footer-container {
+    background-color: #f5faff;
+    color: #000;
+}
+
+.medium-contrast .holiday-day,
+.medium-contrast .sick-day,
+.medium-contrast .substitute-day,
+.medium-contrast .work-shift-day {
+    color: #000;
+    border-left: 5px solid #888;
+}
+
+.medium-contrast .footer-icon i,
+.medium-contrast .footer-icon span {
+    color: #333;
+}
+
+
+/* Kolory dla różnych typów dni w kalendarzu */
+.medium-contrast .zmiana {
+    background-color: #d1d8dc !important; /* Jaśniejszy odcień szarości */
+}
+
+.medium-contrast .urlop {
+    background-color: #014f61 !important; /* Ciemniejszy odcień niebieskiego */
+}
+
+.medium-contrast .zwolnienie {
+    background-color: #d1c0a1 !important; /* Jasny beż */
+}
+
+.medium-contrast .zastepstwo {
+    background-color: #68b1a7 !important; /* Jasna zieleń */
+}
+
+/* Dzień dzisiejszy */
+.medium-contrast td.dzisiaj {
+    background-color: #a2c2e2; /* Jasnoniebieskie tło dla dnia dzisiejszego */
+    color: #000;
+}
+
+    .medium-contrast td.dzisiaj::before {
+        background-color: #66b3cc; /* Delikatniejszy niebieski */
+    }
+
+/* Przycisk OK w dialogu */
+.medium-contrast button.ok-button {
+    background-color: #66b3cc;
+    color: #fff;
+}
+
+.medium-contrast .dialog-header {
+    background-color: #f5faff;
+    color: #000;
+}
+
+/* Zmiany kolorów w stopce */
+.medium-contrast .footer-container {
+    background-color: #f0f8fa;
+}
+
+.medium-contrast .footer-icon i,
+.medium-contrast .footer-icon span {
+    color: #333;
+}
+
+.medium-contrast .footer-icon:hover i,
+.medium-contrast .footer-icon:hover span {
+    color: #1e3a59;
+}
+
+
+
+
+
+/* === TRYB WYSOKI KONTRAST === */
+.high-contrast .dialog,
+.high-contrast .dialog-body,
+.high-contrast .dialog-header,
+.high-contrast .dialog-footer,
+.high-contrast .footer-container {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid yellow;
+}
+
+.high-contrast .holiday-day,
+.high-contrast .sick-day,
+.high-contrast .substitute-day,
+.high-contrast .work-shift-day {
+    background-color: #000 !important;
+    color: yellow !important;
+    border-left: 5px solid yellow;
+}
+
+.high-contrast .footer-icon i,
+.high-contrast .footer-icon span {
+    color: yellow;
+}
+
+.high-contrast .footer-icon:hover i,
+.high-contrast .footer-icon:hover span {
+    color: orange;
+}
+
+/* Kolory dla różnych typów dni w kalendarzu */
+.high-contrast .zmiana {
+    background-color: #a7aaac !important; /* Bardziej nasycony, intensywniejszy szary */
+}
+
+.high-contrast .urlop {
+    background-color: #3ca2dd !important; /* Ciemniejszy, bardziej nasycony niebieski */
+}
+
+.high-contrast .zwolnienie {
+    background-color: #fecd58 !important; /* Głębszy, bardziej wyrazisty brązowo-czerwony */
+}
+
+.high-contrast .zastepstwo {
+    background-color: #3bd0b2 !important; /* Bardziej nasycony morski kolor */
+}
+
+
+/* Dzień dzisiejszy */
+.high-contrast td.dzisiaj {
+    background-color: #ffcc00; /* Żółte tło dla dnia dzisiejszego */
+    color: #000;
+}
+
+    .high-contrast td.dzisiaj::before {
+        background-color: #ff9900; /* Ciemniejszy żółty */
+    }
+
+/* Przycisk OK w dialogu */
+.high-contrast button.ok-button {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.high-contrast .dialog-header {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Zmiany kolorów w stopce */
+.high-contrast .footer-container {
+    background-color: #000;
+    color: #fff;
+}
+
+.high-contrast .footer-icon i,
+.high-contrast .footer-icon span {
+    color: yellow;
+}
+
+.high-contrast .footer-icon:hover i,
+.high-contrast .footer-icon:hover span {
+    color: orange;
+}
