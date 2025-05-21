@@ -18,14 +18,18 @@ namespace ZarzadzanieUrlopami.Service
             return await _context.TypyUrlopows.ToListAsync();
         }
 
-        public async Task<List<DostepneUrlopyRoczne>> GetDostepneUrlopy(string mail)
+        public async Task<Pracownicy?> GetDostepneUrlopy(string mail)
         {
-            return await _context.DostepneUrlopyRocznes
-                .Include(x => x.IdPracownikaNavigation)
-                .Where(x => x.IdPracownikaNavigation.Mail == mail)
-                .Include(x => x.IdTypuUrlopuNavigation)
-                .ToListAsync();
+            return await _context.Pracownicies
+                .Where(x => x.Mail == mail)
+                .Include(p => p.DostepneUrlopyRocznes)
+                    .ThenInclude(dup => dup.IdTypuUrlopuNavigation)
+                .Include(p => p.Urlopies)
+                .Include(p => p.ZwolnieniaLekarskies)
+                    .ThenInclude(zl => zl.IdTypuNavigation)
+                .FirstOrDefaultAsync();
         }
+
 
         public async Task DodajUrlop(Urlopy urlop)
         {
