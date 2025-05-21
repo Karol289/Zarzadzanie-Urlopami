@@ -75,7 +75,6 @@
                 Dzien dzien = miesiac.getDzien(SelectedDay);
                 //bool wolne = false;
                 <h3><i class="bi bi-calendar-event"></i> Zmiany dnia @SelectedDay/@CurrentMonth/@CurrentYear</h3>
-                <br />
             }
 
             @if (ZmianyWyswietlane != null && ZmianyWyswietlane.Any()) 
@@ -135,15 +134,22 @@
                         <button type="button" class="btn btn-secondary mt-2" @onclick="AnulujEdycje">Anuluj</button>
                     }
                 </EditForm>
-            }
-
-            <br />
+            }            
 
             @if (!string.IsNullOrWhiteSpace(alertMessage))
             {
                 <div class="alert @alertCss">
                     @alertMessage
                 </div>
+            }
+
+            @if (selectedDzienRoboczy == null)
+            {
+                <button type="button" class="btn btn-secondary mt-2" @onclick="DodajDzienRoboczy">Dodaj dzień roboczy</button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-secondary mt-2" @onclick="UsunDzienRoboczy">Usuń dzień roboczy</button>
             }
         </div>
     </BodyContent>
@@ -175,6 +181,7 @@
     List<DniRobocze> dniRoboczeList = new();
     private List<List<int?>> CalendarRows = new();
     private ClaimsPrincipal user = new();
+    private DateOnly wybranaData;
 
     private string alertMessage = "";
     private string alertCss = "";
@@ -281,13 +288,40 @@
     {
         dniRoboczeList = await ZmianyService.GetDniRoboczeAsync(CurrentYear, CurrentMonth);
         selectedDzienRoboczy = dniRoboczeList.FirstOrDefault(d => d.DataDnia == date);
-        ZmianyWyswietlane = await ZmianyService.GetZmianyDlaDniaAsync(selectedDzienRoboczy.DataDnia.Value);
+        if (selectedDzienRoboczy != null)
+        {
+            ZmianyWyswietlane = await ZmianyService.GetZmianyDlaDniaAsync(selectedDzienRoboczy.DataDnia.Value);            
+        }
     }
 
     private void AnulujEdycje()
     {
         isEditMode = false;
         nowaZmiana = new Zmiany();
+    }
+
+    private async Task DodajDzienRoboczy()
+    {
+        await ZmianyService.DodajDzienRoboczyAsync(user, wybranaData);
+        alertMessage = "Dzień roboczy został dodany";
+        isSaveMode = true;
+        await OdswiezDzien(wybranaData);
+    }
+
+    private async Task UsunDzienRoboczy()
+    {
+        if (ZmianyWyswietlane.Count == 0) 
+        {
+            await ZmianyService.UsunDzienRoboczyAsync(wybranaData);
+            alertMessage = "Dzień roboczy został usuniety";
+            isSaveMode = false;
+            await OdswiezDzien(wybranaData);
+        }
+        else
+        {
+            alertMessage = "Ten dzień posiada zmiany!";
+        }
+
     }
 
     private void ShowDialog()
@@ -356,7 +390,7 @@
         }
 
         GenerateCalendar();
-
+        dniRoboczeList = await ZmianyService.GetDniRoboczeAsync(CurrentYear, CurrentMonth);
         miesiac.poprzedniMiesiac();
 
         await miesiac.generujMiesiac();
@@ -375,6 +409,7 @@
         }
 
         GenerateCalendar();
+        dniRoboczeList = await ZmianyService.GetDniRoboczeAsync(CurrentYear, CurrentMonth);
         miesiac.nastepnyMiesiac();
 
         await miesiac.generujMiesiac();
@@ -389,9 +424,10 @@
             return;
 
         SelectedDay = day.GetValueOrDefault();
+        wybranaData = new DateOnly(CurrentYear, CurrentMonth, SelectedDay);
 
         selectedDzienRoboczy = dniRoboczeList.FirstOrDefault(d =>
-            d.DataDnia == new DateOnly(CurrentYear, CurrentMonth, SelectedDay));
+            d.DataDnia == wybranaData);
 
         if (selectedDzienRoboczy == null)
         {

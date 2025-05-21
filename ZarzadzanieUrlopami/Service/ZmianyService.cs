@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Security.Claims;
 using ZarzadzanieUrlopami.Data;
 using ZarzadzanieUrlopami.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace ZarzadzanieUrlopami.Service
 {
@@ -61,6 +62,33 @@ namespace ZarzadzanieUrlopami.Service
             if (zmiana != null)
             {
                 _context.Zmianies.Remove(zmiana);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task DodajDzienRoboczyAsync(ClaimsPrincipal user, DateOnly dataDnia)
+        {
+            string? email = user.FindFirst(ClaimTypes.Name)?.Value;
+            var pracownik = await _context.Pracownicies.FirstOrDefaultAsync(p => p.Mail == email);
+
+            var nowyDzien = new DniRobocze
+            {
+                IdKierownika = pracownik.IdPracownika,
+                DataDnia = dataDnia
+            };
+
+            _context.DniRoboczes.Add(nowyDzien);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UsunDzienRoboczyAsync(DateOnly dataDnia)
+        {
+            var dzien = await _context.DniRoboczes
+                .FirstOrDefaultAsync(d => d.DataDnia == dataDnia);
+
+            if (dzien != null)
+            {
+                _context.DniRoboczes.Remove(dzien);
                 await _context.SaveChangesAsync();
             }
         }
