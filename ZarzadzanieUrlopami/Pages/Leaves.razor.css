@@ -154,3 +154,73 @@ button.btn,
     font-size: inherit;
 }
 
+
+/* Podstawowy tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+    .tooltip .tooltip-text {
+        visibility: hidden;
+        width: max-content;
+        max-width: 250px;
+        background-color: #F0F8FA;
+        color: #333;
+        text-align: left;
+        border-radius: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        position: absolute;
+        z-index: 10;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .tooltip:hover .tooltip-text,
+    .tooltip:focus-within .tooltip-text {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* Strzałka pod tooltipem */
+    .tooltip .tooltip-text::after {
+        content: "";
+        position: absolute;
+        top: 100%; /* u dołu tooltipa */
+        left: 50%;
+        margin-left: -6px;
+        border-width: 6px;
+        border-style: solid;
+        border-color: #F0F8FA transparent transparent transparent;
+    }
+
+/* === Tryb średniego kontrastu === */
+.medium-contrast .tooltip .tooltip-text {
+    background-color: #e0f7f9;
+    color: #007c91;
+    box-shadow: 0 4px 12px rgba(0, 140, 160, 0.2);
+}
+
+    .medium-contrast .tooltip .tooltip-text::after {
+        border-color: #e0f7f9 transparent transparent transparent;
+    }
+
+/* === Tryb wysokiego kontrastu === */
+.high-contrast .tooltip .tooltip-text {
+    background-color: #212121;
+    color: #ffeb3b;
+    box-shadow: 0 4px 12px rgba(255, 235, 59, 0.6);
+}
+
+    .high-contrast .tooltip .tooltip-text::after {
+        border-color: #212121 transparent transparent transparent;
+    }
