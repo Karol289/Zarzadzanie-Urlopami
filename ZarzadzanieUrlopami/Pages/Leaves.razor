@@ -31,13 +31,16 @@
                     </dd>
                     <dd class="col-sm-9">
                         <strong>Powód:</strong>
-                        <InputTextArea class="form-control" 
+                        <InputTextArea class="form-control"
+                        placeholder="Proszę podać powód"
                         @bind-Value="leaveRequest.Reason" />
                     </dd>
                     <dd class="col-sm-9">
                         <strong>Typ urlopu:</strong>
                         <select class="form-control"
                                 @onchange="@(e => ustawDni(int.Parse(e.Value.ToString())))">
+
+                                <option value="" selected disabled hidden>Wybierz typ urlopu</option>
                             @if (pracownik != null)
                             {
                                 @foreach (var typ in pracownik.DostepneUrlopyRocznes)
@@ -89,7 +92,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        leaveRequest = new LeaveRequest(pracownik)
+        leaveRequest = new LeaveRequest()
             {
                 StartDate = DateTime.Today,
                 EndDate = DateTime.Today,
@@ -116,12 +119,15 @@
 
         dni = pracownik.DostepneUrlopyRocznes.Where(x => x.IdTypuUrlopu == value).FirstOrDefault().Ilosc ?? 0;
 
+        leaveRequest.LeaveTypeId = value;
+
         leaveRequest.LeaveType = pracownik.DostepneUrlopyRocznes.Where(x => x.IdTypuUrlopu == value).FirstOrDefault().IdTypuUrlopuNavigation.Nazwa ?? "";
     }
 
     private async Task SubmitRequest()
     {
-        errorMessage = message = string.Empty;
+        message = string.Empty;
+        errorMessage =  string.Empty;
 
 
         if (leaveRequest.EndDate < leaveRequest.StartDate)
@@ -129,25 +135,60 @@
             errorMessage = "Data zakończenia nie może być wcześniejsza niż data rozpoczęcia.";
             return;
         }
+        if (pracownik == null)
+            return;
+
+
+        StanWniosku stan = leaveRequest.rozpatrzWniosek(pracownik);
+
+        switch(stan)
+        {
+            case StanWniosku.brakWolnychDni:
+                {
+                    errorMessage = "Brak wystarczającej ilości dni by uzyskać urlop!";
+                    break;
+                }
+            case StanWniosku.juzJestUrlop:
+                {
+                    errorMessage = "W danym terminie masz już wpisany urlop!";
+                    break;
+                }
+            case StanWniosku.juzJestZwolnienie:
+                {
+                    errorMessage = "W danym terminie masz już wpisane zwolnienie!";
+                    break;
+                }
+            case StanWniosku.zleDaty:
+                {
+                    errorMessage = "Podane daty w wniosku są nieprawidłowe!";
+                    break;
+                }
+            case StanWniosku.pozytywny:
+                {
+                    errorMessage = "";
+                    message = "Wniosek o urlop złożony pozytywnie";
 
 
 
+                    await PodaniaService.DodajUrlop(leaveRequest.utworzUrlop(pracownik.IdPracownika));
+                    pracownik = await PodaniaService.GetDostepneUrlopy(user.Identity.Name);
 
-        leaveRequest.rozpatrzWniosek();
+                    leaveRequest.reset();
+                    break;
+                }
 
-        // Symulacja przetwarzania wniosku
-        await Task.Delay(500); // Udawany czas oczekiwania na zapisanie
-
-        message = "Wniosek został złożony pomyślnie!";
-        //leaveRequest = new LeaveRequest(); // Reset formularza
+            default: break;
+        }
     }
 
     public enum StanWniosku
     {
         pozytywny,
-        jużJestUrlop,
-        jużJestZwolnienie,
-        brakWolnychDni
+        juzJestUrlop,
+        juzJestZwolnienie,
+        brakWolnychDni,
+        zleDaty
+
     }
 
 
@@ -169,24 +210,72 @@
         [Required(ErrorMessage = "Musisz wybrać typ urlopu.")]
         public string LeaveType { get; set; }
 
-
-        public ZarzadzanieUrlopami.Models.Pracownicy? pracownik { get; set; } = null;
-
-
-        public LeaveRequest(ZarzadzanieUrlopami.Models.Pracownicy? dni)
+        public void reset()
         {
-            pracownik = dni;
+            StartDate = EndDate = DateTime.Now;
+            Reason = string.Empty;
+
         }
 
-        public StanWniosku rozpatrzWniosek()
+
+        public StanWniosku rozpatrzWniosek(ZarzadzanieUrlopami.Models.Pracownicy? pracownik)
         {
+            if (StartDate > EndDate)
+                return StanWniosku.zleDaty;
 
-            
+            int dostepneDni;
+            try{
+                dostepneDni = pracownik.DostepneUrlopyRocznes.Where(x => x.IdTypuUrlopu == LeaveTypeId).FirstOrDefault().Ilosc ?? 0;
+            }
+            catch(Exception e)
+            {
+                dostepneDni = 0;
+            }
 
+            if((EndDate - StartDate).TotalDays > dostepneDni)
+            {
+                return StanWniosku.brakWolnychDni;
+            }
+
+
+            foreach(var zwolnienie in pracownik.ZwolnieniaLekarskies)
+            {
+                if(zwolnienie.DataPocz < DateOnly.FromDateTime(EndDate)
+                    && zwolnienie.DataKon > DateOnly.FromDateTime(StartDate))
+                {
+                    return StanWniosku.juzJestZwolnienie;
+                }
+            }
+
+            foreach (var urlop in pracownik.Urlopies)
+            {
+                if (urlop.DataPocz <= DateOnly.FromDateTime(EndDate)
+                    && urlop.DataKon >= DateOnly.FromDateTime(StartDate))
+                {
+                    return StanWniosku.juzJestUrlop;
+                }
+            }
 
             return StanWniosku.pozytywny;
         }
 
+        public ZarzadzanieUrlopami.Models.Urlopy utworzUrlop(int idPracownika)
+        {
+            ZarzadzanieUrlopami.Models.Urlopy urlop = new ZarzadzanieUrlopami.Models.Urlopy();
+
+            ZarzadzanieUrlopami.Models.StatusUrlopu status = new ZarzadzanieUrlopami.Models.StatusUrlopu();
+            status.Wyjaśnienie = Reason;
+            status.IdTypuStatusu = 3;
+
+
+            urlop.IdPracownika = idPracownika;
+            urlop.IdTypuUrlopu = LeaveTypeId;
+            urlop.IdStatusuNavigation = status;
+            urlop.DataPocz = DateOnly.FromDateTime(StartDate);
+            urlop.DataKon = DateOnly.FromDateTime(EndDate);
+
+            return urlop;
+        }
     }
 
 
