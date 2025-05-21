@@ -219,6 +219,7 @@
         if (user.Identity.IsAuthenticated == false)
             return;
 
+        //var a = user.FindFirst(ClaimTypes.Role)?.Value ?? "brak roli";
         miesiac = new Miesiac(ServiceProvider, user.Identity.Name, CurrentMonth, CurrentYear);
 
         await miesiac.generujMiesiac();
