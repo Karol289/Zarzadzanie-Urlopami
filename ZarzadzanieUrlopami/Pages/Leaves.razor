@@ -17,44 +17,72 @@
             <ValidationSummary />
 
             <div class="card shadow p-4">
-                <!-- Nagłówek w ramce formularza -->
-                <h3 class="mb-4 text-center">Wniosek urlopowy</h3> <!-- Nagłówek w ramce -->
+                <h3 class="mb-4 text-center">Wniosek urlopowy</h3>
 
                 <dl class="row">
                     <dd class="col-sm-9">
-                        <strong>Data rozpoczęcia:</strong>
+                        <label>
+                            Data rozpoczęcia
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Wybierz dzień rozpoczęcia urlopu</span>
+                            </span>
+                        </label>
                         <InputDate class="form-control" @bind-Value="leaveRequest.StartDate" />
                     </dd>
+
                     <dd class="col-sm-9">
-                        <strong>Data zakończenia:</strong>
+                        <label>
+                            Data zakończenia
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Wybierz dzień zakończenia urlopu</span>
+                            </span>
+                        </label>
                         <InputDate class="form-control" @bind-Value="leaveRequest.EndDate" />
                     </dd>
-                    <dd class="col-sm-9">
-                        <strong>Powód:</strong>
-                        <InputTextArea class="form-control"
-                        placeholder="Proszę podać powód"
-                        @bind-Value="leaveRequest.Reason" />
-                    </dd>
-                    <dd class="col-sm-9">
-                        <strong>Typ urlopu:</strong>
-                        <select class="form-control"
-                                @onchange="@(e => ustawDni(int.Parse(e.Value.ToString())))">
 
-                                <option value="" selected disabled hidden>Wybierz typ urlopu</option>
+                    <dd class="col-sm-9">
+                        <label>
+                            Powód
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Opisz powód urlopu, aby usprawnić proces akceptacji</span>
+                            </span>
+                        </label>
+                        <InputTextArea class="form-control" placeholder="Proszę podać powód" @bind-Value="leaveRequest.Reason" />
+                    </dd>
+
+                    <dd class="col-sm-9">
+                        <label>
+                            Typ urlopu
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Wybierz typ urlopu z dostępnej listy</span>
+                            </span>
+                        </label>
+                        <select class="form-control" @onchange="@(e => ustawDni(int.Parse(e.Value.ToString())))">
+                            <option value="" selected disabled hidden>Wybierz typ urlopu</option>
                             @if (pracownik != null)
                             {
                                 @foreach (var typ in pracownik.DostepneUrlopyRocznes)
                                 {
-                                    <option value="@typ.IdTypuUrlopu"
-                                            selected="@(typ.IdTypuUrlopu == leaveRequest.LeaveTypeId)">
+                                    <option value="@typ.IdTypuUrlopu" selected="@(typ.IdTypuUrlopu == leaveRequest.LeaveTypeId)">
                                         @typ.IdTypuUrlopuNavigation.Nazwa
                                     </option>
                                 }
                             }
                         </select>
                     </dd>
-                    <dd>
-                        <strong>Dostepne dni urlopowe: @dni</strong>
+
+                    <dd class="col-sm-9">
+                        <label>
+                            Dostępne dni urlopowe: @dni
+                            <span tabindex="0" class="tooltip ms-1 text-muted">
+                                <i class="bi bi-info-circle"></i>
+                                <span class="tooltip-text">Ilość dni urlopowych, które możesz jeszcze wykorzystać</span>
+                            </span>
+                        </label>
                     </dd>
                 </dl>
 
@@ -75,6 +103,7 @@
         </EditForm>
     </div>
 </div>
+
 
 @code {
 

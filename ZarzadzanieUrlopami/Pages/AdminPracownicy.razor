@@ -15,8 +15,10 @@
 		<div class="alert alert-success">@successMessage</div>
 	}
 
-	<h2>Lista Pracowników</h2>
-	<table class="table">
+	<div class="table-header">
+		<h2>Lista Pracowników</h2>
+	</div>
+	<table class="table_p">
 		<thead>
 			<tr>
 				<th>Imię</th>
@@ -54,32 +56,109 @@
 			}
 		</tbody>
 	</table>
+	<div class="form-container">
+    <div class="form-header">
+        <h2>Dodaj nowego pracownika</h2>
+    </div>
 
-	<h2>Dodaj Pracownika</h2>
-	<EditForm Model="@nowyPracownik" OnValidSubmit="DodajPracownika">
-		<DataAnnotationsValidator />
-		<ValidationSummary />
+		<EditForm Model="@nowyPracownik" OnValidSubmit="DodajPracownika">
+			<DataAnnotationsValidator />
+			<ValidationSummary />
 
-		<InputText placeholder="Imię" class="form-control mb-2" @bind-Value="nowyPracownik.Imie" />
-		<InputText placeholder="Nazwisko" class="form-control mb-2" @bind-Value="nowyPracownik.Nazwisko" />
-		<InputText placeholder="Email" class="form-control mb-2" @bind-Value="nowyPracownik.Mail" />
-		<InputText placeholder="Telefon" class="form-control mb-2" @bind-Value="nowyPracownik.Telefon" />
-		<InputText type="password" placeholder="Hasło" class="form-control mb-2" @bind-Value="noweHaslo" />
+			<div class="form-grid">
+				<div class="form-group">
+					<label>
+						Imię
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wpisz imię pracownika, np. Jan</span>
+						</span>
+					</label>
+					<InputText placeholder="Imię" class="form-control" @bind-Value="nowyPracownik.Imie" />
+				</div>
 
-		<select @bind="nowyPracownik.IdRoli" class="form-control mb-2">
-			<option value="">-- Wybierz rolę --</option>
-			@foreach (var rola in role)
-			{
-				<option value="@rola.IdRoli">@rola.Nazwa</option>
-			}
-		</select>
+				<div class="form-group">
+					<label>
+						Nazwisko
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wpisz nazwisko pracownika, np. Kowalski</span>
+						</span>
+					</label>
+					<InputText placeholder="Nazwisko" class="form-control" @bind-Value="nowyPracownik.Nazwisko" />
+				</div>
 
-		<InputDate @bind-Value="nowyPracownik.DataRozpoczecia" class="form-control mb-2" />
+				<div class="form-group">
+					<label>
+						Email
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wpisz adres email, np. jan.kowalski@example.com</span>
+						</span>
+					</label>
+					<InputText placeholder="Email" class="form-control" @bind-Value="nowyPracownik.Mail" />
+				</div>
 
-		<button class="btn btn-primary" type="submit">Dodaj</button>
-	</EditForm>
+				<div class="form-group">
+					<label>
+						Telefon
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wpisz numer telefonu, np. 123-456-789</span>
+						</span>
+					</label>
+					<InputText placeholder="Telefon" class="form-control" @bind-Value="nowyPracownik.Telefon" />
+				</div>
+
+				<div class="form-group">
+					<label>
+						Hasło
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wpisz hasło dostępu</span>
+						</span>
+					</label>
+					<InputText type="password" placeholder="Hasło" class="form-control" @bind-Value="noweHaslo" />
+				</div>
+
+				<div class="form-group">
+					<label>
+						Rola
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wybierz rolę pracownika z listy</span>
+						</span>
+					</label>
+					<select @bind="nowyPracownik.IdRoli" class="form-control">
+						<option value="">-- Rola --</option>
+						@foreach (var rola in role)
+						{
+							<option value="@rola.IdRoli">@rola.Nazwa</option>
+						}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>
+						Data rozpoczęcia
+						<span tabindex="0" class="tooltip ms-1 text-muted">
+							<i class="bi bi-info-circle"></i>
+							<span class="tooltip-text">Wybierz datę rozpoczęcia pracy</span>
+						</span>
+					</label>
+					<InputDate @bind-Value="nowyPracownik.DataRozpoczecia" class="form-control" />
+				</div>
+			</div>
+
+			<div class="button-container">
+				<button class="btn btn-primary" type="submit">Dodaj</button>
+			</div>
+		</EditForm>
+
+
+
+	</div>
 </div>
-
 @code {
 	private List<Pracownicy> pracownicy = new();
 	private List<Role> role = new();
