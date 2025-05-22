@@ -167,13 +167,17 @@ public partial class UrlopyDbContext : DbContext
             entity.HasOne(d => d.IdTypuStatusuNavigation).WithMany(p => p.StatusUrlopus)
                 .HasForeignKey(d => d.IdTypuStatusu)
                 .HasConstraintName("FK_StatusUrlopu_TypyStatusow");
+            
         });
 
         modelBuilder.Entity<TypyStatusow>(entity =>
         {
             entity.HasKey(e => e.IdTypuStat).HasName("PK__Typy_Sta__5301E33B60099E9B");
 
-            entity.ToTable("Typy_Statusow");
+            entity.ToTable("Typy_Statusow", tb => { tb.HasTrigger("ZwrocDni_PrzyOdrzuceniuUrlopu");
+                tb.UseSqlOutputClause(false); } 
+            );
+
 
             entity.HasIndex(e => e.Nazwa, "IX_TypyStatusow_Nazwa");
 
@@ -186,6 +190,7 @@ public partial class UrlopyDbContext : DbContext
             entity.Property(e => e.Opis)
                 .HasMaxLength(100)
                 .HasColumnName("opis");
+            
         });
 
         modelBuilder.Entity<TypyUrlopow>(entity =>

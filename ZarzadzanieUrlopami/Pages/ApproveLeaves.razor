@@ -281,7 +281,7 @@
     {
         try
         {
-            await PodaniaService.UpdateLeaveStatusAsync(leaveId, 1, "Zatwierdzono przez: " + user?.Identity?.Name);
+            await PodaniaService.UpdateLeaveStatusAsync(leaveId, 1, " Zatwierdzono przez: " + user?.Identity?.Name);
             message = "Wniosek zosta³ pomyœlnie zatwierdzony.";
             await LoadPendingLeaves();
         }
@@ -296,7 +296,7 @@
     {
         try
         {
-            await PodaniaService.UpdateLeaveStatusAsync(leaveId, 2, "Odrzucono przez: " + user?.Identity?.Name);
+            await PodaniaService.UpdateLeaveStatusAsync(leaveId, 2, " Odrzucono przez: " + user?.Identity?.Name);
             message = "Wniosek zosta³ odrzucony.";
             await LoadPendingLeaves();
         }

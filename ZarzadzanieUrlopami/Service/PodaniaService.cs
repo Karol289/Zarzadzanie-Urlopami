@@ -49,51 +49,63 @@ namespace ZarzadzanieUrlopami.Service
 
         public async Task UpdateLeaveStatusAsync(int leaveId, int statusTypeId, string explanation)
         {
-            using var transaction = await _context.Database.BeginTransactionAsync();
+            
 
-            try
-            {
-                var urlop = await _context.Urlopies
-                    .Include(u => u.IdStatusuNavigation)
-                    .Include(u => u.IdPracownikaNavigation)
-                        .ThenInclude(p => p.DostepneUrlopyRocznes)
-                    .Include(u => u.IdTypuUrlopuNavigation)
-                    .FirstOrDefaultAsync(u => u.IdUrlopu == leaveId);
+            string query = @"update su
+                            set su.id_typu_statusu = @p2,
+                            su.wyjaśnienie += @p1
+                            from [Status_Urlopu] su 
+                            join [Urlopy] u on u.id_statusu = su.id_statusu
+                            where u.id_urlopu = @p0;";
 
-                if (urlop == null)
-                    throw new Exception("Nie znaleziono urlopu o podanym identyfikatorze.");
 
-                urlop.IdStatusuNavigation.IdTypuStatusu = statusTypeId;
-                if (!string.IsNullOrEmpty(explanation))
-                {
-                    urlop.IdStatusuNavigation.Wyjaśnienie += " | " + explanation;
-                }
+            await _context.Database.ExecuteSqlRawAsync(query, leaveId, explanation, statusTypeId);
 
-                if (statusTypeId == StatusUrlopu.ACCEPTED) // 1 - Zatwierdzony
-                {
-                    int liczbaDni = CalculateLeaveDays(urlop.DataPocz!.Value, urlop.DataKon!.Value);
+            //using var transaction = await _context.Database.BeginTransactionAsync();
+            //try
+            //{
+            //    var urlop = await _context.Urlopies
+            //        .Include(u => u.IdStatusuNavigation)
+            //        .Include(u => u.IdPracownikaNavigation)
+            //            .ThenInclude(p => p.DostepneUrlopyRocznes)
+            //        .Include(u => u.IdTypuUrlopuNavigation)
+            //        .FirstOrDefaultAsync(u => u.IdUrlopu == leaveId);
 
-                    var dostepneUrlopy = urlop.IdPracownikaNavigation?.DostepneUrlopyRocznes
-                        .FirstOrDefault(d => d.IdTypuUrlopu == urlop.IdTypuUrlopu &&
-                                            d.Rok == urlop.DataPocz?.Year);
+            //    if (urlop == null)
+            //        throw new Exception("Nie znaleziono urlopu o podanym identyfikatorze.");
 
-                    if (dostepneUrlopy != null)
-                    {
-                        if (dostepneUrlopy.Ilosc < liczbaDni)
-                            throw new Exception($"Nie wystarczająca liczba dni urlopowych. Dostępne: {dostepneUrlopy.Ilosc}, Wymagane: {liczbaDni}");
+            //    urlop.IdStatusuNavigation.IdTypuStatusu = statusTypeId;
+            //    if (!string.IsNullOrEmpty(explanation))
+            //    {
+            //        urlop.IdStatusuNavigation.Wyjaśnienie += " | " + explanation;
+            //    }
 
-                        dostepneUrlopy.Ilosc -= liczbaDni;
-                    }
-                }
+            //    if (statusTypeId == StatusUrlopu.ACCEPTED) // 1 - Zatwierdzony
+            //    {
+            //        //!!!! daty gdy null
+            //        int liczbaDni = CalculateLeaveDays(urlop.DataPocz!.Value, urlop.DataKon!.Value);
 
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
-            }
-            catch (Exception)
-            {
-                await transaction.RollbackAsync();
-                throw;
-            }
+            //        var dostepneUrlopy = urlop.IdPracownikaNavigation?.DostepneUrlopyRocznes
+            //            .FirstOrDefault(d => d.IdTypuUrlopu == urlop.IdTypuUrlopu &&
+            //                                d.Rok == urlop.DataPocz?.Year);
+
+            //        if (dostepneUrlopy != null)
+            //        {
+            //            if (dostepneUrlopy.Ilosc < liczbaDni)
+            //                throw new Exception($"Nie wystarczająca liczba dni urlopowych. Dostępne: {dostepneUrlopy.Ilosc}, Wymagane: {liczbaDni}");
+
+            //            dostepneUrlopy.Ilosc -= liczbaDni;
+            //        }
+            //    }
+
+            //    await _context.SaveChangesAsync();
+            //    await transaction.CommitAsync();
+            //}
+            //catch (Exception)
+            //{
+            //    await transaction.RollbackAsync();
+            //    throw;
+            //}
         }
 
         private int CalculateLeaveDays(DateOnly startDate, DateOnly endDate)
