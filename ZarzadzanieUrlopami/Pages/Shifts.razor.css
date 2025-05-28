@@ -112,22 +112,7 @@ button.ok-button {
     border-top: 1px solid #cce5ea;
 }
 
-/* Przycisk OK */
-/*.ok-button {
-    background-color: #46ACC2;
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-    .ok-button:hover {
-        background-color: #1e3a59;
-    }*/
 
 
 
@@ -361,3 +346,225 @@ button.ok-button {
 .high-contrast .footer-icon:hover span {
     color: orange;
 }
+
+
+
+
+/*PRZYCISKI*/
+.btn-secondary.mt-2 {
+    background-color: #46ACC2;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-secondary.mt-2:hover {
+        background-color: #1e3a59;
+    }
+
+.btn-success.mt-2 {
+    background-color: #5BA199;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.btn-success.mt-2:hover {
+    background-color: #184b46;
+}
+
+.btn-secondaryD.mt-2 {
+    background-color: #dd4e6d;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-secondaryD.mt-2:hover {
+        background-color: #b90930;
+    }
+
+
+
+.btn-secondaryDel.mt-2 {
+    background-color: #dd4e6d;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+    .btn-secondaryDel.mt-2:hover {
+        background-color: #b90930;
+    }
+
+
+.btn-sm.btn-danger {
+    background-color: #dd4e6d;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+    .btn-sm.btn-dangerS:hover {
+        background-color: #e21b47;
+    }
+
+
+
+.btn-sm.btn-primary {
+    background-color: #7b97eF;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+    .btn-sm.btn-primary:hover {
+        background-color: #5f7cd7;
+    }
+
+
+/* === PRZYCISKI – ŚREDNI KONTRAST === */
+.medium-contrast .btn-success.mt-2 {
+    background-color: #3d8077;
+    color: #ffffff;
+}
+
+.medium-contrast .btn-secondary.mt-2 {
+    background-color: #2b8fa0;
+    color: #ffffff;
+}
+
+.medium-contrast .btn-secondaryD.mt-2,
+.medium-contrast .btn-secondaryDel.mt-2,
+.medium-contrast .btn-sm.btn-danger {
+    background-color: #c53754;
+    color: #ffffff;
+}
+
+.medium-contrast .btn-sm.btn-primary {
+    background-color: #5a74e0;
+    color: #ffffff;
+}
+
+
+
+.high-contrast .btn-success.mt-2,
+.high-contrast .btn-secondary.mt-2,
+.high-contrast .btn-secondaryD.mt-2,
+.high-contrast .btn-secondaryDel.mt-2,
+.high-contrast .btn-sm.btn-danger,
+.high-contrast .btn-sm.btn-primary {
+    background-color: #000; /* czarne tło */
+    color: yellow; /* żółty tekst */
+    border: 1px solid yellow;
+}
+
+    /* Hover (opcjonalnie pogrubione lub odwrócone kolory, jeśli chcesz) */
+    .high-contrast .btn-success.mt-2:hover,
+    .high-contrast .btn-secondary.mt-2:hover,
+    .high-contrast .btn-secondaryD.mt-2:hover,
+    .high-contrast .btn-secondaryDel.mt-2:hover,
+    .high-contrast .btn-sm.btn-danger:hover,
+    .high-contrast .btn-sm.btn-primary:hover {
+        background-color: yellow;
+        color: #000;
+        border: 1px solid yellow;
+    }
+
+
+
+select {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+    /* Fokus: delikatny cień */
+    select:focus {
+        border-color: #46ACC2;
+        box-shadow: 0 0 0 3px rgba(70, 172, 194, 0.3);
+    }
+
+/* W trybie wysokiego kontrastu */
+.high-contrast select {
+    background-color: #000;
+    color: yellow;
+    border: 1px solid yellow;
+}
+
+    .high-contrast select:focus {
+        border-color: yellow;
+        box-shadow: 0 0 0 3px rgb(232, 233, 209, 0,50);
+    }
+
+
+.alert {
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #77bdcc; /* domyślny zielony */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+}
+
+    /* Wariant ostrzegawczy */
+    .alert.warning {
+        background-color: #dd4e6d;
+    }
+
+    /* Wariant błędu */
+    .alert.error {
+        background-color: #b90930;
+    }
+
+/* Tryb wysokiego kontrastu */
+.high-contrast .alert {
+    background-color: #000 !important;
+    color: #FFD700 !important;
+    border: 1px solid #FFD700;
+}
+

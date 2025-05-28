@@ -131,7 +131,7 @@
 
                     @if (isEditMode)
                     {
-                        <button type="button" class="btn btn-secondary mt-2" @onclick="AnulujEdycje">Anuluj</button>
+                        <button type="button" class="btn btn-secondaryD mt-2" @onclick="AnulujEdycje">Anuluj</button>
                     }
                 </EditForm>
             }            
@@ -149,7 +149,7 @@
             }
             else
             {
-                <button type="button" class="btn btn-secondary mt-2" @onclick="UsunDzienRoboczy">Usuń dzień roboczy</button>
+                <button type="button" class="btn btn-secondaryDel mt-2" @onclick="UsunDzienRoboczy">Usuń dzień roboczy</button>
             }
         </div>
     </BodyContent>
@@ -184,6 +184,7 @@
     private DateOnly wybranaData;
 
     private string alertMessage = "";
+     private string alertType = "";
     private string alertCss = "";
 
     private bool dialogShown = false;
@@ -217,55 +218,62 @@
         GenerateCalendar();
     }
 
-    private async Task ZapiszZmiane()
+  private async Task ZapiszZmiane()
+{
+    alertMessage = "";
+    alertType = "";
+
+    try
     {
-        alertMessage = "";
-        try
+        if (selectedDzienRoboczy == null || selectedDzienRoboczy.DataDnia == null)
         {
-            if (selectedDzienRoboczy == null || selectedDzienRoboczy.DataDnia == null)
-            {
-                alertMessage = "Brak daty dla wybranego dnia roboczego!";
-                isEditMode = false;
-                return;
-            }
-
-            if (nowaZmiana.GodzRozp >= nowaZmiana.GodzZakon)
-            {
-                alertMessage = "Godzina zakończenia musi być późniejsza niż rozpoczęcia!";
-                return;
-            }
-
-            nowaZmiana.IdDnia = selectedDzienRoboczy.IdDnia;
-            nowaZmiana.IdPracownika = SelectedEmployeeId;
-
-            if (nowaZmiana.IdPracownika <= 0 ||
-                nowaZmiana.GodzRozp == null ||
-                nowaZmiana.GodzZakon == null)
-            {
-                alertMessage = "Uzupełnij wszystkie wymagane pola!";
-                return;
-            }
-
-            // Edycja vs dodanie nowej zmiany
-            if (isEditMode)
-            {
-                await ZmianyService.EdytujZmianeAsync(nowaZmiana);
-                alertMessage = "Zmiana została zaktualizowana.";
-            }
-            else
-            {
-                await ZmianyService.DodajZmianeAsync(nowaZmiana);
-                alertMessage = "Zmiana została dodana.";
-            }
-
-            await OdswiezDzien(selectedDzienRoboczy.DataDnia.Value);
-            AnulujEdycje(); // Reset formularza
+            alertMessage = "Brak daty dla wybranego dnia roboczego!";
+            alertType = "warning";
+            isEditMode = false;
+            return;
         }
-        catch (Exception ex)
+
+        if (nowaZmiana.GodzRozp >= nowaZmiana.GodzZakon)
         {
-            alertMessage = $"Wystąpił błąd: {ex.Message}";
+            alertMessage = "Godzina zakończenia musi być późniejsza niż rozpoczęcia!";
+            alertType = "warning";
+            return;
         }
+
+        nowaZmiana.IdDnia = selectedDzienRoboczy.IdDnia;
+        nowaZmiana.IdPracownika = SelectedEmployeeId;
+
+        if (nowaZmiana.IdPracownika <= 0 ||
+            nowaZmiana.GodzRozp == null ||
+            nowaZmiana.GodzZakon == null)
+        {
+            alertMessage = "Uzupełnij wszystkie wymagane pola!";
+            alertType = "warning";
+            return;
+        }
+
+        if (isEditMode)
+        {
+            await ZmianyService.EdytujZmianeAsync(nowaZmiana);
+            alertMessage = "Zmiana została zaktualizowana.";
+            alertType = "success";
+        }
+        else
+        {
+            await ZmianyService.DodajZmianeAsync(nowaZmiana);
+            alertMessage = "Zmiana została dodana.";
+            alertType = "success";
+        }
+
+        await OdswiezDzien(selectedDzienRoboczy.DataDnia.Value);
+        AnulujEdycje();
     }
+    catch (Exception ex)
+    {
+        alertMessage = $"Wystąpił błąd: {ex.Message}";
+        alertType = "error";
+    }
+}
 
 
 
