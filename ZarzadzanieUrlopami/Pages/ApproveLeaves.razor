@@ -1,4 +1,4 @@
-@page "/approve-leaves"
+Ôªø@page "/approve-leaves"
 @namespace ZarzadzanieUrlopami.Pages
 @layout MainLayout
 @using Microsoft.AspNetCore.Components.Authorization
@@ -11,14 +11,14 @@
 @inject NavigationManager NavigationManager
 
 <div class="report-page">
-    <h3>Zatwierdzanie urlopÛw</h3>
+    <h3>Zatwierdzanie urlop√≥w</h3>
 
     <div class="report-container">
         @if (isLoading)
         {
             <div class="d-flex justify-content-center">
                 <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">£adowanie...</span>
+                    <span class="visually-hidden">≈Åadowanie...</span>
                 </div>
             </div>
         }
@@ -26,7 +26,7 @@
         {
             <div class="alert alert-info">
                 <span class="oi oi-info mr-2"></span>
-                Brak wnioskÛw urlopowych oczekujπcych na zatwierdzenie.
+                Brak wniosk√≥w urlopowych oczekujƒÖcych na zatwierdzenie.
             </div>
         }
         else
@@ -39,7 +39,7 @@
                             <th>Typ urlopu</th>
                             <th>Termin</th>
                             <th>Dni</th>
-                            <th>PowÛd</th>
+                            <th>Pow√≥d</th>
                             <th>Akcje</th>
                         </tr>
                     </thead>
@@ -58,17 +58,17 @@
                                 <td>
                                     <div class="status-badge">
                                         <span class="badge bg-warning">
-                                            @leave.IdStatusuNavigation?.Wyjaúnienie
+                                            @leave.IdStatusuNavigation?.Wyja≈õnienie
                                         </span>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="action-buttons">
                                         <button class="btn btn-success btn-sm approve-btn" @onclick="() => ApproveLeave(leave.IdUrlopu)">
-                                            <span class="oi oi-check"></span> Zatwierdü
+                                            <span class="oi oi-check"></span> Zatwierd≈∫
                                         </button>
                                         <button class="btn btn-danger btn-sm reject-btn" @onclick="() => RejectLeave(leave.IdUrlopu)">
-                                            <span class="oi oi-x"></span> OdrzuÊ
+                                            <span class="oi oi-x"></span> Odrzuƒá
                                         </button>
                                     </div>
                                 </td>
@@ -113,7 +113,7 @@
         user = authState.User;
         role = user.FindFirst(ClaimTypes.Role)?.Value ?? "brak roli";
 
-        // Przekierowanie jeúli uøytkownik nie ma uprawnieÒ
+        // Przekierowanie je≈ìli u¬øytkownik nie ma uprawnie√±
         if (role != "Kierownik" && role != "Administrator")
         {
             NavigationManager.NavigateTo("/");
@@ -134,7 +134,7 @@
         }
         catch (Exception ex)
         {
-            errorMessage = $"B≥πd podczas wczytywania wnioskÛw: {ex.Message}";
+            errorMessage = $"B¬≥¬πd podczas wczytywania wniosk√≥w: {ex.Message}";
         }
         finally
         {
@@ -148,12 +148,12 @@
         try
         {
             await PodaniaService.UpdateLeaveStatusAsync(leaveId, 1, " Zatwierdzono przez: " + user?.Identity?.Name);
-            message = "Wniosek zosta≥ pomyúlnie zatwierdzony.";
+            message = "Wniosek zosta¬≥ pomy≈ìlnie zatwierdzony.";
             await LoadPendingLeaves();
         }
         catch (Exception ex)
         {
-            errorMessage = $"B≥πd podczas zatwierdzania wniosku: {ex.Message}";
+            errorMessage = $"B¬≥¬πd podczas zatwierdzania wniosku: {ex.Message}";
             StateHasChanged();
         }
     }
@@ -163,12 +163,12 @@
         try
         {
             await PodaniaService.UpdateLeaveStatusAsync(leaveId, 2, " Odrzucono przez: " + user?.Identity?.Name);
-            message = "Wniosek zosta≥ odrzucony.";
+            message = "Wniosek zosta¬≥ odrzucony.";
             await LoadPendingLeaves();
         }
         catch (Exception ex)
         {
-            errorMessage = $"B≥πd podczas odrzucania wniosku: {ex.Message}";
+            errorMessage = $"B¬≥¬πd podczas odrzucania wniosku: {ex.Message}";
             StateHasChanged();
         }
     }

@@ -19,6 +19,9 @@ else
 {
     <div class="moje-dane-container">
         <h3 class="mb-4 text-center">Moje dane osobiste</h3>
+        <button @onclick="() => helpDialogShown = true" class="btn btn-secondary">
+            ❓ Pomoc
+        </button>
 
         <div class="moje-dane-wrapper">
             <EditForm class="moje-dane-form" Model="@user" OnSubmit="@ZapiszZmiany">
@@ -97,6 +100,25 @@ else
             </EditForm>
         </div>
     </div>
+
+    <ZarzadzanieUrlopami.Pages.Components.Dialog Title="Pomoc: Moje dane"
+        Opened="helpDialogShown"
+        CloseButtonClicked="@(() => helpDialogShown = false)">
+    <BodyContent>
+        <p>
+            Na tej stronie możesz edytować swoje własne dane
+        </p>
+        <br/>
+        <ul>
+            <li>Możesz podejrzeć swoje własne dane (Imię, nazwisko, Rola w systemie oraz email)</li>
+            <li>Masz możliwość zmiany numeru telefonu oraz ilości posiadanych dzieci poniżej 14 r.ż. (potrzebne do urlopów)</li>
+            <li>Opcjonalnie możesz zmienić swoje hasło, podając stare oraz wpisując nowe z odpowiednimi kryteriami</li>
+            <li>Nie musisz wypełniać wszystkich danych!</li>
+            <li>Zapisz zmiany klikając przycisk poniżej</li>
+        </ul>
+    </BodyContent>
+</ZarzadzanieUrlopami.Pages.Components.Dialog>
+
 }
 
 @code {
@@ -106,6 +128,7 @@ else
     private string komunikat = "";
     private string blad = "";
     private bool isLoading = true;
+    private bool helpDialogShown = false;
 
     protected override async Task OnInitializedAsync()
     {
