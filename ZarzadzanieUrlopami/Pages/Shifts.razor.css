@@ -60,15 +60,6 @@ button.ok-button {
     }
 
 
-.dialog {
-    max-width: 900px;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
-    animation: fadeIn 0.3s ease-in-out;
-}
 
 .dialog-header {
     display: flex;
@@ -103,6 +94,7 @@ button.ok-button {
     padding: 2rem;
     background-color: #fff;
 }
+
 
 .dialog-footer {
     padding: 1.5rem 2rem;
@@ -489,12 +481,11 @@ button.ok-button {
 .high-contrast .btn-secondaryDel.mt-2,
 .high-contrast .btn-sm.btn-danger,
 .high-contrast .btn-sm.btn-primary {
-    background-color: #000; /* czarne tło */
-    color: yellow; /* żółty tekst */
+    background-color: #000; 
+    color: yellow;
     border: 1px solid yellow;
 }
 
-    /* Hover (opcjonalnie pogrubione lub odwrócone kolory, jeśli chcesz) */
     .high-contrast .btn-success.mt-2:hover,
     .high-contrast .btn-secondary.mt-2:hover,
     .high-contrast .btn-secondaryD.mt-2:hover,
@@ -520,13 +511,13 @@ select {
     outline: none;
 }
 
-    /* Fokus: delikatny cień */
+  
     select:focus {
         border-color: #46ACC2;
         box-shadow: 0 0 0 3px rgba(70, 172, 194, 0.3);
     }
 
-/* W trybie wysokiego kontrastu */
+
 .high-contrast select {
     background-color: #000;
     color: yellow;
@@ -546,22 +537,22 @@ select {
     font-size: 1rem;
     font-weight: 500;
     color: #fff;
-    background-color: #77bdcc; /* domyślny zielony */
+    background-color: #77bdcc; 
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     transition: background-color 0.3s ease;
 }
 
-    /* Wariant ostrzegawczy */
+ 
     .alert.warning {
         background-color: #dd4e6d;
     }
 
-    /* Wariant błędu */
+   
     .alert.error {
         background-color: #b90930;
     }
 
-/* Tryb wysokiego kontrastu */
+
 .high-contrast .alert {
     background-color: #000 !important;
     color: #FFD700 !important;

@@ -20,11 +20,12 @@
 /* Okno dialogowe */
 .dialog {
     width: 750px;
+    max-height : 850px;
     background-color: #ffffff;
     border-radius: 1rem;
     padding: 0;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow: scroll;
 }
 
     /* Nagłówek */
